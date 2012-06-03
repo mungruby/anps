@@ -1,0 +1,77 @@
+
+##ttBulkCp
+#
+# SPATIAL.MSCTRUNKGROUPBUNDLE, 9 columns, dumped Sat Mar 31 03:45:43 2012
+# columns:
+#      1. BUNDLEINDEX  SMALLINT
+#      2. SYSGRPORDER  SMALLINT
+#      3. SYSGRPNUM    INTEGER
+#      4. WEIGHT       TINYINT
+#      5. ROUTETOSAMEMSF TINYINT
+#      6. BUNDLEDESC   CHAR(32 BYTE)
+#      7. DIGITSOUTPULSEINDEX SMALLINT
+#      8. CLDOUTPULSEINDEX SMALLINT
+#      9. CLIOUTPULSEINDEX SMALLINT
+# end
+#
+
+
+>cd; cd Office-Parameters/Routing-and-Translation/Trunk-Group-Bundle/1-TRUNKGROUPBUNDLE;
+
+Command Successful
+
+>
+Command Successful
+
+>list
+1-TRUNKGROUP
+2-TRUNKGROUP
+3-TRUNKGROUP
+
+Command Successful
+
+>query 3-TRUNKGROUP;
+
+
+ TRUNKGROUP:-
+
+Bundle Groups:
+
+TRK1Order  [Order].......3
+TRK1Group_Number  [Group Number].......5620400
+TRK1Weight  [Weight].......4
+TRK1DIGITS_OUTPULSE_INDEX  [Dgt Outpulse Map].......0
+TRK1CldOutpulse  [Cld Outpulse Map].......0
+TRK1CliOutpulse  [Cli Outpulse Map].......0
+
+
+
+Command Successful
+
+>
+
+
+>cd 3-TRUNKGROUP;
+
+Command Successful
+
+>query
+
+
+ TRUNKGROUP:-
+
+Bundle Groups:
+
+TRK1Order  [Order].......3
+TRK1Group_Number  [Group Number].......5620400
+TRK1Weight  [Weight].......4
+TRK1DIGITS_OUTPULSE_INDEX  [Dgt Outpulse Map].......0
+TRK1CldOutpulse  [Cld Outpulse Map].......0
+TRK1CliOutpulse  [Cli Outpulse Map].......0
+
+
+
+Command Successful
+
+>
+

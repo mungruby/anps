@@ -1,0 +1,36 @@
+
+##ttBulkCp
+#
+# SPATIAL.MSC_CFG_RESTRICTED_PLMN, 4 columns, dumped Mon Mar 26 03:46:29 2012
+# columns:
+#      1. RESTRICTION_LIST SMALLINT
+#      2. MCC          BINARY(3)
+#      3. MNC          BINARY(3)
+#      4. DESCRIPTION  CHAR(32 BYTE)
+# end
+#
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/Restricted-PLMN;
+
+Command Successful
+
+>
+Command Successful
+
+>query 15-310-17-RESTRICTEDPLMN;
+
+
+ RESTRICTEDPLMN:-
+
+Restriction_List_Id  [Restriction List Id].......15
+Mobile_Country_Code  [Mobile Country Code].......310
+Mobile_Network_Code  [Mobile Network Code].......17
+Description  [Description].......USA 31017
+
+
+
+Command Successful
+
+>
+

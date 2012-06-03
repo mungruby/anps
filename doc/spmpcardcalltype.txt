@@ -1,0 +1,43 @@
+
+##ttBulkCp
+#
+# SPATIAL.SPM_PCARD_CALLTYPE, 5 columns, dumped Sat Mar 31 03:46:12 2012
+# columns:
+#      1. CALLEDPTY_BEGIN BINARY(8)
+#      2. CALLEDPTY_END BINARY(8)
+#      3. PCARDNUM     SMALLINT
+#      4. CALLTYPE     TINYINT
+#      5. ADMINSTATE   TINYINT
+# end
+#
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/MSRN-HON-Distribution;
+
+Command Successful
+
+>
+Command Successful
+
+>query 17736793000-17736793099-SPMPCARDCALLTYPE;
+
+
+ SPMPCARDCALLTYPE:-
+
+Properties:
+
+Called_Pty_Begin  [Called Pty Begin].......17736793000
+Called_Pty_End  [Called Pty End].......17736793099
+Pool_ID  [Pool ID].......0
+Numbering_Type  [Numbering Type].......CALLTYPE_MOBILE -> 1
+
+Status:
+
+adminState  [Admin State].......UNLOCKED -> 2
+
+
+
+Command Successful
+
+>
+

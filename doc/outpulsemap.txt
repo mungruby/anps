@@ -1,0 +1,192 @@
+
+##ttBulkCp
+#
+# SPATIAL.CPCALLMOUTPULSEMAP, 76 columns, dumped Sat Jun  2 03:45:47 2012
+# columns:
+#      1. OUTPULSEMAPID SMALLINT
+#      2. DIGITPATTERN CHAR(32 BYTE)
+#      3. INPUTNOA     TINYINT
+#      4. MINDIGITCOUNT TINYINT
+#      5. MAXDIGITCOUNT TINYINT
+#      6. OUTPULSEMAPINDEX1 SMALLINT
+#      7. CAUSEVALUE1  SMALLINT
+#      8. OUTPULSEMAPINDEX2 SMALLINT
+#      9. CAUSEVALUE2  SMALLINT
+#     10. OUTPULSEMAPINDEX3 SMALLINT
+#     11. CAUSEVALUE3  SMALLINT
+#     12. OUTPULSEMAPINDEX4 SMALLINT
+#     13. CAUSEVALUE4  SMALLINT
+#     14. OUTPULSEMAPINDEX5 SMALLINT
+#     15. CAUSEVALUE5  SMALLINT
+#     16. OUTPULSEMAPINDEX6 SMALLINT
+#     17. CAUSEVALUE6  SMALLINT
+#     18. OUTPULSEMAPINDEX7 SMALLINT
+#     19. CAUSEVALUE7  SMALLINT
+#     20. OUTPULSEMAPINDEX8 SMALLINT
+#     21. CAUSEVALUE8  SMALLINT
+#     22. OUTPULSEMAPINDEX9 SMALLINT
+#     23. CAUSEVALUE9  SMALLINT
+#     24. OUTPULSEMAPINDEX10 SMALLINT
+#     25. CAUSEVALUE10 SMALLINT
+#     26. OUTPULSEMAPINDEX11 SMALLINT
+#     27. CAUSEVALUE11 SMALLINT
+#     28. OUTPULSEMAPINDEX12 SMALLINT
+#     29. CAUSEVALUE12 SMALLINT
+#     30. OUTPULSEMAPINDEX13 SMALLINT
+#     31. CAUSEVALUE13 SMALLINT
+#     32. OUTPULSEMAPINDEX14 SMALLINT
+#     33. CAUSEVALUE14 SMALLINT
+#     34. OUTPULSEMAPINDEX15 SMALLINT
+#     35. CAUSEVALUE15 SMALLINT
+#     36. OUTPULSEMAPINDEX16 SMALLINT
+#     37. CAUSEVALUE16 SMALLINT
+#     38. OUTPULSEMAPINDEX17 SMALLINT
+#     39. CAUSEVALUE17 SMALLINT
+#     40. OUTPULSEMAPINDEX18 SMALLINT
+#     41. CAUSEVALUE18 SMALLINT
+#     42. OUTPULSEMAPINDEX19 SMALLINT
+#     43. CAUSEVALUE19 SMALLINT
+#     44. OUTPULSEMAPINDEX20 SMALLINT
+#     45. CAUSEVALUE20 SMALLINT
+#     46. OUTPULSEMAPINDEX21 SMALLINT
+#     47. CAUSEVALUE21 SMALLINT
+#     48. OUTPULSEMAPINDEX22 SMALLINT
+#     49. CAUSEVALUE22 SMALLINT
+#     50. OUTPULSEMAPINDEX23 SMALLINT
+#     51. CAUSEVALUE23 SMALLINT
+#     52. OUTPULSEMAPINDEX24 SMALLINT
+#     53. CAUSEVALUE24 SMALLINT
+#     54. OUTPULSEMAPINDEX25 SMALLINT
+#     55. CAUSEVALUE25 SMALLINT
+#     56. OUTPULSEMAPINDEX26 SMALLINT
+#     57. CAUSEVALUE26 SMALLINT
+#     58. OUTPULSEMAPINDEX27 SMALLINT
+#     59. CAUSEVALUE27 SMALLINT
+#     60. OUTPULSEMAPINDEX28 SMALLINT
+#     61. CAUSEVALUE28 SMALLINT
+#     62. OUTPULSEMAPINDEX29 SMALLINT
+#     63. CAUSEVALUE29 SMALLINT
+#     64. OUTPULSEMAPINDEX30 SMALLINT
+#     65. CAUSEVALUE30 SMALLINT
+#     66. OUTPULSEMAPINDEX31 SMALLINT
+#     67. CAUSEVALUE31 SMALLINT
+#     68. OUTPULSEMAPINDEX32 SMALLINT
+#     69. CAUSEVALUE32 SMALLINT
+#     70. LEADINGDIGITSCUT TINYINT
+#     71. LEADINGDIGITSADD CHAR(30 BYTE)
+#     72. DESCRIPTION  CHAR(32 BYTE)
+#     73. CPC          TINYINT
+#     74. NATUREOFADDRESS TINYINT
+#     75. OLI          TINYINT
+#     76. CPC_PRIORITY TINYINT
+# end
+#
+
+
+>cd; cd Office-Parameters/Outpulse-Maps/ISUP-or-BICC-or-SIP-Outpulse-Map;
+
+Command Successful
+
+>
+Command Successful
+
+>query 878-?-1-1-32-OUTPULSEMAP;
+
+
+ OUTPULSEMAP:-
+
+Add_Leading_Digits  [Add Leading Digits].......2197553333
+Operation__1  [Operation  1].......OM_END -> 0
+Cause_Value_1  [Cause Value 1].......0
+Operation__2  [Operation  2].......OM_END_2 -> 0
+Cause_Value_2  [Cause Value 2].......0
+Operation__3  [Operation  3].......OM_END_3 -> 0
+Cause_Value_3  [Cause Value 3].......0
+Operation__4  [Operation  4].......OM_END_4 -> 0
+Cause_Value_4  [Cause Value 4].......0
+Operation__5  [Operation  5].......OM_END_5 -> 0
+Cause_Value_5  [Cause Value 5].......0
+Operation__6  [Operation  6].......OM_END_6 -> 0
+Cause_Value_6  [Cause Value 6].......0
+Operation__7  [Operation  7].......OM_END_7 -> 0
+Cause_Value_7  [Cause Value 7].......0
+Operation__8  [Operation  8].......OM_END_8 -> 0
+Cause_Value_8  [Cause Value 8].......0
+Operation__9  [Operation  9].......OM_END_9 -> 0
+Cause_Value_9  [Cause Value 9].......0
+Operation_10  [Operation 10].......OM_END_10 -> 0
+Cause_Value_10  [Cause Value 10].......0
+Operation_11  [Operation 11].......OM_END_11 -> 0
+Cause_Value_11  [Cause Value 11].......0
+Operation_12  [Operation 12].......OM_END_12 -> 0
+Cause_Value_12  [Cause Value 12].......0
+Operation_13  [Operation 13].......OM_END_13 -> 0
+Cause_Value_13  [Cause Value 13].......0
+Operation_14  [Operation 14].......OM_END_14 -> 0
+Cause_Value_14  [Cause Value 14].......0
+Operation_15  [Operation 15].......OM_END_15 -> 0
+Cause_Value_15  [Cause Value 15].......0
+Operation_16  [Operation 16].......OM_END_16 -> 0
+Cause_Value_16  [Cause Value 16].......0
+Operation_17  [Operation 17].......OM_END_17 -> 0
+Cause_Value_17  [Cause Value 17].......0
+Operation_18  [Operation 18].......OM_END_18 -> 0
+Cause_Value_18  [Cause Value 18].......0
+Operation_19  [Operation 19].......OM_END_19 -> 0
+Cause_Value_19  [Cause Value 19].......0
+Operation_20  [Operation 20].......OM_END_20 -> 0
+Cause_Value_20  [Cause Value 20].......0
+Operation_21  [Operation 21].......OM_END_21 -> 0
+Cause_Value_21  [Cause Value 21].......0
+Operation_22  [Operation 22].......OM_END_22 -> 0
+Cause_Value_22  [Cause Value 22].......0
+Operation_23  [Operation 23].......OM_END_23 -> 0
+Cause_Value_23  [Cause Value 23].......0
+Operation_24  [Operation 24].......OM_END_24 -> 0
+Cause_Value_24  [Cause Value 24].......0
+Operation_25  [Operation 25].......OM_END_25 -> 0
+Cause_Value_25  [Cause Value 25].......0
+Operation_26  [Operation 26].......OM_END_26 -> 0
+Cause_Value_26  [Cause Value 26].......0
+Operation_27  [Operation 27].......OM_END_27 -> 0
+Cause_Value_27  [Cause Value 27].......0
+Operation_28  [Operation 28].......OM_END_28 -> 0
+Cause_Value_28  [Cause Value 28].......0
+Operation_29  [Operation 29].......OM_END_29 -> 0
+Cause_Value_29  [Cause Value 29].......0
+Operation_30  [Operation 30].......OM_END_30 -> 0
+Cause_Value_30  [Cause Value 30].......0
+Operation_31  [Operation 31].......OM_END_31 -> 0
+Cause_Value_31  [Cause Value 31].......0
+Operation_32  [Operation 32].......OM_END_32 -> 0
+Cause_Value_32  [Cause Value 32].......0
+
+Identification:
+
+Outpulse_Map  [Outpulse Map].......878
+Name  [Name].......E911 GARY PD LB-LCS
+Digit_String  [Digit String].......?
+Input_NOA  [Input NOA].......International -> 1
+Min_Digit_Cnt  [Min Digit Count].......1
+Max_Digit_Cnt  [Max Digit Count].......32
+
+Properties:
+
+Rm_Leading_Digits_Cnt  [Rm Leading Digits Cnt].......10
+
+NOA + Digit Format:
+
+Nature_Of_Address  [Nature of Address].......NoChange -> 255
+Oli  [OLI].......255
+
+CPC:
+
+CPC_Override  [CPC Override].......Unknown
+CPC_Priority  [CPC Override Priority].......Do Not Overwrite
+
+
+
+Command Successful
+
+>
+

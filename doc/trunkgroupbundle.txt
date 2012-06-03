@@ -1,0 +1,131 @@
+
+##ttBulkCp
+#
+# SPATIAL.MSCTRUNKGROUPBUNDLE, 9 columns, dumped Sat Mar 31 03:45:43 2012
+# columns:
+#      1. BUNDLEINDEX  SMALLINT
+#      2. SYSGRPORDER  SMALLINT
+#      3. SYSGRPNUM    INTEGER
+#      4. WEIGHT       TINYINT
+#      5. ROUTETOSAMEMSF TINYINT
+#      6. BUNDLEDESC   CHAR(32 BYTE)
+#      7. DIGITSOUTPULSEINDEX SMALLINT
+#      8. CLDOUTPULSEINDEX SMALLINT
+#      9. CLIOUTPULSEINDEX SMALLINT
+# end
+#
+
+
+>cd; cd Office-Parameters/Routing-and-Translation/Trunk-Group-Bundle;
+
+Command Successful
+
+>
+Command Successful
+
+>query 1-TRUNKGROUPBUNDLE;
+
+
+ TRUNKGROUPBUNDLE:-
+
+Identification:
+
+TRK2Bundle_Number  [Bundle Number].......1
+TRK2Name  [Name].......Salt Lake City LD Bundle
+
+
+ TRUNKGROUP[0]
+
+Bundle Groups:
+
+TRK1Order  [Order].......1
+TRK1Group_Number  [Group Number].......5627000
+TRK1Weight  [Weight].......1
+TRK1DIGITS_OUTPULSE_INDEX  [Dgt Outpulse Map].......0
+TRK1CldOutpulse  [Cld Outpulse Map].......0
+TRK1CliOutpulse  [Cli Outpulse Map].......0
+
+
+ TRUNKGROUP[1]
+
+Bundle Groups:
+
+TRK1Order  [Order].......2
+TRK1Group_Number  [Group Number].......5670400
+TRK1Weight  [Weight].......5
+TRK1DIGITS_OUTPULSE_INDEX  [Dgt Outpulse Map].......0
+TRK1CldOutpulse  [Cld Outpulse Map].......0
+TRK1CliOutpulse  [Cli Outpulse Map].......0
+
+
+ TRUNKGROUP[2]
+
+Bundle Groups:
+
+TRK1Order  [Order].......3
+TRK1Group_Number  [Group Number].......5620400
+TRK1Weight  [Weight].......4
+TRK1DIGITS_OUTPULSE_INDEX  [Dgt Outpulse Map].......0
+TRK1CldOutpulse  [Cld Outpulse Map].......0
+TRK1CliOutpulse  [Cli Outpulse Map].......0
+
+
+
+Command Successful
+
+>cd 1-TRUNKGROUPBUNDLE;
+
+Command Successful
+
+>query
+
+
+ TRUNKGROUPBUNDLE:-
+
+Identification:
+
+TRK2Bundle_Number  [Bundle Number].......1
+TRK2Name  [Name].......Salt Lake City LD Bundle
+
+
+ TRUNKGROUP[0]
+
+Bundle Groups:
+
+TRK1Order  [Order].......1
+TRK1Group_Number  [Group Number].......5627000
+TRK1Weight  [Weight].......1
+TRK1DIGITS_OUTPULSE_INDEX  [Dgt Outpulse Map].......0
+TRK1CldOutpulse  [Cld Outpulse Map].......0
+TRK1CliOutpulse  [Cli Outpulse Map].......0
+
+
+ TRUNKGROUP[1]
+
+Bundle Groups:
+
+TRK1Order  [Order].......2
+TRK1Group_Number  [Group Number].......5670400
+TRK1Weight  [Weight].......5
+TRK1DIGITS_OUTPULSE_INDEX  [Dgt Outpulse Map].......0
+TRK1CldOutpulse  [Cld Outpulse Map].......0
+TRK1CliOutpulse  [Cli Outpulse Map].......0
+
+
+ TRUNKGROUP[2]
+
+Bundle Groups:
+
+TRK1Order  [Order].......3
+TRK1Group_Number  [Group Number].......5620400
+TRK1Weight  [Weight].......4
+TRK1DIGITS_OUTPULSE_INDEX  [Dgt Outpulse Map].......0
+TRK1CldOutpulse  [Cld Outpulse Map].......0
+TRK1CliOutpulse  [Cli Outpulse Map].......0
+
+
+
+Command Successful
+
+>
+

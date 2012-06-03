@@ -1,0 +1,61 @@
+
+##ttBulkCp
+#
+# SPATIAL.EMERGENCY_ZONE, 16 columns, dumped Sat Jun  2 03:45:48 2012
+# columns:
+#      1. ESZ_ID       INTEGER
+#      2. ESZ_NAME     CHAR(32 BYTE)
+#      3. GMLC_DN      CHAR(16 BYTE)
+#      4. PSAP_ZONE_DN CHAR(16 BYTE)
+#      5. BEGIN_ESRK   CHAR(16 BYTE)
+#      6. END_ESRK     CHAR(16 BYTE)
+#      7. BEGIN_ESRK_POOL2 CHAR(16 BYTE)
+#      8. END_ESRK_POOL2 CHAR(16 BYTE)
+#      9. BEGIN_ESRK_POOL3 CHAR(16 BYTE)
+#     10. END_ESRK_POOL3 CHAR(16 BYTE)
+#     11. LOC_SERVICE_OPTION TINYINT
+#     12. EC_ROUTING_OPTION TINYINT
+#     13. SCP_ADDRESS  BINARY(10)
+#     14. SCP_INAP_SSN TINYINT
+#     15. INAP_E911_SERVICE_KEY INTEGER
+#     16. ESZ_QOS_RESP_TIME_CAT TINYINT
+# end
+#
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/Emergency-Service-Zone-Provisioning;
+
+Command Successful
+
+>
+Command Successful
+
+>query 1029199001-EMERGENCYZONE;
+
+
+ EMERGENCYZONE:-
+
+Emergency Zone:
+
+Emer_Srvc_Zone_ID  [Emer Srvc Zone ID].......1029199001
+Emer_Srvc_Zone_Name  [Emer Srvc Zone Name].......scotland - ph 0 - mo
+GMLC_Address  [GMLC Address].......14054721408
+PSAP_Zone_DN_Type  [PSAP Zone DN Type].......Psap_Dn -> 2
+PSAP_Zone_DN  [PSAP Zone DN].......6604652106
+Begin_ESRK_Pool_1  [Begin ESRK Pool 1].......0
+End_ESRK_Pool_1  [End ESRK Pool 1].......0
+Begin_ESRK_Pool_2  [Begin ESRK Pool 2].......0
+End_ESRK_Pool_2  [End ESRK Pool 2].......0
+Begin_ESRK_Pool_3  [Begin ESRK Pool 3].......0
+End_ESRK_Pool_3  [End ESRK Pool 3].......0
+Loc_Service_Option  [Loc Service Option].......OPTION_DISABLE_PLR_SEND_SLR -> 4
+Routing_Option  [EC Routing Option].......USING_ESRK -> 2
+SCP_Address  [SCP Address].......14054721408
+SCP_INAP_SSN  [SCP INAP SSN].......20
+
+
+
+Command Successful
+
+>
+
