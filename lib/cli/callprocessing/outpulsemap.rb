@@ -70,13 +70,15 @@ module CLI
       end
 
       def mod
-        cli = "del #{outpulsemapid}-#{digitpattern}-#{inputnoa}-#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
+        cli = "del #{outpulsemapid}-#{digitpattern}-#{inputnoa}-"
+        cli << "#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
         cli << "mod OUTPULSEMAP "
       end
 
       def del
         digitpattern = convert_char_digitpattern
-        "del #{outpulsemapid}-#{digitpattern}-#{inputnoa}-#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
+        "del #{outpulsemapid}-#{digitpattern}-#{inputnoa}-" +
+        "#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
       end
 
       #
