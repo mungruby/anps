@@ -10,19 +10,11 @@ module CLI
       end
 
       def query
-        digitpattern = convert_char_digitpattern
         "query #{outpulsemapid}-#{digitpattern}-#{inputnoa}-" +
         "#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
       end
 
       def add
-        # field conversions
-        digitpattern = convert_char_digitpattern
-        leadingdigitsadd = convert_char_leadingdigitsadd
-        description = convert_char_description
-        cpc = convert_tinyint_cpc
-        cpc_priority = convert_tinyint_cpc_priority
-
         cli =  "add OUTPULSEMAP Outpulse_Map=#{outpulsemapid}, "
         cli << "Digit_String=#{digitpattern}, "
         cli << "Input_NOA=#{inputnoa}, "
@@ -76,41 +68,8 @@ module CLI
       end
 
       def del
-        digitpattern = convert_char_digitpattern
         "del #{outpulsemapid}-#{digitpattern}-#{inputnoa}-" +
         "#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
-      end
-
-      #
-      # field conversions
-      #
-
-      def convert_char_digitpattern
-        self.digitpattern.rstrip
-      end
-
-      def convert_char_leadingdigitsadd
-        self.leadingdigitsadd.rstrip
-      end
-
-      def convert_char_description
-        self.description.rstrip
-      end
-
-      def convert_tinyint_cpc
-        case self.cpc
-          when 0 then 'Unknown'
-          when 255 then 'Do Not Overwrite'
-          else raise "Unexpected value: CPC_Override=#{self.cpc}"
-        end
-      end
-
-      def convert_tinyint_cpc_priority
-        case self.cpc_priority
-          when 0 then 'Unknown'
-          when 255 then 'Do Not Overwrite'
-          else raise "Unexpected value: CPC_Priority=#{self.cpc_priority}"
-        end
       end
 
     end

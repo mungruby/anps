@@ -1,6 +1,7 @@
 
 require "minitest/autorun"
 require_relative '../../lib/cli/callprocessing/outpulsemap'
+require_relative '../../lib/field_converter/callprocessing/outpulsemap'
 
 class Test_OUTPULSEMAP < MiniTest::Unit::TestCase
 
@@ -88,6 +89,7 @@ class Test_OUTPULSEMAP < MiniTest::Unit::TestCase
   def self.dto
     @@dto ||= Struct.new "Test_OUTPULSEMAP", *fields do
       include ::CLI::CallProcessing::OUTPULSEMAP
+      include ::FieldConverter::CallProcessing::OUTPULSEMAP
     end
   end
 
@@ -98,6 +100,7 @@ class Test_OUTPULSEMAP < MiniTest::Unit::TestCase
                   10,"2197553333                    ","E911 GARY PD LB-LCS             ",
                   0,255,255,255 ]
     @obj = self.class.dto.new *test_data
+    @obj.convert_fields
   end
 
   def test_cd_cli
