@@ -49,8 +49,8 @@ class Test_RESTRICTEDPLMN < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "mod RESTRICTEDPLMN"
-    skip
+    expected = "mod RESTRICTEDPLMN "
+    assert_equal expected, @obj.mod
   end
    
   def test_del_cli

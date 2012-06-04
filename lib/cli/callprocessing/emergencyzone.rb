@@ -35,7 +35,7 @@ module CLI
       end
 
       def mod
-        "mod EMERGENCYZONE"
+        "mod EMERGENCYZONE "
       end
 
       def del

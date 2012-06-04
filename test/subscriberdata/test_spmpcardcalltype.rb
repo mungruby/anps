@@ -50,8 +50,8 @@ class Test_SPMPCARDCALLTYPE < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "mod SPMPCARDCALLTYPE"
-    skip
+    expected = "mod SPMPCARDCALLTYPE "
+    assert_equal expected, @obj.mod
   end
    
   def test_del_cli

@@ -54,7 +54,8 @@ class Test_TRUNKGROUP < MiniTest::Unit::TestCase
    
   def test_mod_cli
     expected =  "cd 3-TRUNKGROUP;\n"
-    expected << "mod TRUNKGROUPBUNDLE"
+    expected << "mod TRUNKGROUP "
+    assert_equal expected, @obj.mod
   end
    
   def test_del_cli

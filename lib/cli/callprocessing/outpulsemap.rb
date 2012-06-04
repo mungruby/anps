@@ -62,8 +62,8 @@ module CLI
       end
 
       def mod
-        cli = "del #{outpulsemapid}-#{digitpattern}-#{inputnoa}-"
-        cli << "#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
+        cli = "cd #{outpulsemapid}-#{digitpattern}-#{inputnoa}-"
+        cli << "#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;\n"
         cli << "mod OUTPULSEMAP "
       end
 

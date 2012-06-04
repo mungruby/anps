@@ -29,7 +29,7 @@ module CLI
 
       def mod
         cli =  "cd 3-TRUNKGROUP;\n"
-        cli << "mod TRUNKGROUP"
+        cli << "mod TRUNKGROUP "
       end
 
       def del

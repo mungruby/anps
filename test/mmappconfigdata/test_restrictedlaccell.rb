@@ -68,8 +68,8 @@ class Test_RESTRICTEDLACCELL < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "mod RESTRICTEDLACCELL"
-    skip
+    expected = "mod RESTRICTEDLACCELL "
+    assert_equal expected, @obj.mod
   end
    
   def test_del_cli

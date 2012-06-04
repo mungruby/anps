@@ -71,8 +71,8 @@ class Test_EMERGENCYZONE < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "mod EMERGENCYZONE"
-    skip
+    expected = "mod EMERGENCYZONE "
+    assert_equal expected, @obj.mod
   end
    
   def test_del_cli

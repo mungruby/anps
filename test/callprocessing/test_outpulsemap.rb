@@ -131,8 +131,9 @@ class Test_OUTPULSEMAP < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected =  "cd 878-?-0-1-32-OUTPULSEMAP;"
-    expected << "mod OUTPULSEMAPBUNDLE"
+    expected =  "cd 878-?-0-1-32-OUTPULSEMAP;\n"
+    expected << "mod OUTPULSEMAP "
+    assert_equal expected, @obj.mod
   end
    
   def test_del_cli
