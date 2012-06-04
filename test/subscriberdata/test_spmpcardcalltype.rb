@@ -1,6 +1,7 @@
 
 require "minitest/autorun"
 require_relative '../../lib/cli/subscriberdata/spmpcardcalltype'
+require_relative '../../lib/field_converter/subscriberdata/spmpcardcalltype'
 
 class Test_SPMPCARDCALLTYPE < MiniTest::Unit::TestCase
 
@@ -17,12 +18,14 @@ class Test_SPMPCARDCALLTYPE < MiniTest::Unit::TestCase
   def self.dto
     @@dto ||= Struct.new "Test_SPMPCARDCALLTYPE", *fields do
       include ::CLI::SubscriberData::SPMPCARDCALLTYPE
+      include ::FieldConverter::SubscriberData::SPMPCARDCALLTYPE
     end
   end
 
   def setup
     test_data = ["{17736793000fffff}","{17736793099fffff}",0,1,2]
     @obj = self.class.dto.new *test_data
+    @obj.convert_fields
   end
 
   def test_cd
