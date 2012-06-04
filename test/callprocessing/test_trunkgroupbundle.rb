@@ -1,6 +1,7 @@
 
 require "minitest/autorun"
 require_relative '../../lib/cli/callprocessing/trunkgroupbundle'
+require_relative '../../lib/field_converter/callprocessing/trunkgroupbundle'
 
 class Test_TRUNKGROUPBUNDLE < MiniTest::Unit::TestCase
 
@@ -21,6 +22,7 @@ class Test_TRUNKGROUPBUNDLE < MiniTest::Unit::TestCase
   def self.dto
     @@dto ||= Struct.new "Test_TRUNKGROUPBUNDLE", *fields do
       include ::CLI::CallProcessing::TRUNKGROUPBUNDLE
+      include ::FieldConverter::CallProcessing::TRUNKGROUPBUNDLE
     end
   end
 
@@ -31,6 +33,7 @@ class Test_TRUNKGROUPBUNDLE < MiniTest::Unit::TestCase
       [1,3,106,4,2,"Salt Lake City LD Bundle        ",0,0,0]
     ]           
     @obj = self.class.dto.new *test_data.first
+    @obj.convert_fields
   end
 
   def test_cd_cli

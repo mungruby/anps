@@ -14,9 +14,6 @@ module CLI
       end
 
       def add
-        # field conversions
-        bundledesc = convert_char_bundledesc
-
         cli =  "add TRUNKGROUPBUNDLE TRK2Bundle_Number=#{bundleindex}"
         cli << ", TRK2Name=#{bundledesc}" unless bundledesc.empty?
         cli << ";"
@@ -29,14 +26,6 @@ module CLI
 
       def del
         "del #{bundleindex}-TRUNKGROUPBUNDLE;"
-      end
-
-      #
-      # field conversions
-      #
-
-      def convert_char_bundledesc
-        self.bundledesc.rstrip
       end
 
     end
