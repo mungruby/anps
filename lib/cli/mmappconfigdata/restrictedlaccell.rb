@@ -18,9 +18,6 @@ module CLI
       end
 
       def add
-        # field conversions
-        description = convert_char_description
-
         cli =  "add RESTRICTEDLACCELL Mcc_Mnc_Id=#{mcc_mnc}, "
         cli << "LAC=#{lac}, "
         cli << "RESTRICTED_LAC=#{restricted_lac}, "
@@ -38,14 +35,6 @@ module CLI
 
       def del
         "del #{mcc_mnc}-#{lac}-#{cellid_begin}-#{cellid_end}-RESTRICTEDLACCELL;"
-      end
-
-      #
-      # field conversions
-      #
-
-      def convert_char_description
-        self.description.rstrip
       end
 
     end

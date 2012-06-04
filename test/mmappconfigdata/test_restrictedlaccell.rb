@@ -1,6 +1,7 @@
 
 require "minitest/autorun"
 require_relative '../../lib/cli/mmappconfigdata/restrictedlaccell'
+require_relative '../../lib/field_converter/mmappconfigdata/restrictedlaccell'
 
 class Test_RESTRICTEDLACCELL < MiniTest::Unit::TestCase
 
@@ -21,6 +22,7 @@ class Test_RESTRICTEDLACCELL < MiniTest::Unit::TestCase
   def self.dto
     @@dto ||= Struct.new "Test_RESTRICTEDLACCELL", *fields do
       include ::CLI::MMAppConfigData::RESTRICTEDLACCELL
+      include ::FieldConverter::MMAppConfigData::RESTRICTEDLACCELL
       attr_accessor :mcc_mnc
     end
   end
@@ -28,6 +30,7 @@ class Test_RESTRICTEDLACCELL < MiniTest::Unit::TestCase
   def setup
     test_data = [1,7809,0,65535,1,15,"LAC 7809 REST ID 15             ",1,0]
     @obj = self.class.dto.new *test_data
+    @obj.convert_fields
     @obj.mcc_mnc = '31026'
   end
 
@@ -56,6 +59,7 @@ class Test_RESTRICTEDLACCELL < MiniTest::Unit::TestCase
   def test_add_cli_when_lac_not_fully_restricted
     test_data = [1,7809,0,65535,0,15,"LAC 7809 REST ID 15             ",1,0]
     obj = self.class.dto.new *test_data
+    obj.convert_fields
     obj.mcc_mnc = '31026'
     expected =  "add RESTRICTEDLACCELL Mcc_Mnc_Id=31026, LAC=7809, RESTRICTED_LAC=0, "
     expected << "CELLID_BEGIN=0, CELLID_END=65535, "
