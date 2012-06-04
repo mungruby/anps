@@ -1,6 +1,7 @@
 
 require "minitest/autorun"
 require_relative '../../lib/cli/callprocessing/emergencyzone'
+require_relative '../../lib/field_converter/callprocessing/emergencyzone'
 
 class Test_EMERGENCYZONE < MiniTest::Unit::TestCase
 
@@ -28,6 +29,7 @@ class Test_EMERGENCYZONE < MiniTest::Unit::TestCase
   def self.dto
     @@dto ||= Struct.new "Test_EMERGENCYZONE", *fields do
       include ::CLI::CallProcessing::EMERGENCYZONE
+      include ::FieldConverter::CallProcessing::EMERGENCYZONE
     end
   end
 
@@ -37,6 +39,7 @@ class Test_EMERGENCYZONE < MiniTest::Unit::TestCase
                  "0               ", "0               ", "0               ","0               ",
                  4,2,"{0b914150741204f8ffff}",20,0,0]
     @obj = self.class.dto.new *test_data
+    @obj.convert_fields
   end
 
   def test_cd
@@ -85,6 +88,7 @@ class Test_EMERGENCYZONE < MiniTest::Unit::TestCase
                  "                ","                ",
                  4,2,"{0091ffffffffffffffff}",0,0,0]
     obj = self.class.dto.new *test_data
+    obj.convert_fields
 
     expected = "add EMERGENCYZONE Emer_Srvc_Zone_ID=1029199001, "
     expected << "Emer_Srvc_Zone_Name=scotland - ph 0 - mo, "
