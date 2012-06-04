@@ -1,6 +1,7 @@
 
 require "minitest/autorun"
 require_relative '../../lib/cli/mmappconfigdata/restrictedplmn'
+require_relative '../../lib/field_converter/mmappconfigdata/restrictedplmn'
 
 class Test_RESTRICTEDPLMN < MiniTest::Unit::TestCase
 
@@ -16,12 +17,14 @@ class Test_RESTRICTEDPLMN < MiniTest::Unit::TestCase
   def self.dto
     @@dto ||= Struct.new "Test_RESTRICTEDPLMN", *fields do
       include ::CLI::MMAppConfigData::RESTRICTEDPLMN
+      include ::FieldConverter::MMAppConfigData::RESTRICTEDPLMN
     end
   end
 
   def setup
     test_data = [15, "{030100}","{01070f}","USA 31017                       "]
     @obj = self.class.dto.new *test_data
+    @obj.convert_fields
   end
 
   def test_cd
