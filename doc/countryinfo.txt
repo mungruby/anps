@@ -1,0 +1,34 @@
+
+##ttBulkCp
+#
+# SPATIAL.MSC_CFG_COUNTRY_INFO, 3 columns, dumped Mon Mar 26 03:46:26 2012
+# columns:
+#      1. COUNTRY_ID   TINYINT
+#      2. COUNTRY_NAME CHAR(30 BYTE)
+#      3. CB_CRITERIA  TINYINT
+# end
+#
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/Country-Info;
+
+Command Successful
+
+>
+Command Successful
+
+>query 2-COUNTRYINFO;
+
+
+ COUNTRYINFO:-
+
+Country_Region_ID  [Country/Region ID].......2
+Name  [Name].......Caribbean
+Barring_Criteria  [Barring Criteria].......International -> 1
+
+
+
+Command Successful
+
+>
+
