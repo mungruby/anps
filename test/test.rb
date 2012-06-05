@@ -1,3 +1,4 @@
+require_relative './callprocessing/test_countrycode'
 require_relative './callprocessing/test_emergencyzone'
 require_relative './callprocessing/test_outpulsemap'
 require_relative './callprocessing/test_trunkgroup'

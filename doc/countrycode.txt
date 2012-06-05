@@ -1,0 +1,74 @@
+
+##ttBulkCp
+#
+# SPATIAL.CPCALLMCOUNTRYCODE, 5 columns, dumped Mon Mar 26 03:45:46 2012
+# columns:
+#      1. COUNTRYCODE  CHAR(3 BYTE)
+#      2. MINLENGTH    TINYINT
+#      3. MAXLENGTH    TINYINT
+#      4. ROUTEINDEX   INTEGER
+#      5. DESCRIPTION  CHAR(32 BYTE)
+# end
+#
+
+
+cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/International-Translation;
+query 20-COUNTRYCODE;
+
+cd 20-COUNTRYCODE
+query
+
+
+>cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/International-Translation;
+
+Command Successful
+
+>
+Command Successful
+
+>query 20-COUNTRYCODE;
+
+
+ COUNTRYCODE:-
+
+Identification:
+
+Country_Code  [Country Code].......20
+Name  [Name].......Egypt
+Min__Length  [Min. Length].......7
+Max__Length  [Max. Length].......15
+
+Route:
+
+Orig__Route_Descriptor  [Orig. Route Descriptor].......420
+
+
+
+Command Successful
+
+>cd 20-COUNTRYCODE;
+
+Command Successful
+
+>query;
+
+
+ COUNTRYCODE:-
+
+Identification:
+
+Country_Code  [Country Code].......20
+Name  [Name].......Egypt
+Min__Length  [Min. Length].......7
+Max__Length  [Max. Length].......15
+
+Route:
+
+Orig__Route_Descriptor  [Orig. Route Descriptor].......420
+
+
+
+Command Successful
+
+>
+
