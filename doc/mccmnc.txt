@@ -1,0 +1,99 @@
+
+##ttBulkCp
+#
+# SPATIAL.MSC_CFG_MCC_MNC, 6 columns, dumped Thu Mar 29 03:46:17 2012
+# columns:
+#      1. MCC          BINARY(3)
+#      2. MNC          BINARY(3)
+#      3. MCC_MNC_ID   SMALLINT
+#      4. PLMNID       SMALLINT
+#      5. DESCRIPTION  CHAR(32 BYTE)
+#      6. ACCESSTYPE   TINYINT
+# end
+#
+
+
+cd; cd Office-Parameters/Mobility-Config-Parameters/MSC-MCC-and-MNC;
+list
+query 310-260-MCCMNC;
+query 310-26-MCCMNC;
+
+cd 310-260-MCCMNC
+query
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/MSC-MCC-and-MNC;
+
+Command Successful
+
+>
+Command Successful
+
+>list
+310-260-MCCMNC
+310-26-MCCMNC
+
+Command Successful
+
+>query 310-260-MCCMNC;
+
+
+ MCCMNC:-
+
+Identification:
+
+Mcc_Mnc_Id  [Identifier].......2
+PLMN_Id  [PLMN ID].......1
+Mobile_Country_Code  [Mobile Country Code].......310
+Mobile_Network_Code  [Mobile Network Code].......260
+Description  [Description].......UCHMSS950
+Access_Type  [Access Type].......GSM -> 0
+
+
+
+Command Successful
+
+>
+
+>query 310-26-MCCMNC;
+
+
+ MCCMNC:-
+
+Identification:
+
+Mcc_Mnc_Id  [Identifier].......1
+PLMN_Id  [PLMN ID].......1
+Mobile_Country_Code  [Mobile Country Code].......310
+Mobile_Network_Code  [Mobile Network Code].......26
+Description  [Description].......CHMSS950 UMSC
+Access_Type  [Access Type].......GSM -> 0
+
+
+
+Command Successful
+
+>cd 310-260-MCCMNC
+
+Command Successful
+
+>query
+
+
+ MCCMNC:-
+
+Identification:
+
+Mcc_Mnc_Id  [Identifier].......2
+PLMN_Id  [PLMN ID].......1
+Mobile_Country_Code  [Mobile Country Code].......310
+Mobile_Network_Code  [Mobile Network Code].......260
+Description  [Description].......UCHMSS950
+Access_Type  [Access Type].......GSM -> 0
+
+
+
+Command Successful
+
+>
+
