@@ -1,0 +1,33 @@
+
+##ttBulkCp
+#
+# SPATIAL.MSC_CFG_COUNTRY_DIGIT_PREFIXES, 3 columns, dumped Mon Mar 26 03:46:26 2012
+# columns:
+#      1. DIGITPREFIX  CHAR(15 BYTE)
+#      2. COUNTRY_ID   TINYINT
+#      3. DESCRIPTION  CHAR(30 BYTE)
+# end
+#
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/Digit-Prefix;
+
+Command Successful
+
+>
+Command Successful
+
+>query 1264-DIGITPREFIX;
+
+
+ DIGITPREFIX:-
+
+Digit_Prefix  [Digit Prefix].......1264
+Country_Region_ID  [Country/Region ID].......2
+Description  [Description].......Anguilla
+
+
+
+Command Successful
+
+>
