@@ -1,0 +1,66 @@
+
+##ttBulkCp
+#
+# SPATIAL.MSC_CFG_IMSI_GLOBALTITLE, 4 columns, dumped Mon Mar 26 03:46:27 2012
+# columns:
+#      1. E212IMSISTR  CHAR(15 BYTE)
+#      2. E214GTTSTR   CHAR(15 BYTE)
+#      3. NWKNODEID    INTEGER
+#      4. ACTIVEFLAG   TINYINT
+# end
+#
+
+
+cd; cd Office-Parameters/Mobility-Config-Parameters/Mobile-Global-Title-or-Allowed-Roaming-Number;
+
+query 310170-310170-0-CFGIMSIGLOBALTITLE;
+
+cd 310170-310170-0-CFGIMSIGLOBALTITLE
+query
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/Mobile-Global-Title-or-Allowed-Roaming-Number;
+
+Command Successful
+
+>
+Command Successful
+
+>query 310170-310170-0-CFGIMSIGLOBALTITLE;
+
+
+ CFGIMSIGLOBALTITLE:-
+
+Properties:
+
+E212_IMSI_Prefix  [E212 IMSI Prefix].......310170
+E214_GTT_Prefix  [E214 GTT Prefix].......310170
+Active  [Active].......ALLOW -> 1
+Network_Node  [Network Node].......0
+
+
+
+Command Successful
+
+>cd 310170-310170-0-CFGIMSIGLOBALTITLE
+
+Command Successful
+
+>query
+
+
+ CFGIMSIGLOBALTITLE:-
+
+Properties:
+
+E212_IMSI_Prefix  [E212 IMSI Prefix].......310170
+E214_GTT_Prefix  [E214 GTT Prefix].......310170
+Active  [Active].......ALLOW -> 1
+Network_Node  [Network Node].......0
+
+
+
+Command Successful
+
+>
+
