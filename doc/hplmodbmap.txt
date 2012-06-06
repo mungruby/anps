@@ -1,0 +1,50 @@
+
+##ttBulkCp
+#
+# SPATIAL.HPLMN_ODB_MAPPING, 2 columns, dumped Mon Mar 26 03:45:50 2012
+# columns:
+#      1. PLMNODBID    TINYINT
+#      2. SERVICEKEY   TINYINT
+# end
+#
+
+0,1
+
+
+
+cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/PLMN-ODB-Mapping;
+
+query 0-HPLMODBMAP;
+
+add HPLMODBMAP PLMN_ODB_ID=#{plmnodbid}, Service_Key=#{servicekey};
+
+del 0-HPLMODBMAP;
+
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/PLMN-ODB-Mapping;
+
+Command Successful
+
+>
+Command Successful
+
+>query 0-HPLMODBMAP;
+
+
+ HPLMODBMAP:-
+
+Identification:
+
+PLMN_ODB_ID  [PLMN ODB ID].......plmn_odb_0 -> 0
+
+Properties:
+
+Service_Key  [Service Key].......servKey_1 -> 1
+
+
+
+Command Successful
+
+>
+
