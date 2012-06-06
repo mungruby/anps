@@ -12,6 +12,7 @@ require_relative './mmappconfigdata/test_mccmnc'
 require_relative './mmappconfigdata/test_restrictedlaccell'
 require_relative './mmappconfigdata/test_restrictedplmn'
  
+require_relative './subscriberdata/test_spmmsisdnhlr'
 require_relative './subscriberdata/test_spmpcardcalltype'
 # require_relative './subscriberdata/test_spm_pcard_calltype'
 

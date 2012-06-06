@@ -1,0 +1,53 @@
+
+##ttBulkCp
+#
+# SPATIAL.SPM_MSISDN_HLR, 6 columns, dumped Mon Mar 26 03:46:19 2012
+# columns:
+#      1. MSISDN_BEGIN BINARY(8)
+#      2. MSISDN_END   BINARY(8)
+#      3. HLR_NUM      INTEGER
+#      4. PORTABLE     TINYINT
+#      5. HLR_TYPE     TINYINT
+#      6. ALT_HLR_NUM  INTEGER
+# end
+#
+
+{13058904000fffff},{13058904999fffff},0,0,1,0
+
+
+cd; cd Office-Parameters/Routing-and-Translation/MSISDN-To-HLR;
+
+query 13058904000-13058904999-SPMMSISDNHLR;
+
+add SPMMSISDNHLR MSISDN_Begin=13058904000, MSISDN_End=13058904999, HLR_Number=0;
+
+del 13058904000-13058904999-SPMMSISDNHLR;
+
+
+>cd; cd Office-Parameters/Routing-and-Translation/MSISDN-To-HLR;
+
+Command Successful
+
+>
+Command Successful
+
+>query 13058904000-13058904999-SPMMSISDNHLR;
+
+
+ SPMMSISDNHLR:-
+
+MSISDN:
+
+MSISDN_Begin  [MSISDN Begin].......13058904000
+MSISDN_End  [MSISDN End].......13058904999
+
+Properties:
+
+HLR_Number  [HLR Number].......0
+
+
+
+Command Successful
+
+>
+
