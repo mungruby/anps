@@ -1,0 +1,50 @@
+
+##ttBulkCp
+#
+# SPATIAL.CPCALLMLRNLIST, 2 columns, dumped Mon Mar 26 03:45:47 2012
+# columns:
+#      1. LRN          CHAR(15 BYTE)
+#      2. HLR_NUM      INTEGER
+# end
+#
+
+"6032059981     ",0
+
+
+
+cd; cd Office-Parameters/Network-Parameters/1-LRNLISTKEY;
+
+query 6032059981-LRNLIST;
+
+add LRNLIST LRN=6032059981, HLR_Number=0;
+
+del 6032059981-LRNLIST;
+
+
+
+>cd; cd Office-Parameters/Network-Parameters/1-LRNLISTKEY;
+
+Command Successful
+
+>
+Command Successful
+
+>query 6032059981-LRNLIST;
+
+
+ LRNLIST:-
+
+Identification:
+
+LRN  [LRN].......6032059981
+
+Properties:
+
+HLR_Number  [HLR Number].......0
+
+
+
+Command Successful
+
+>
+
