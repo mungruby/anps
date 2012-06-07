@@ -1,0 +1,47 @@
+
+##ttBulkCp
+#
+# SPATIAL.EMSNATIONALTREESELECTOR, 2 columns, dumped Sat Mar 31 03:46:15 2012
+# columns:
+#      1. NATTREESELECTOR SMALLINT
+#      2. DESCRIPTION  CHAR(32 BYTE)
+# end
+#
+
+10,"Remote National Pooling Tree    "
+
+
+
+cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/National-Tree-Selector;
+
+query 1-NATTREESELECTOR;
+
+add NATTREESELECTOR National_Tree_Selector_Identifier=10, Name=Remote National Pooling Tree;"
+
+del 1-NATTREESELECTOR;
+
+
+
+>cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/National-Tree-Selector;
+
+Command Successful
+
+>
+Command Successful
+
+>query 1-NATTREESELECTOR;
+
+
+ NATTREESELECTOR:-
+
+Identification:
+
+National_Tree_Selector_Identifier  [National Tree Selector].......1
+Name  [Name].......Chicago National Trans Group
+
+
+
+Command Successful
+
+>
+
