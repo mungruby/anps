@@ -1,0 +1,69 @@
+
+##ttBulkCp
+#
+# SPATIAL.CPCALLMDIGITTRANSLATOR, 7 columns, dumped Sat Mar 31 03:45:39 2012
+# columns:
+#      1. TRANSLATIONGROUP SMALLINT
+#      2. DIGITPATTERN CHAR(32 BYTE)
+#      3. PORTEDENABLEOFFICE TINYINT
+#      4. ROUTEACTIONTYPE TINYINT
+#      5. ROUTEACTION  INTEGER
+#      6. DESCRIPTION  CHAR(32 BYTE)
+#      7. NATTREESELECTOR SMALLINT
+# end
+#
+
+1,"740                             ",1,1,400,"CARROLL OH                      ",1
+
+
+
+cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/National-Tree-Selector/1-NATTREESELECTOR/National-Translation;
+
+query 1-1-740-DIGITTRANSLATION;
+
+add DIGITTRANSLATION Digit_String=740, Route_Action=1, Route_Index=400, Translation_Group=1, National_Tree=1, Ported_Office=1, Description=CARROLL OH;
+
+del 1-1-740-DIGITTRANSLATION;
+
+cd 1-1-740-DIGITTRANSLATION;
+
+
+
+>cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/National-Tree-Selector/1-NATTREESELECTOR/National-Translatio;
+
+Command Successful
+
+>
+Command Successful
+
+>query 1-1-740-DIGITTRANSLATION;
+
+
+ DIGITTRANSLATION:-
+
+Identification:
+
+Digit_String  [Digit String].......740
+National_Tree  [National Tree Selector].......1
+Translation_Group  [Translation Group].......1
+Description  [Description].......CARROLL OH
+
+LNP:
+
+Ported_Office  [Ported Office].......Y->1
+
+Route:
+
+Route_Action  [Route Action].......ROUTE_INDEX -> 1
+Route_Index  [Route Index].......400
+
+
+
+Command Successful
+
+>cd 1-1-740-DIGITTRANSLATION;
+
+Command Successful
+
+>
+
