@@ -8,6 +8,8 @@ require_relative './callprocessing/test_outpulsemap'
 require_relative './callprocessing/test_trunkgroup'
 require_relative './callprocessing/test_trunkgroupbundle'
  
+require_relative './emsdata/test_digitdescriptor'
+ 
 require_relative './mmappconfigdata/test_cfgimsiglobaltitle'
 require_relative './mmappconfigdata/test_countryinfo'
 require_relative './mmappconfigdata/test_digitprefix'

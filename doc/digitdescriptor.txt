@@ -1,0 +1,26 @@
+
+##ttBulkCp
+#
+# SPATIAL.EMSDIGITDESCRIPTOR, 3 columns, dumped Fri Mar 30 03:46:12 2012
+# columns:
+#      1. DESCRIPTOR   CHAR(32 BYTE)
+#      2. DESCRIPTORINDEX INTEGER
+#      3. DESCRIPTORTYPE TINYINT
+# end
+#
+
+"REMOTE POOLING RC               ",7665,0
+
+
+cd; cd Office-Parameters/Routing-and-Translation/Routing/Orig-Routing/Orig-Route-Descriptor;
+
+"query #{descriptorindex}-DIGITDESCRIPTOR;"
+
+add DIGITDESCRIPTOR Index=#{descriptorindex}, Name=#{descriptor};
+
+query 7665-DIGITDESCRIPTOR;
+
+add DIGITDESCRIPTOR Index=7665, Name=REMOTE POOLING RC;
+
+del 7665-DIGITDESCRIPTOR;
+
