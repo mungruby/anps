@@ -8,6 +8,7 @@ module FieldConverter
       def convert_fields
         self.digitpattern = convert_char_digitpattern
         self.description = convert_char_description
+        self
       end
 
       def convert_char_digitpattern
