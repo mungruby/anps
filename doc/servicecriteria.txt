@@ -1,0 +1,48 @@
+
+##ttBulkCp
+#
+# SPATIAL.SERVICE_CRITERIA, 3 columns, dumped Mon Mar 26 03:45:52 2012
+# columns:
+#      1. SERVICEKEY   TINYINT
+#      2. HANDLINGCRITERIA TINYINT
+#      3. DESCRIPTION  CHAR(32 BYTE)
+# end
+#
+
+1,0,"BHPLMN Type 1                   "
+
+
+cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/Service-Criteria;
+
+query 1-SERVICECRITERIA;
+
+items.map {|arr| "add #{context} Service_Key=#{arr[0]}, Criteria=#{arr[1]}, Description=#{arr[2].rstrip};"}
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/Service-Criteria;
+
+Command Successful
+
+>
+Command Successful
+
+>query 1-SERVICECRITERIA;
+
+
+ SERVICECRITERIA:-
+
+Identification:
+
+Service_Key  [Service Key].......servKey_1 -> 1
+
+Properties:
+
+Criteria  [Criteria].......critera_0 -> 0
+Description  [Description].......BHPLMN Type 1
+
+
+
+Command Successful
+
+>
+
