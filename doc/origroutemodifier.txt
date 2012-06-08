@@ -1,0 +1,44 @@
+
+##ttBulkCp
+#
+# SPATIAL.EMSORIGROUTEPROFILELIST, 2 columns, dumped Sat Mar 31 03:46:15 2012
+# columns:
+#      1. ORIGROUTINGMODIFIER INTEGER
+#      2. DESCRIPTION  CHAR(32 BYTE)
+# end
+#
+
+1,"CHMGW678                        "
+
+
+
+cd; cd Office-Parameters/Routing-and-Translation/Routing/Orig-Routing/Orig-Route-Modifier;
+
+query 1-ORIGROUTEMODIFIER;
+
+Profile_Identifier=
+Name=
+
+
+
+>cd; cd Office-Parameters/Routing-and-Translation/Routing/Orig-Routing/Orig-Route-Modifier;
+
+Command Successful
+
+>
+Command Successful
+
+>query 1-ORIGROUTEMODIFIER;
+
+
+ ORIGROUTEMODIFIER:-
+
+Profile_Identifier  [Profile Identifier].......1
+Name  [Name].......CHMGW678
+
+
+
+Command Successful
+
+>
+
