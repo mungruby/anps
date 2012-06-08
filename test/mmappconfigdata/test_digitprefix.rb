@@ -25,18 +25,18 @@ class Test_DIGITPREFIX < MiniTest::Unit::TestCase
     @obj = self.class.dto.new *test_data
   end
 
+  def test_convert_fields
+    assert_equal @obj, @obj.convert_fields
+    assert_equal '1264', @obj.digitprefix
+    assert_equal 'Anguilla', @obj.description
+  end
+
   def test_convert_char_digitprefix
     assert_equal '1264', @obj.convert_char_digitprefix
   end
 
   def test_convert_char_description
     assert_equal 'Anguilla', @obj.convert_char_description
-  end
-
-  def test_convert_fields
-    @obj.convert_fields
-    assert_equal '1264', @obj.digitprefix
-    assert_equal 'Anguilla', @obj.description
   end
 
   def test_cd_cli

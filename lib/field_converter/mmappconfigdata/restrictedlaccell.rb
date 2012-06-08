@@ -6,11 +6,12 @@ module FieldConverter
     module RESTRICTEDLACCELL
 
       def convert_fields
-        convert_char_description
+        self.description = convert_char_description
+        self
       end
 
       def convert_char_description
-        self.description = self.description.rstrip
+        description.rstrip
       end
 
     end

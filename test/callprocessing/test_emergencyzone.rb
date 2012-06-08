@@ -42,6 +42,10 @@ class Test_EMERGENCYZONE < MiniTest::Unit::TestCase
     @obj.convert_fields
   end
 
+  def test_convert_fields
+    assert_equal @obj, @obj.convert_fields
+  end
+
   def test_cd
     cd = "cd; cd Office-Parameters/Mobility-Config-Parameters/Emergency-Service-Zone-Provisioning;"
     assert_equal cd, ::CLI::CallProcessing::EMERGENCYZONE.cd
@@ -131,11 +135,11 @@ class Test_EMERGENCYZONE < MiniTest::Unit::TestCase
     @obj.scp_address = "{0191f0ffffffffffffff}"
     assert_equal '0', @obj.convert_binary_scp_address
      
-    @obj.scp_address = "{0b914150741204f8ffff}"
-    assert_equal '14054721408', @obj.convert_binary_scp_address
-     
     @obj.scp_address = "{0b914150741204f0ffff}"
     assert_equal '14054721400', @obj.convert_binary_scp_address
+
+    @obj.scp_address = "{0b914150741204f8ffff}"
+    assert_equal '14054721408', @obj.convert_binary_scp_address
   end
 
   def teardown

@@ -103,6 +103,12 @@ class Test_OUTPULSEMAP < MiniTest::Unit::TestCase
     @obj.convert_fields
   end
 
+  def test_convert_fields
+    @obj.cpc = 0
+    @obj.cpc_priority = 255
+    assert_equal @obj, @obj.convert_fields
+  end
+
   def test_cd_cli
     cd = "cd; cd Office-Parameters/Outpulse-Maps/ISUP-or-BICC-or-SIP-Outpulse-Map;"
     assert_equal cd, @obj.cd

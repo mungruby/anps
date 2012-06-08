@@ -31,7 +31,8 @@ class Test_LRNLIST < MiniTest::Unit::TestCase
   def test_convert_fields
     obj = self.class.dto.new *self.class.test_data
     assert_equal '6032059981     ', obj.lrn
-    assert_equal '6032059981', obj.convert_fields.lrn
+    assert_equal obj, obj.convert_fields
+    assert_equal '6032059981', obj.lrn
   end
 
   def test_convert_char_lrn

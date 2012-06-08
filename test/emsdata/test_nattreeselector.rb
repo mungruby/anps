@@ -33,7 +33,8 @@ class Test_NATTREESELECTOR < MiniTest::Unit::TestCase
   def test_convert_fields
     @obj.description = "Remote National Pooling Tree    "
     assert_equal 'Remote National Pooling Tree    ', @obj.description
-    assert_equal 'Remote National Pooling Tree', @obj.convert_fields.description
+    assert_equal @obj, @obj.convert_fields
+    assert_equal 'Remote National Pooling Tree', @obj.description
   end
 
   def test_convert_char_descriptor

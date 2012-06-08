@@ -28,6 +28,13 @@ class Test_MCCMNC < MiniTest::Unit::TestCase
     @obj = self.class.dto.new *test_data
   end
 
+  def test_convert_fields
+    assert_equal @obj, @obj.convert_fields
+    assert_equal '310', @obj.mcc
+    assert_equal '260', @obj.mnc
+    assert_equal 'UCHMSS950', @obj.description
+  end
+
   def test_convert_binary_mcc
     assert_equal '310', @obj.convert_binary_mcc
   end
@@ -45,13 +52,6 @@ class Test_MCCMNC < MiniTest::Unit::TestCase
   def test_convert_tinyint_accesstype
     skip("Convert 0 to GSM?")
     assert_equal 'GSM', @obj.convert_tinyint_accesstype
-  end
-
-  def test_convert_fields
-    @obj.convert_fields
-    assert_equal '310', @obj.mcc
-    assert_equal '260', @obj.mnc
-    assert_equal 'UCHMSS950', @obj.description
   end
 
   def test_cd_cli

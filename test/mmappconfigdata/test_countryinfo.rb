@@ -25,13 +25,13 @@ class Test_COUNTRYINFO < MiniTest::Unit::TestCase
     @obj = self.class.dto.new *test_data
   end
 
-  def test_convert_char_country_name
-    assert_equal 'Caribbean', @obj.convert_char_country_name
+  def test_convert_fields
+    assert_equal @obj, @obj.convert_fields
+    assert_equal 'Caribbean', @obj.country_name
   end
 
-  def test_convert_fields
-    @obj.convert_fields
-    assert_equal 'Caribbean', @obj.country_name
+  def test_convert_char_country_name
+    assert_equal 'Caribbean', @obj.convert_char_country_name
   end
 
   def test_cd_cli

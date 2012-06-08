@@ -8,14 +8,15 @@ module FieldConverter
       def convert_fields
         self.digitprefix = convert_char_digitprefix
         self.description = convert_char_description
+        self
       end
 
       def convert_char_digitprefix
-        self.digitprefix.rstrip
+        digitprefix.rstrip
       end
 
       def convert_char_description
-        self.description.rstrip
+        description.rstrip
       end
 
     end

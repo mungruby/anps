@@ -7,10 +7,11 @@ module FieldConverter
 
       def convert_fields
         self.bundledesc = convert_char_bundledesc
+        self
       end
 
       def convert_char_bundledesc
-        self.bundledesc.rstrip
+        bundledesc.rstrip
       end
 
     end

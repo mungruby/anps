@@ -16,42 +16,43 @@ module FieldConverter
         self.begin_esrk_pool3 = convert_char_begin_esrk_pool3
         self.end_esrk_pool3 = convert_char_end_esrk_pool3
         self.scp_address = convert_binary_scp_address
+        self
       end
 
       def convert_char_esz_name
-        self.esz_name.rstrip
+        esz_name.rstrip
       end
 
       def convert_char_psap_zone_dn
-        self.psap_zone_dn.rstrip
+        psap_zone_dn.rstrip
       end
 
       def convert_char_gmlc_dn 
-        self.gmlc_dn.rstrip
+        gmlc_dn.rstrip
       end
 
       def convert_char_begin_esrk
-        self.begin_esrk.rstrip
+        begin_esrk.rstrip
       end
 
       def convert_char_end_esrk
-        self.end_esrk.rstrip
+        end_esrk.rstrip
       end
 
       def convert_char_begin_esrk_pool2
-        self.begin_esrk_pool2.rstrip
+        begin_esrk_pool2.rstrip
       end
 
       def convert_char_end_esrk_pool2
-        self.end_esrk_pool2.rstrip
+        end_esrk_pool2.rstrip
       end
 
       def convert_char_begin_esrk_pool3
-        self.begin_esrk_pool3.rstrip
+        begin_esrk_pool3.rstrip
       end
 
       def convert_char_end_esrk_pool3
-        self.end_esrk_pool3.rstrip
+        end_esrk_pool3.rstrip
       end
 
       def convert_binary_scp_address
@@ -66,9 +67,7 @@ module FieldConverter
           end
           arr_to_fill = arr_to_fill == 0 ? 1 : 0
         end
-        scp_address = ""
-        arr0.length.times {|i| scp_address << "#{arr1[i]}#{arr0[i]}"}
-        scp_address.delete 'f'
+        arr1.zip(arr0).flatten.join.delete 'f'
       end
 
     end

@@ -26,18 +26,18 @@ class Test_CFGIMSIGLOBALTITLE < MiniTest::Unit::TestCase
     @obj = self.class.dto.new *test_data
   end
 
+  def test_convert_fields
+    assert_equal @obj, @obj.convert_fields
+    assert_equal '310170', @obj.e212imsistr
+    assert_equal '310170', @obj.e214gttstr
+  end
+
   def test_convert_char_e212imsistr
     assert_equal '310170', @obj.convert_char_e212imsistr
   end
 
   def test_convert_char_e214gttstr
     assert_equal '310170', @obj.convert_char_e214gttstr
-  end
-
-  def test_convert_fields
-    @obj.convert_fields
-    assert_equal '310170', @obj.e212imsistr
-    assert_equal '310170', @obj.e214gttstr
   end
 
   def test_cd_cli

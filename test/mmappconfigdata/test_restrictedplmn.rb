@@ -27,6 +27,12 @@ class Test_RESTRICTEDPLMN < MiniTest::Unit::TestCase
     @obj.convert_fields
   end
 
+  def test_convert_fields
+    @obj.description = "USA 31017                       "
+    assert_equal @obj, @obj.convert_fields
+    assert_equal 'USA 31017', @obj.description
+  end
+
   def test_cd
     expected = "cd; cd Office-Parameters/Mobility-Config-Parameters/Restricted-PLMN;"
     assert_equal expected, ::CLI::MMAppConfigData::RESTRICTEDPLMN.cd

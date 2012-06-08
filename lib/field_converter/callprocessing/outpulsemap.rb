@@ -11,18 +11,19 @@ module FieldConverter
         self.description = convert_char_description
         self.cpc = convert_tinyint_cpc
         self.cpc_priority = convert_tinyint_cpc_priority
+        self
       end
 
       def convert_char_digitpattern
-        self.digitpattern.rstrip
+        digitpattern.rstrip
       end
 
       def convert_char_leadingdigitsadd
-        self.leadingdigitsadd.rstrip
+        leadingdigitsadd.rstrip
       end
 
       def convert_char_description
-        self.description.rstrip
+        description.rstrip
       end
 
       def convert_tinyint_cpc

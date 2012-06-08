@@ -34,7 +34,8 @@ class Test_DIGITDESCRIPTOR < MiniTest::Unit::TestCase
   def test_convert_fields
     @obj.descriptor = "REMOTE POOLING RC               "
     assert_equal 'REMOTE POOLING RC               ', @obj.descriptor
-    assert_equal 'REMOTE POOLING RC', @obj.convert_fields.descriptor
+    assert_equal @obj, @obj.convert_fields
+    assert_equal 'REMOTE POOLING RC', @obj.descriptor
   end
 
   def test_convert_char_descriptor

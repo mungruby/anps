@@ -28,6 +28,10 @@ class Test_SPMPCARDCALLTYPE < MiniTest::Unit::TestCase
     @obj.convert_fields
   end
 
+  def test_convert_fields
+    assert_equal @obj, @obj.convert_fields
+  end
+
   def test_cd
     expected = "cd; cd Office-Parameters/Mobility-Config-Parameters/MSRN-HON-Distribution;"
     assert_equal expected, ::CLI::SubscriberData::SPMPCARDCALLTYPE.cd

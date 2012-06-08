@@ -37,7 +37,7 @@ class Test_DIGITTRANSLATION < MiniTest::Unit::TestCase
     obj = self.class.dto.new *self.class.test_data
     assert_equal '740                             ', obj.digitpattern
     assert_equal 'CARROLL OH                      ', obj.description
-    obj.convert_fields
+    assert_equal obj, obj.convert_fields
     assert_equal '740', obj.digitpattern
     assert_equal 'CARROLL OH', obj.description
   end

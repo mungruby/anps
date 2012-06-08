@@ -9,30 +9,19 @@ module FieldConverter
         self.mcc = convert_binary_mcc
         self.mnc = convert_binary_mnc
         self.description = convert_char_description
+        self
       end
 
       def convert_char_description
-        self.description.rstrip
+        description.rstrip
       end
 
       def convert_binary_mcc
-        idx = 0
-        digits = []
-        self.mcc.slice(1..6).each_char do |ch|
-          digits << ch unless idx % 2 == 0
-          idx += 1
-        end
-        digits.join.delete 'f'
+        mcc.match(/{.([0-9a-f]).([0-9a-f]).([0-9a-f])}/).to_a.drop(1).join.delete('f')
       end
 
       def convert_binary_mnc
-        idx = 0
-        digits = []
-        self.mnc.slice(1..6).each_char do |ch|
-          digits << ch unless idx % 2 == 0
-          idx += 1
-        end
-        digits.join.delete 'f'
+        mnc.match(/{.([0-9a-f]).([0-9a-f]).([0-9a-f])}/).to_a.drop(1).join.delete('f')
       end
 
     end

@@ -36,6 +36,12 @@ class Test_TRUNKGROUPBUNDLE < MiniTest::Unit::TestCase
     @obj.convert_fields
   end
 
+  def test_convert_fields
+    # @obj.cpc = 0
+    # @obj.cpc_priority = 255
+    assert_equal @obj, @obj.convert_fields
+  end
+
   def test_cd_cli
     expected = "cd; cd Office-Parameters/Routing-and-Translation/Trunk-Group-Bundle;"
     assert_equal expected, @obj.cd

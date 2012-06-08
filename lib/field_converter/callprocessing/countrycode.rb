@@ -8,14 +8,15 @@ module FieldConverter
       def convert_fields
         self.countrycode = convert_char_countrycode
         self.description = convert_char_description
+        self
       end
 
       def convert_char_countrycode
-        self.countrycode.rstrip
+        countrycode.rstrip
       end
 
       def convert_char_description
-        self.description.rstrip
+        description.rstrip
       end
 
     end

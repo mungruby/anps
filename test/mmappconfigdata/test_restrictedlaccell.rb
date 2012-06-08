@@ -34,6 +34,10 @@ class Test_RESTRICTEDLACCELL < MiniTest::Unit::TestCase
     @obj.mcc_mnc = '31026'
   end
 
+  def test_convert_fields
+    assert_equal @obj, @obj.convert_fields
+  end
+
   def test_cd
     expected = "cd; cd Office-Parameters/Mobility-Config-Parameters/LAC-Restriction-Provisioning;"
     assert_equal expected, ::CLI::MMAppConfigData::RESTRICTEDLACCELL.cd
