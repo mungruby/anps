@@ -1,0 +1,43 @@
+
+##ttBulkCp
+#
+# SPATIAL.CPCALLMLATANXX, 3 columns, dumped Mon Mar 26 03:45:47 2012
+# columns:
+#      1. LATANUMBER   SMALLINT
+#      2. NPA_NXX      CHAR(7 BYTE)
+#      3. DESCRIPTION  CHAR(32 BYTE)
+# end
+#
+
+1,"425    ","permitted                       "
+
+
+cd; cd Office-Parameters/Network-Parameters/LATAs/1-LATA;
+
+query 425-NPANXX;
+
+
+>cd; cd Office-Parameters/Network-Parameters/LATAs/1-LATA;
+
+Command Successful
+
+>
+Command Successful
+
+>query 425-NPANXX;
+
+
+ NPANXX:-
+
+Properties:
+
+Lata_No  [Lata No.].......1
+NPA_NXX_X  [NPA-NXX-X].......425
+Description  [Description].......permitted
+
+
+
+Command Successful
+
+>
+
