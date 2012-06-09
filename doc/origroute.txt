@@ -1,0 +1,105 @@
+
+##ttBulkCp
+#
+# SPATIAL.CPCALLMORIGROUTING, 7 columns, dumped Sat Mar 31 03:45:40 2012
+# columns:
+#      1. ROUTEINDEX   INTEGER
+#      2. ORIGROUTINGMODIFIER SMALLINT
+#      3. DIGITTYPE    TINYINT
+#      4. ROUTEACTIONTYPE TINYINT
+#      5. ROUTEACTION  INTEGER
+#      6. AMATRANSLATIONINDEX TINYINT
+#      7. DESCRIPTION  CHAR(32 BYTE)
+# end
+#
+
+7665,442,26,7,421252,1,"REMOTE POOLING RC               "
+
+
+
+cd; cd Office-Parameters/Routing-and-Translation/Routing/Orig-Routing/Orig-Route;
+
+query 442-7665-ORIGROUTE;
+
+
+
+>cd; cd Office-Parameters/Routing-and-Translation/Routing/Orig-Routing/Orig-Route;
+
+Command Successful
+
+>
+Command Successful
+
+>query 442-7665-ORIGROUTE;
+
+
+ ORIGROUTE:-
+
+Identification:
+
+OrigRoute_Descriptor  [OrigRoute Descriptor].......7665
+Orig_Route_Modifier  [Orig Route Modifier].......442
+
+Properties:
+
+Ama_Index  [Ama Index].......1
+
+Route:
+
+Route_Action  [Route Action].......ROUTE_DIRECT -> 7
+Route_Index  [Route Index].......421252
+
+
+
+Command Successful
+
+>
+
+
+
+>help add ORIGROUTE
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add ORIGROUTE
+<OrigRoute_Descriptor=value>   Specifies input Orig Route index descriptor that is assigned in NOA, Prefix Translation, National Tr9
+<Orig_Route_Modifier=value>   Specifies the originating routing modifier from the subscriber group or trunk group profile. , Valid 6
+<Ama_Index=value>   Specifies the AMA translation index value (range 1 - 255). This is used in BAF record generation.Type is:long,Md
+
+<Route_Action=value>   Specifies the type of action to be taken when processing.., Type is: enum, Valid Enum values are: [No Action 
+<Route_Index=value>   Specifies the route action value. ,  MIN: 1,MAX: 9999999
+
+
+Command Successful
+
+>
+
+
+
+>help mod ORIGROUTE
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is ORIGROUTE
+
+ID Fields Are:
+<Orig_Route_Modifier=value>   Specifies the originating routing modifier from the subscriber group or trunk group profile. , Valid 6
+<OrigRoute_Descriptor=value>   Specifies input Orig Route index descriptor that is assigned in NOA, Prefix Translation, National Tr9
+
+
+Modifiable Fields Are:
+ {Route_Action=value}   Specifies the type of action to be taken when processing.., Type is: enum, Valid Enum values are: [No Actio 
+ {Route_Index=value}   Specifies the route action value. ,  MIN: 1,MAX: 9999999
+ {Ama_Index=value}   Specifies the AMA translation index value (range 1 - 255). This is used in BAF record generation.Type is:long,d
+
+
+
+Command Successful
+
+>
+
+
