@@ -1,0 +1,69 @@
+
+##ttBulkCp
+#
+# SPATIAL.SERVICE_CRITERIA_LIST, 3 columns, dumped Mon Mar 26 03:45:52 2012
+# columns:
+#      1. SERVICEKEY   TINYINT
+#      2. DIGITPATTERN BINARY(9)
+#      3. DIGITTYPE    TINYINT
+# end
+#
+
+1,{0316f1ffffffffffff},0
+
+
+
+cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/1-SERVICECRILISTKEY;
+
+query 1-611-0-SERVCRILIST;
+
+query #{servicekey}-#{digitpattern}-#{digittype}-SERVCRILIST;
+
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/1-SERVICECRILISTKEY;
+
+Command Successful
+
+>
+Command Successful
+
+>query 1-611-0-SERVCRILIST;
+
+
+ SERVCRILIST:-
+
+Identification:
+
+Service_Key  [Service Key].......1
+Digit_Type  [Digit Type].......dgtType_0 -> 0
+Digit_Pattern  [Digit Pattern].......611
+
+
+
+Command Successful
+
+>
+
+
+
+>help mod SERVCRILIST
+The resource cannot be modified.There are no parameters that can be modifiable
+
+Command Successful
+
+>help add SERVCRILIST   
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add SERVCRILIST
+<Service_Key=value>   Service key from Service Criteris table. , Valid values are: 1[ODB Specific Type 1] ,2[ODB Specific Type 2] ,]
+<Digit_Type=value>   Specifies Type of digits., Type is: enum, Valid Enum values are: [Service Code->0, International Formatted DN- 
+<Digit_Pattern=value>   Digit pattern.Type is:string,MIN:1,MAX:15,DEFAULT:Not Defined
+
+
+
+Command Successful
+
+>
+

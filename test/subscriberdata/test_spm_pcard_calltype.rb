@@ -4,11 +4,14 @@ require_relative '../../lib/alcatel/subscriberdata/spm_pcard_calltype'
 
 class Test_SPM_PCARD_CALLTYPE < MiniTest::Unit::TestCase
 
+  def self.dto
+    @@test_cls ||= Struct.new("Test", :fields, :data)
+  end
+
   def setup
-    test_cls = Struct.new("Test", :fields, :data)
     fields = [:name, :address]
     data = ['scott', '@home']
-    dto = test_cls.new(fields, data)
+    dto = self.class.dto.new(fields, data)
     @tbl = Alcatel::SubscriberData::SPM_PCARD_CALLTYPE.new 'test_mss', dto
   end
 

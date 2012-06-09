@@ -51,3 +51,8 @@ Command Successful
 
 >
 
+
+
+add SPMMSISDNHLR msisdn_begin=15043338000, msisdn_end=15043338099, dual_Hlr=0, HLR_Number=0, Alt__HLR_Number=0;
+
+
