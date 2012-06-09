@@ -1,0 +1,410 @@
+
+##ttBulkCp
+#
+# SPATIAL.MSCROUTELIST, 67 columns, dumped Sat Mar 31 03:45:43 2012
+# columns:
+#      1. ROUTEINDEX   INTEGER
+#      2. TYPE1        TINYINT
+#      3. PARAMETER1   INTEGER
+#      4. OUTPULSEINDEX1 SMALLINT
+#      5. TYPE2        TINYINT
+#      6. PARAMETER2   INTEGER
+#      7. OUTPULSEINDEX2 SMALLINT
+#      8. TYPE3        TINYINT
+#      9. PARAMETER3   INTEGER
+#     10. OUTPULSEINDEX3 SMALLINT
+#     11. TYPE4        TINYINT
+#     12. PARAMETER4   INTEGER
+#     13. OUTPULSEINDEX4 SMALLINT
+#     14. TYPE5        TINYINT
+#     15. PARAMETER5   INTEGER
+#     16. OUTPULSEINDEX5 SMALLINT
+#     17. TYPE6        TINYINT
+#     18. PARAMETER6   INTEGER
+#     19. OUTPULSEINDEX6 SMALLINT
+#     20. TYPE7        TINYINT
+#     21. PARAMETER7   INTEGER
+#     22. OUTPULSEINDEX7 SMALLINT
+#     23. TYPE8        TINYINT
+#     24. PARAMETER8   INTEGER
+#     25. OUTPULSEINDEX8 SMALLINT
+#     26. DESCRIPTION  CHAR(32 BYTE)
+#     27. LOOKAHEAD    TINYINT
+#     28. CLIOUTPULSEINDEX1 SMALLINT
+#     29. RNOUTPULSEINDEX1 SMALLINT
+#     30. OCNOUTPULSEINDEX1 SMALLINT
+#     31. DIGITSOUTPULSEINDEX1 SMALLINT
+#     32. DIGITSOUTPULSEINDEX2 SMALLINT
+#     33. DIGITSOUTPULSEINDEX3 SMALLINT
+#     34. DIGITSOUTPULSEINDEX4 SMALLINT
+#     35. DIGITSOUTPULSEINDEX5 SMALLINT
+#     36. DIGITSOUTPULSEINDEX6 SMALLINT
+#     37. DIGITSOUTPULSEINDEX7 SMALLINT
+#     38. DIGITSOUTPULSEINDEX8 SMALLINT
+#     39. PREDEFINEDCLIACTIVE1 TINYINT
+#     40. PREDEFINEDCLIACTIVE2 TINYINT
+#     41. PREDEFINEDCLIACTIVE3 TINYINT
+#     42. PREDEFINEDCLIACTIVE4 TINYINT
+#     43. PREDEFINEDCLIACTIVE5 TINYINT
+#     44. PREDEFINEDCLIACTIVE6 TINYINT
+#     45. PREDEFINEDCLIACTIVE7 TINYINT
+#     46. PREDEFINEDCLIACTIVE8 TINYINT
+#     47. CLIOUTPULSEINDEX2 SMALLINT
+#     48. RNOUTPULSEINDEX2 SMALLINT
+#     49. OCNOUTPULSEINDEX2 SMALLINT
+#     50. CLIOUTPULSEINDEX3 SMALLINT
+#     51. RNOUTPULSEINDEX3 SMALLINT
+#     52. OCNOUTPULSEINDEX3 SMALLINT
+#     53. CLIOUTPULSEINDEX4 SMALLINT
+#     54. RNOUTPULSEINDEX4 SMALLINT
+#     55. OCNOUTPULSEINDEX4 SMALLINT
+#     56. CLIOUTPULSEINDEX5 SMALLINT
+#     57. RNOUTPULSEINDEX5 SMALLINT
+#     58. OCNOUTPULSEINDEX5 SMALLINT
+#     59. CLIOUTPULSEINDEX6 SMALLINT
+#     60. RNOUTPULSEINDEX6 SMALLINT
+#     61. OCNOUTPULSEINDEX6 SMALLINT
+#     62. CLIOUTPULSEINDEX7 SMALLINT
+#     63. RNOUTPULSEINDEX7 SMALLINT
+#     64. OCNOUTPULSEINDEX7 SMALLINT
+#     65. CLIOUTPULSEINDEX8 SMALLINT
+#     66. RNOUTPULSEINDEX8 SMALLINT
+#     67. OCNOUTPULSEINDEX8 SMALLINT
+# end
+#
+
+678000,1,14,400,4,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,"PSTN Default Route List         ",2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
+
+
+cd; cd Office-Parameters/Routing-and-Translation/Route-List;
+
+query 678000-MSCROUTELIST;
+
+
+
+>cd; cd Office-Parameters/Routing-and-Translation/Route-List;
+
+Command Successful
+
+>
+Command Successful
+
+>query 678000-MSCROUTELIST;
+
+
+ MSCROUTELIST:-
+
+Identification:
+
+Route_List_Id  [Route List Id].......678000
+Name  [Name].......PSTN Default Route List
+
+Properties:
+
+Look_Ahead  [Look Ahead].......N->0
+
+Route Type 1:
+
+Type_1  [Type 1].......TRUNK_GROUP -> 1
+Value_1  [Value 1].......6782465
+Outpulse_1  [Called Outpulse 1].......400
+CliOutpulse_1  [CliOutpulse 1].......0
+RNOutpulse_1  [RNOutpulse 1].......0
+OCNOutpulse_1  [OCNOutpulse 1].......0
+PredefCLI_1  [PredefinedCLI 1].......PREDEFNO1 -> 0
+DIGITS_OUTPULSE_MAP_INDEX_1  [Digits Outpulse index 1].......0
+Overriden1  [Overridden by Bundle 1].......N->0
+
+Route Type 2:
+
+Type_2  [Type 2].......QUEUE1 -> 4
+Value_2  [Value 2].......1
+Outpulse_2  [Called Outpulse 2].......0
+CliOutpulse_2  [CliOutpulse 2].......0
+RNOutpulse_2  [RNOutpulse 2].......0
+OCNOutpulse_2  [OCNOutpulse 2].......0
+PredefCLI_2  [PredefinedCLI 2].......PREDEFNO2 -> 0
+DIGITS_OUTPULSE_MAP_INDEX_2  [Digits Outpulse index 2].......0
+Overriden2  [Overridden by Bundle 2].......N->0
+
+Route Type 3:
+
+Type_3  [Type 3].......EMPTY2 -> 0
+Value_3  [Value 3].......1
+Outpulse_3  [Called Outpulse 3].......0
+CliOutpulse_3  [CliOutpulse 3].......0
+RNOutpulse_3  [RNOutpulse 3].......0
+OCNOutpulse_3  [OCNOutpulse 3].......0
+PredefCLI_3  [PredefinedCLI 3].......PREDEFNO3 -> 0
+DIGITS_OUTPULSE_MAP_INDEX_3  [Digits Outpulse index 3].......0
+Overriden3  [Overridden by Bundle 3].......N->0
+
+Route Type 4:
+
+Type_4  [Type 4].......EMPTY3 -> 0
+Value_4  [Value 4].......1
+Outpulse_4  [Called Outpulse 4].......0
+CliOutpulse_4  [CliOutpulse 4].......0
+RNOutpulse_4  [RNOutpulse 4].......0
+OCNOutpulse_4  [OCNOutpulse 4].......0
+PredefCLI_4  [PredefinedCLI 4].......PREDEFNO4 -> 0
+DIGITS_OUTPULSE_MAP_INDEX_4  [Digits Outpulse index 4].......0
+Overriden4  [Overridden by Bundle 4].......N->0
+
+Route Type 5:
+
+Type_5  [Type 5].......EMPTY4 -> 0
+Value_5  [Value 5].......1
+Outpulse_5  [Called Outpulse 5].......0
+CliOutpulse_5  [CliOutpulse 5].......0
+RNOutpulse_5  [RNOutpulse 5].......0
+OCNOutpulse_5  [OCNOutpulse 5].......0
+PredefCLI_5  [PredefinedCLI 5].......PREDEFNO5 -> 0
+DIGITS_OUTPULSE_MAP_INDEX_5  [Digits Outpulse index 5].......0
+Overriden5  [Overridden by Bundle 5].......N->0
+
+Route Type 6:
+
+Type_6  [Type 6].......EMPTY5 -> 0
+Value_6  [Value 6].......1
+Outpulse_6  [Called Outpulse 6].......0
+CliOutpulse_6  [CliOutpulse 6].......0
+RNOutpulse_6  [RNOutpulse 6].......0
+OCNOutpulse_6  [OCNOutpulse 6].......0
+PredefCLI_6  [PredefinedCLI 6].......PREDEFNO6 -> 0
+DIGITS_OUTPULSE_MAP_INDEX_6  [Digits Outpulse index 6].......0
+Overriden6  [Overridden by Bundle 6].......N->0
+
+Route Type 7:
+
+Type_7  [Type 7].......EMPTY6 -> 0
+Value_7  [Value 7].......1
+Outpulse_7  [Called Outpulse 7].......0
+CliOutpulse_7  [CliOutpulse 7].......0
+RNOutpulse_7  [RNOutpulse 7].......0
+OCNOutpulse_7  [OCNOutpulse 7].......0
+PredefCLI_7  [PredefinedCLI 7].......PREDEFNO7 -> 0
+DIGITS_OUTPULSE_MAP_INDEX_7  [Digits Outpulse index 7].......0
+Overriden7  [Overridden by Bundle 7].......N->0
+
+Route Type 8:
+
+Type_8  [Type 8].......EMPTY7 -> 0
+Value_8  [Value 8].......1
+Outpulse_8  [Called Outpulse 8].......0
+CliOutpulse_8  [CliOutpulse 8].......0
+RNOutpulse_8  [RNOutpulse 8].......0
+OCNOutpulse_8  [OCNOutpulse 8].......0
+PredefCLI_8  [PredefinedCLI 8].......PREDEFNO8 -> 0
+DIGITS_OUTPULSE_MAP_INDEX_8  [Digits Outpulse index 8].......0
+Overriden8  [Overridden by Bundle 8].......N->0
+
+
+
+Command Successful
+
+>
+
+
+
+>help add MSCROUTELIST
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add MSCROUTELIST
+<Route_List_Id=value>   identifierType is:long,MIN:1,MAX:9999999,DEFAULT:Not Defined
+
+<Type_1=value>   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconne 
+ ,Default Value: 0
+<Type_2=value>   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconne 
+ ,Default Value: 0
+<Type_3=value>   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconne 
+ ,Default Value: 0
+<Type_4=value>   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconne 
+ ,Default Value: 0
+<Type_5=value>   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconne 
+ ,Default Value: 0
+<Type_6=value>   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconne 
+ ,Default Value: 0
+<Type_7=value>   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconne 
+ ,Default Value: 0
+<Type_8=value>   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconne 
+ ,Default Value: 0
+<DIGITS_OUTPULSE_MAP_INDEX_1=value>   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+<DIGITS_OUTPULSE_MAP_INDEX_2=value>   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+<DIGITS_OUTPULSE_MAP_INDEX_3=value>   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+<DIGITS_OUTPULSE_MAP_INDEX_4=value>   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+<DIGITS_OUTPULSE_MAP_INDEX_5=value>   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+<DIGITS_OUTPULSE_MAP_INDEX_6=value>   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+<DIGITS_OUTPULSE_MAP_INDEX_7=value>   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+<DIGITS_OUTPULSE_MAP_INDEX_8=value>   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+{Value_1=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bundl5
+{Outpulse_1=value}   Outpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{Value_2=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bundl5
+{Outpulse_2=value}   Outpulse Index of the 2nd route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{Value_3=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bundl5
+{Outpulse_3=value}   Outpulse Index of the 3rd route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{Value_4=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bundl5
+{Outpulse_4=value}   Outpulse Index of the 4th route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{Value_5=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bundl5
+{Outpulse_5=value}   Outpulse Index of the 5th route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{Value_6=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bundl5
+{Outpulse_6=value}   Outpulse Index of the 6th route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{Value_7=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bundl5
+{Outpulse_7=value}   Outpulse Index of the 7th route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{Value_8=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bundl5
+{Outpulse_8=value}   Outpulse Index of the 8th route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{Name=value}   Provides a freeform entry for recording a name for the route list.Type is:string,MIN:0,MAX:32,DEFAULT:""
+
+{Look_Ahead=value}   Look Ahead is used for trk routing. Type is:bool, Valid values are: N->0,Y->1 DEFAULT: N{CliOutpulse_1=value} d
+{RNOutpulse_1=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{OCNOutpulse_1=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+
+{PredefCLI_1=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0, ,Default Value: 0
+{PredefCLI_2=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0, ,Default Value: 0
+{PredefCLI_3=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0, ,Default Value: 0
+{PredefCLI_4=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0, ,Default Value: 0
+{PredefCLI_5=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0, ,Default Value: 0
+{PredefCLI_6=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0, ,Default Value: 0
+{PredefCLI_7=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0, ,Default Value: 0
+{PredefCLI_8=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0, ,Default Value: 0
+
+{CliOutpulse_2=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{RNOutpulse_2=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{OCNOutpulse_2=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+
+{CliOutpulse_3=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{RNOutpulse_3=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{OCNOutpulse_3=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+
+{CliOutpulse_4=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{RNOutpulse_4=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{OCNOutpulse_4=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+
+{CliOutpulse_5=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{RNOutpulse_5=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{OCNOutpulse_5=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+
+{CliOutpulse_6=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{RNOutpulse_6=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{OCNOutpulse_6=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+
+{CliOutpulse_7=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{RNOutpulse_7=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{OCNOutpulse_7=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+
+{CliOutpulse_8=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{RNOutpulse_8=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+{OCNOutpulse_8=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+
+
+Command Successful
+
+>
+
+
+>help mod MSCROUTELIST    
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is MSCROUTELIST
+
+ID Fields Are:
+{Route_List_Id=value}   identifierType is:long,MIN:1,MAX:9999999,DEFAULT:Not Defined
+
+
+
+Modifiable Fields Are:
+ {Type_1=value}   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconn 
+ ,Default Value: 0
+ {Value_1=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bund5
+ {Outpulse_1=value}   Outpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {Type_2=value}   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconn 
+ ,Default Value: 0
+ {Value_2=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bund5
+ {Outpulse_2=value}   Outpulse Index of the 2nd route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {Type_3=value}   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconn 
+ ,Default Value: 0
+ {Value_3=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bund5
+ {Outpulse_3=value}   Outpulse Index of the 3rd route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {Type_4=value}   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconn 
+ ,Default Value: 0
+ {Value_4=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bund5
+ {Outpulse_4=value}   Outpulse Index of the 4th route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {Type_5=value}   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconn 
+ ,Default Value: 0
+ {Value_5=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bund5
+ {Outpulse_5=value}   Outpulse Index of the 5th route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {Type_6=value}   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconn 
+ ,Default Value: 0
+ {Value_6=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bund5
+ {Outpulse_6=value}   Outpulse Index of the 6th route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {Type_7=value}   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconn 
+ ,Default Value: 0
+ {Value_7=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bund5
+ {Outpulse_7=value}   Outpulse Index of the 7th route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {Type_8=value}   Identifies the type of route, Type is: enum, Valid Enum values are: [Empty->0, Trunk Group->1, Bundle->2, Disconn 
+ ,Default Value: 0
+ {Value_8=value}   meaning of parameter depends upon type (for a trunk group type, parameter is a SysGrpNum; for a trunk gorup bund5
+ {Outpulse_8=value}   Outpulse Index of the 8th route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {Name=value}   Provides a freeform entry for recording a name for the route list.Type is:string,MIN:0,MAX:32,DEFAULT:""
+
+ {Look_Ahead=value}   Look Ahead is used for trk routing. Type is:bool, Valid values are: N->0,Y->1 DEFAULT: N {CliOutpulse_1=valued
+ {RNOutpulse_1=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {OCNOutpulse_1=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {DIGITS_OUTPULSE_MAP_INDEX_1=value}   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+ {DIGITS_OUTPULSE_MAP_INDEX_2=value}   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+ {DIGITS_OUTPULSE_MAP_INDEX_3=value}   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+ {DIGITS_OUTPULSE_MAP_INDEX_4=value}   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+ {DIGITS_OUTPULSE_MAP_INDEX_5=value}   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+ {DIGITS_OUTPULSE_MAP_INDEX_6=value}   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+ {DIGITS_OUTPULSE_MAP_INDEX_7=value}   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+ {DIGITS_OUTPULSE_MAP_INDEX_8=value}   Index to get the digits outpulse map , Valid values are: 0 ,DEFAULT : 0
+ {PredefCLI_1=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0 
+ ,Default Value: 0
+ {PredefCLI_2=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0 
+ ,Default Value: 0
+ {PredefCLI_3=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0 
+ ,Default Value: 0
+ {PredefCLI_4=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0 
+ ,Default Value: 0
+ {PredefCLI_5=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0 
+ ,Default Value: 0
+ {PredefCLI_6=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0 
+ ,Default Value: 0
+ {PredefCLI_7=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0 
+ ,Default Value: 0
+ {PredefCLI_8=value}   If no CLI available then predefined CLI is used for that route, Type is: enum, Valid Enum values are: [No->0 
+ ,Default Value: 0
+ {CliOutpulse_2=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {RNOutpulse_2=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {OCNOutpulse_2=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {CliOutpulse_3=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {RNOutpulse_3=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {OCNOutpulse_3=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {CliOutpulse_4=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {RNOutpulse_4=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {OCNOutpulse_4=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {CliOutpulse_5=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {RNOutpulse_5=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {OCNOutpulse_5=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {CliOutpulse_6=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {RNOutpulse_6=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {OCNOutpulse_6=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {CliOutpulse_7=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {RNOutpulse_7=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {OCNOutpulse_7=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {CliOutpulse_8=value}   CliOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {RNOutpulse_8=value}   RNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+ {OCNOutpulse_8=value}   OCNOutpulse Index of the 1st route instance of this route index entry. ,  MIN: 0,MAX: Not Defined
+
+
+Command Successful
+
+>
+
