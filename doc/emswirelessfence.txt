@@ -1,0 +1,164 @@
+
+##ttBulkCp
+#
+# SPATIAL.EMSPREFIXFENCE, 7 columns, dumped Sat Apr  7 03:46:15 2012
+# columns:
+#      1. PREFIXTREESELECTOR SMALLINT
+#      2. DIGITPATTERN CHAR(32 BYTE)
+#      3. TRANSLATIONGROUP SMALLINT
+#      4. EXPECTEDDIGITCOUNT TINYINT
+#      5. DIGITFENCEINDEX INTEGER
+#      6. DESCRIPTION  CHAR(32 BYTE)
+#      7. SELECTOR_TYPE TINYINT
+# end
+#
+
+201,"1                               ",1,11,2297,"1 1D-10D-11D-12D-18D            ",1
+
+
+
+
+cd;
+cd Office-Parameters;
+cd Routing-and-Translation;
+cd Wireless-Translation;
+cd Wireless-Normalization;
+cd Digit-Translation;
+cd 201-EMSWIRELESSNORMAL;
+cd Digit-Normalization;
+
+query 201-1-1-11-EMSWIRELESSFENCE;
+
+
+>cd;
+
+Command Successful
+
+>cd Office-Parameters;
+
+Command Successful
+
+>cd Routing-and-Translation;
+
+Command Successful
+
+>cd Wireless-Translation;
+
+Command Successful
+
+>cd Wireless-Normalization;
+
+Command Successful
+
+>cd Digit-Translation;
+
+Command Successful
+
+>cd 201-EMSWIRELESSNORMAL;
+
+Command Successful
+
+>cd Digit-Normalization;
+
+Command Successful
+
+>
+
+>query 201-1-1-11-EMSWIRELESSFENCE;
+
+
+ EMSWIRELESSFENCE:-
+
+Identification:
+
+Prefix_Tree  [Prefix Tree].......201
+Digit_String  [Digit String].......1
+Translation_Group  [Translation Group].......1
+Name  [Name].......1 1D-10D-11D-12D-18D
+
+Properties:
+
+Digit_String_Type  [Digit String Type].......DT_NATIONAL -> 4
+Termination_Type  [Termination Type].......1
+Service_Index  [Service Index].......SI_NONE -> 1
+No_Charge  [No-Charge provisioning].......N->0
+Add_Leading_Digits_Type  [Add Leading Digits Type].......SYS_DEF -> 0
+Add_Leading_Digits  [Digits to Add].......
+Remove_Leading_Digits  [No. of digits to Remove].......0
+International_prefix_length  [International Prefix Length].......0
+Carrier_Id  [Carrier Id].......
+Country_Code  [Country Code].......
+Echo_Cancellation  [Echo Cancellation].......ASTRUNKCFG -> 0
+Start_Position  [Start Position].......1
+
+ Digit Count:
+
+Min_Digit_Cnt  [Min Digit Cnt].......11
+Max_Digit_Cnt  [Max Digit Cnt].......11
+
+Route:
+
+Route_Action  [Route Action].......VLR_CHECK_PREFIX_TRANS -> 10
+Route_Index  [Route Index].......201
+National_Tree  [National Tree Selector].......0
+Call_Gapp_Filter_Id  [Call Gapping Filter ID].......0
+Output_NOA  [Output NOA].......NOA_Translated -> 255
+Ann_Or_Tone  [Action Before Routing].......NOTHING -> 0
+Ann_Id  [Announcement Id].......0
+Tone_Id  [Tone Id].......0
+Tone_Duration  [Tone Duration].......0
+
+ CDR:
+
+Tariff_Group  [Tariff group].......1
+Destination_Type  [Destination type].......1
+
+Call Priority:
+
+digitFence_CPC  [CPC Override].......Do Not Overwrite
+
+Modify Digit Source:
+
+Source_Number_1  [Source Number 1].......NONE1 -> 0
+Modify_Index_1  [Modify Index 1].......0
+Source_Number_2  [Source Number 2].......NONE2 -> 0
+Modify_Index_2  [Modify Index 2].......0
+Source_Number_3  [Source Number 3].......NONE3 -> 0
+Modify_Index_3  [Modify Index 3].......0
+Source_Number_4  [Source Number 4].......NONE4 -> 0
+Modify_Index_4  [Modify Index 4].......0
+Source_Number_5  [Source Number 5].......NONE5 -> 0
+Modify_Index_5  [Modify Index 5].......0
+
+
+
+Command Successful
+
+>
+
+
+
+>help mod EMSWIRELESSFENCE
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is EMSWIRELESSFENCE
+
+ID Fields Are:
+<Prefix_Tree=value>   Specifies the translation group number. ,  MIN: 1,MAX: 255
+<Digit_String=value>   Prefix digit string. Mapping (GSM,ISUP)=>Binary: (*,A)=>A, (#,*)=>B, (a,#)=>C, (b,D)=>D, (c,E)=>EType is:strd
+
+<Translation_Group=value>   Specifies the translation group number.Type is:long,MIN:1,MAX:65535,DEFAULT:1
+
+<Min_Digit_Cnt=value>   Minimum number of digits expected for this entry.Type is:long,MIN:1,MAX:32,DEFAULT:10
+
+
+
+Modifiable Fields Are:
+ {Name=value}
+
+

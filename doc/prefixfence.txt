@@ -1,0 +1,226 @@
+
+##ttBulkCp
+#
+# SPATIAL.EMSPREFIXFENCE, 7 columns, dumped Sat Apr  7 03:46:15 2012
+# columns:
+#      1. PREFIXTREESELECTOR SMALLINT
+#      2. DIGITPATTERN CHAR(32 BYTE)
+#      3. TRANSLATIONGROUP SMALLINT
+#      4. EXPECTEDDIGITCOUNT TINYINT
+#      5. DIGITFENCEINDEX INTEGER
+#      6. DESCRIPTION  CHAR(32 BYTE)
+#      7. SELECTOR_TYPE TINYINT
+# end
+#
+
+1,"144393930                       ",1,11,924,"DCMGW417 MSRNs                  ",0
+
+
+cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/Prefix-Translation/Digit-Translation/1-PREFIX/Digit-Prefix-Translation;
+
+query 1-144393930-1-11-PREFIXFENCE;
+
+
+
+cd;
+cd Office-Parameters;
+cd Routing-and-Translation;
+cd Wireless-Translation;
+cd Prefix-Translation;
+cd Digit-Translation;
+cd 1-PREFIX;
+cd Digit-Prefix-Translation;
+
+query 1-144393930-1-11-PREFIXFENCE;
+
+
+
+>cd;
+
+Command Successful
+
+>cd Office-Parameters;
+
+Command Successful
+
+>cd Routing-and-Translation;
+
+Command Successful
+
+>cd Wireless-Translation;
+
+Command Successful
+
+>cd Prefix-Translation;
+
+Command Successful
+
+>cd Digit-Translation;
+
+Command Successful
+
+>cd 1-PREFIX;
+
+Command Successful
+
+>cd Digit-Prefix-Translation;
+
+Command Successful
+
+>
+
+>query 1-144393930-1-11-PREFIXFENCE;
+
+
+ PREFIXFENCE:-
+
+Identification:
+
+Prefix_Tree  [Prefix Tree].......1
+Digit_String  [Digit String].......144393930
+Translation_Group  [Translation Group].......1
+Scf_BundleID  [SCP Node Bundle].......0
+Protocol_Type  [Protocol Type].......0
+Sub_System_Number  [SSN].......1
+Name  [Name].......DCMGW417 MSRNs
+
+Properties:
+
+Digit_String_Type  [Digit String Type].......DT_NATIONAL -> 4
+Termination_Type  [Termination Type].......1
+Service_Index  [Service Index].......SI_NONE -> 1
+No_Charge  [No-Charge provisioning].......N->0
+Add_Leading_Digits_Type  [Add Leading Digits Type].......SYS_DEF -> 0
+Add_Leading_Digits  [Digits to Add].......
+Remove_Leading_Digits  [No. of digits to Remove].......0
+International_prefix_length  [International Prefix Length].......0
+Carrier_Id  [Carrier Id].......0000
+Country_Code  [Country Code].......
+Echo_Cancellation  [Echo Cancellation].......ASTRUNKCFG -> 0
+Start_Position  [Start Position].......1
+
+ Digit Count:
+
+Min_Digit_Cnt  [Min Digit Cnt].......11
+Max_Digit_Cnt  [Max Digit Cnt].......11
+
+Route:
+
+Route_Action  [Route Action].......NO_MOBILITY_ROUTE_INDEX -> 8
+Route_Index  [Route Index].......273
+National_Tree  [National Tree Selector].......0
+Call_Gapp_Filter_Id  [Call Gapping Filter ID].......0
+Output_NOA  [Output NOA].......NOA_Translated -> 255
+Ann_Or_Tone  [Action Before Routing].......NOTHING -> 0
+
+ CDR:
+
+Tariff_Group  [Tariff group].......1
+Destination_Type  [Destination type].......1
+
+Call Priority:
+
+digitFence_CPC  [CPC Override].......Do Not Overwrite
+
+Modify Digit Source:
+
+Source_Number_1  [Source Number 1].......NONE1 -> 0
+Modify_Index_1  [Modify Index 1].......0
+Source_Number_2  [Source Number 2].......NONE2 -> 0
+Modify_Index_2  [Modify Index 2].......0
+Source_Number_3  [Source Number 3].......NONE3 -> 0
+Modify_Index_3  [Modify Index 3].......0
+Source_Number_4  [Source Number 4].......NONE4 -> 0
+Modify_Index_4  [Modify Index 4].......0
+Source_Number_5  [Source Number 5].......NONE5 -> 0
+Modify_Index_5  [Modify Index 5].......0
+
+
+
+Command Successful
+
+>
+
+>help add PREFIXFENCE
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add PREFIXFENCE
+<Prefix_Tree=value>   Specifies the translation group number. ,  MIN: 1,MAX: 255
+<Digit_String=value>   Prefix digit string. Mapping (GSM,ISUP)=>Binary: (*,A)=>A, (#,*)=>B, (a,#)=>C, (b,D)=>D, (c,E)=>EType is:strd
+
+<Translation_Group=value>   Specifies the translation group number.Type is:long,MIN:1,MAX:65535,DEFAULT:1
+
+<Min_Digit_Cnt=value>   Minimum number of digits expected for this entry.Type is:long,MIN:1,MAX:32,DEFAULT:10
+
+<Termination_Type=value>   Specifies the termination type that is defined by the service provider to be used for Call Screening. , 1
+<Service_Index=value>   Specifies the service type, Type is: enum, Valid Enum values are: [Not Set->1, NCSI->101, MNP Routing Numbe 
+ ,Default Value: 1
+<Add_Leading_Digits_Type=value>   Selects System Defined or CallingParty NXX, Type is: enum, Valid Enum values are: [System Defined 
+ ,Default Value: 0
+<Remove_Leading_Digits=value>   Specifies the number of leading digits to remove from the original digit string.Type is:long,MIN:0,0
+
+<Carrier_Id=value>   Specifies the CIC assigned to this NPA-NXX or digit stream. , Valid values are: 0000 ,0001 ,0002 ,0003 ,0004 ,9
+<Route_Index=value>   Specifies the cause code or HLR number or route index to use to process the call based on the action type. , 9
+<National_Tree=value>   Specifies the national tree selector to perform the call processing. , Valid values are: 0 ,1 ,2 ,10 ,DEFAU0
+<Country_Code=value>   Country Code , Valid values are:  ,1
+<Call_Gapp_Filter_Id=value>   Specifies the Call Gapping Filter ID (1 to 64) , Valid values are: 0
+<Tariff_Group=value>   Tariff group. , Valid values are: 1 ,2 ,255
+<Destination_Type=value>   Destination type. , Valid values are: 1 ,2 ,255 ,DEFAULT : 1
+<digitFence_CPC=value>   CPC Override , Valid values are: Do Not Overwrite ,Unknown ,French Operator ,English Operator ,German Oper0
+<Source_Number_1=value>   Number to be inserted to the DIGITTYPE., Type is: enum, Valid Enum values are: [None->0, MSISDN->1, Redir 
+ ,Default Value: 0
+<Source_Number_2=value>   Number to be inserted to the DIGITTYPE., Type is: enum, Valid Enum values are: [None->0, MSISDN->1, Redir 
+ ,Default Value: 0
+<Source_Number_3=value>   Number to be inserted to the DIGITTYPE., Type is: enum, Valid Enum values are: [None->0, MSISDN->1, Redir 
+ ,Default Value: 0
+<Source_Number_4=value>   Number to be inserted to the DIGITTYPE., Type is: enum, Valid Enum values are: [None->0, MSISDN->1, Redir 
+ ,Default Value: 0
+<Source_Number_5=value>   Number to be inserted to the DIGITTYPE., Type is: enum, Valid Enum values are: [None->0, MSISDN->1, Redir 
+ ,Default Value: 0
+{Name=value}   Provides a freeform entry for recording a name for the prefix translator.Type is:string,MIN:1,MAX:32,DEFAULT:""
+
+{Add_Leading_Digits=value}   Digit string to add after number of leading digits been removed from the original digits. Mapping (GSM"
+
+{Digit_String_Type=value}   Specifies the type of the prefix digit string., Type is: enum, Valid Enum values are: [SIP->44, Local D 
+ ,Default Value: 40
+{Route_Action=value}   Specifies the type of action to be taken when processing this digit string., Type is: enum, Valid Enum value 
+ ,Default Value: 0
+{Max_Digit_Cnt=value}   Maximum number of digits expected for this entry.Type is:long,MIN:1,MAX:32,DEFAULT:11
+
+{Echo_Cancellation=value}   Echo Cancellation, Type is: enum, Valid Enum values are: [Default As Trunk CFG->0, Enabled->1, Disabled 
+ ,Default Value: 0
+{Output_NOA=value}   Output nature of address., Type is: enum, Valid Enum values are: [Unknown->0, International->1, National->2, S 
+ ,Default Value: 254
+{International_prefix_length=value}   Specifies le length of the international prefix.Type is:long,MIN:0,MAX:32,DEFAULT:0
+
+{Start_Position=value}   Specifies the start position to delete digits or insert digits.Type is:long,MIN:1,MAX:32,DEFAULT:1
+
+{Modify_Index_1=value}   Specify the acces to CpCallmModifyDigitSource. ,  MIN: 0,MAX: Not Defined
+{Modify_Index_2=value}   Specify the acces to CpCallmModifyDigitSource. ,  MIN: 0,MAX: Not Defined
+{Modify_Index_3=value}   Specify the acces to CpCallmModifyDigitSource. ,  MIN: 0,MAX: Not Defined
+{Modify_Index_4=value}   Specify the acces to CpCallmModifyDigitSource. ,  MIN: 0,MAX: Not Defined
+{Modify_Index_5=value}   Specify the acces to CpCallmModifyDigitSource. ,  MIN: 0,MAX: Not Defined
+{Tone_Duration=value}   Specify the tone duration (=0 if Announcement).Type is:long,MIN:1,MAX:255,DEFAULT:0
+
+{No_Charge=value}   Enable or disable no charge provisioning Type is:bool, Valid values are: N->0,Y->1 DEFAULT: N{Ann_Id=value}   S3
+{Tone_Id=value}   Specify the tone ID. , Valid values are: 0 ,257 ,258 ,259 ,260 ,261 ,262 ,263 ,264 ,265 ,266 ,267 ,268 ,269 ,270 0
+{Ann_Or_Tone=value}   Specify if the action is Announcement, Tone or neither., Type is: enum, Valid Enum values are: [Nothing->0, A 
+ ,Default Value: 0
+{Default_Handling=value}   Default Handling, Type is: enum, Valid Enum values are: [Continue Call->0, Release Call->1] 
+ ,Default Value: 0
+{Service_Key=value}   Service Key unique to a particular SCPType is:long,MIN:0,MAX:2147483647,DEFAULT:0
+
+{Protocol_Type=value}   Type of protocol, Type is: enum, Valid Enum values are: [CAMEL->1, IN-CS1->2, IN-GSM->3] 
+ ,Default Value: 1
+{networkListsIndex=value}   Network list index. ,  MIN: 0,MAX: Not Defined
+{NodeID=value}   Specifies SCP node identificator. ,  MIN: 1,MAX: 255
+{Scf_BundleID=value}   Specifies SCP Bundle to use. ,  MIN: 1,MAX: 32767
+{Sub_System_Number=value}   Sub System Number in the SCP Node.Type is:long,MIN:1,MAX:255,DEFAULT:12
+
+
+
+Command Successful
+
+>
+
