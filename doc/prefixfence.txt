@@ -13,7 +13,9 @@
 # end
 #
 
+1,"211                             ",1,3,86,"Community Referral Info Serv    ",0
 1,"144393930                       ",1,11,924,"DCMGW417 MSRNs                  ",0
+
 
 
 ##ttBulkCp
@@ -62,7 +64,9 @@
 # end
 #
 
+86,1,0,0,"                              ",3,1,101,16,2,63,0,0,"0000",3,0,0,"      ",255,1,1,255,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 924,1,0,0,"                              ",11,1,1,4,8,273,0,0,"0000",11,0,0,"      ",255,1,1,255,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
 
 
 ##ttBulkCp
@@ -81,7 +85,7 @@
 # end
 #
 
-12074,1,89,1,1,0,1005,0,12
+86,1,10,2,1,0,1111,0,12
 
 
 
@@ -101,6 +105,7 @@ cd 1-PREFIX;
 cd Digit-Prefix-Translation;
 
 query 1-144393930-1-11-PREFIXFENCE;
+query 1-211-1-3-PREFIXFENCE;
 
 
 
@@ -286,6 +291,84 @@ Add PREFIXFENCE
 {NodeID=value}   Specifies SCP node identificator. ,  MIN: 1,MAX: 255
 {Scf_BundleID=value}   Specifies SCP Bundle to use. ,  MIN: 1,MAX: 32767
 {Sub_System_Number=value}   Sub System Number in the SCP Node.Type is:long,MIN:1,MAX:255,DEFAULT:12
+
+
+
+Command Successful
+
+>
+
+
+
+>query 1-211-1-3-PREFIXFENCE;
+
+
+ PREFIXFENCE:-
+
+Identification:
+
+Prefix_Tree  [Prefix Tree].......1
+Digit_String  [Digit String].......211
+Translation_Group  [Translation Group].......1
+Default_Handling  [Default Handling].......REL_CALL -> 1
+Service_Key  [Service Key].......10
+NodeID  [Default SCP Node].......1111
+Scf_BundleID  [SCP Node Bundle].......0
+Protocol_Type  [Protocol Type].......INCS1 -> 2
+Sub_System_Number  [SSN].......12
+Name  [Name].......Community Referral Info Serv
+
+Properties:
+
+Digit_String_Type  [Digit String Type].......DT_N11_SERVICE_CODE -> 16
+Termination_Type  [Termination Type].......1
+Service_Index  [Service Index].......SI_NCSI -> 101
+No_Charge  [No-Charge provisioning].......N->0
+Add_Leading_Digits_Type  [Add Leading Digits Type].......SYS_DEF -> 0
+Add_Leading_Digits  [Digits to Add].......
+Remove_Leading_Digits  [No. of digits to Remove].......0
+International_prefix_length  [International Prefix Length].......0
+networkListsIndex  [Service Network List].......0
+Carrier_Id  [Carrier Id].......0000
+Country_Code  [Country Code].......
+Echo_Cancellation  [Echo Cancellation].......ASTRUNKCFG -> 0
+Start_Position  [Start Position].......1
+
+ Digit Count:
+
+Min_Digit_Cnt  [Min Digit Cnt].......3
+Max_Digit_Cnt  [Max Digit Cnt].......3
+
+Route:
+
+Route_Action  [Route Action].......CAUSE_CODE -> 2
+Route_Index  [Route Index].......63
+National_Tree  [National Tree Selector].......0
+Call_Gapp_Filter_Id  [Call Gapping Filter ID].......0
+Output_NOA  [Output NOA].......NOA_Translated -> 255
+Ann_Or_Tone  [Action Before Routing].......NOTHING -> 0
+
+ CDR:
+
+Tariff_Group  [Tariff group].......1
+Destination_Type  [Destination type].......1
+
+Call Priority:
+
+digitFence_CPC  [CPC Override].......Do Not Overwrite
+
+Modify Digit Source:
+
+Source_Number_1  [Source Number 1].......NONE1 -> 0
+Modify_Index_1  [Modify Index 1].......0
+Source_Number_2  [Source Number 2].......NONE2 -> 0
+Modify_Index_2  [Modify Index 2].......0
+Source_Number_3  [Source Number 3].......NONE3 -> 0
+Modify_Index_3  [Modify Index 3].......0
+Source_Number_4  [Source Number 4].......NONE4 -> 0
+Modify_Index_4  [Modify Index 4].......0
+Source_Number_5  [Source Number 5].......NONE5 -> 0
+Modify_Index_5  [Modify Index 5].......0
 
 
 

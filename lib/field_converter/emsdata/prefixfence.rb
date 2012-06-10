@@ -12,6 +12,9 @@ module FieldConverter
         self.df.carrierid = convert_char_carrierid
         self.df.countrycode = convert_char_countrycode
         self.df.cpc = convert_tinyint_cpc
+        self.digitfenceindex = convert_integer_digitfenceindex
+        self.df.digitfenceindex = convert_integer_digitfenceindex
+        self.ccd.digitfenceindex = convert_integer_digitfenceindex if self.ccd
         self
       end
 
@@ -21,10 +24,6 @@ module FieldConverter
 
       def convert_char_description
         description.rstrip
-      end
-
-      def convert_integer_digitfenceindex
-        nil
       end
 
       def convert_char_leadingdigitsadd
@@ -48,6 +47,10 @@ module FieldConverter
         else
           raise "Unexpected value: digitFence_CPC=#{df.cpc}"
         end
+      end
+
+      def convert_integer_digitfenceindex
+        nil
       end
 
     end

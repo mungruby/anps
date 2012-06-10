@@ -15,6 +15,7 @@ module CLI
       end
 
       def add
+        # emsprefixfence
         cli =  "add PREFIXFENCE Prefix_Tree=#{prefixtreeselector}, "
         cli << "Digit_String=#{digitpattern}, "
         cli << "Name=#{description}, "
@@ -49,9 +50,19 @@ module CLI
         cli << "Ann_Or_Tone=#{df.toneannid}, "                           # 36
         cli << "Call_Gapp_Filter_Id=#{df.callgappfilterid}, "            # 38
         cli << "No_Charge=#{df.nocharge}, "                              # 39
-        cli << "digitFence_CPC=#{df.cpc};"                               # 22
+        cli << "digitFence_CPC=#{df.cpc}"                                # 22
          
         # camel_criteria_data
+        unless self.ccd.nil?
+          cli << ", Default_Handling=#{ccd.defaulthandling}"   # 2
+          cli << ", Service_Key=#{ccd.servicekey}"             # 3
+          cli << ", Protocol_Type=#{ccd.protocoltype}"         # 4
+          cli << ", NodeID=#{ccd.nodeid}"                      # 7
+          cli << ", Scf_BundleID=#{ccd.scfbundleid}"           # 8
+          cli << ", SSN=#{ccd.ssn};"                           # 9
+        else
+          cli << ", ScfBundleID=0;"
+        end
       end
 
       def mod

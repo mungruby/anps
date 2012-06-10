@@ -1,0 +1,19 @@
+: Resource
+: EMSWIRELESSNORMAL
+
+
+: Context
+: cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/Wireless-Normalization/Digit-Translation;
+
+query 201-EMSWIRELESSNORMAL;
+
+
+Add EMSWIRELESSNORMAL Translator_Identifier=<value>,
+Tree_Type=<value>
+[, Modifier1_Type=<value>]
+[, Modifier2_Type=<value>]
+[, Modifier3_Type=<value>]
+[, Modifier4_Type=<value>]
+[, Modifier5_Type=<value>]
+[, Name=<value>]
+
