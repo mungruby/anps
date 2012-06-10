@@ -1,0 +1,167 @@
+: Resource Name
+: PREFIX
+
+##ttBulkCp
+#
+# SPATIAL.TRANSLATIONTREEBOOKKEEPER, 8 columns, dumped Sat Apr  7 03:45:44 2012
+# columns:
+#      1. TRANSTREESELECTOR INTEGER
+#      2. TREETYPE     TINYINT
+#      3. M1TYPE       TINYINT
+#      4. M2TYPE       TINYINT
+#      5. M3TYPE       TINYINT
+#      6. M4TYPE       TINYINT
+#      7. M5TYPE       TINYINT
+#      8. DESCRIPTION  CHAR(32 BYTE)
+# end
+#
+
+1,3,0,0,0,0,0,"Standard Prefix Trans           "
+
+
+
+: Context
+cd;cd Office-Parameters/Routing-and-Translation/Wireless-Translation/Prefix-Translation/Digit-Translation;
+
+query 1-PREFIX;
+
+query 201-PREFIX;
+
+
+Add PREFIX Translator_identifier=<value>,
+Tree_Type=<value>
+[, Modifier1_Type=<value>]
+[, Modifier2_Type=<value>]
+[, Modifier3_Type=<value>]
+[, Modifier4_Type=<value>]
+[, Modifier5_Type=<value>]
+[,Name=<value>]
+
+
+
+
+
+
+>cd;cd Office-Parameters/Routing-and-Translation/Wireless-Translation/Prefix-Translation/Digit-Translation;
+
+Command Successful
+
+>
+Command Successful
+
+>query 1-PREFIX;
+
+
+ PREFIX:-
+
+Identification:
+
+Translator_Identifier  [Translator Identifier].......1
+Name  [Name].......Standard Prefix Trans
+Tree_Type  [Tree Type].......3
+
+Selector:
+
+Modifier1_Type  [Type 1].......0
+Modifier2_Type  [Type 2].......INVALID_TYPE2 -> 0
+Modifier3_Type  [Type 3].......INVALID_TYPE3 -> 0
+Modifier4_Type  [Type 4].......INVALID_TYPE4 -> 0
+Modifier5_Type  [Type 5].......INVALID_TYPE5 -> 0
+
+
+
+Command Successful
+
+>query 201-PREFIX;
+
+
+ PREFIX:-
+
+Identification:
+
+Translator_Identifier  [Translator Identifier].......201
+Name  [Name].......Standard Normalization
+Tree_Type  [Tree Type].......1
+
+Selector:
+
+Modifier1_Type  [Type 1].......0
+Modifier2_Type  [Type 2].......INVALID_TYPE2 -> 0
+Modifier3_Type  [Type 3].......INVALID_TYPE3 -> 0
+Modifier4_Type  [Type 4].......INVALID_TYPE4 -> 0
+Modifier5_Type  [Type 5].......INVALID_TYPE5 -> 0
+
+
+
+Command Successful
+
+>
+
+
+(list command does not show Tree 201)
+
+>list
+1-PREFIX
+3-PREFIX
+4-PREFIX
+13-PREFIX
+14-PREFIX
+15-PREFIX
+16-PREFIX
+20-PREFIX
+28-PREFIX
+31-PREFIX
+32-PREFIX
+40-PREFIX
+61-PREFIX
+100-PREFIX
+101-PREFIX
+102-PREFIX
+103-PREFIX
+104-PREFIX
+105-PREFIX
+106-PREFIX
+107-PREFIX
+108-PREFIX
+110-PREFIX
+113-PREFIX
+114-PREFIX
+115-PREFIX
+117-PREFIX
+151-PREFIX
+152-PREFIX
+202-PREFIX
+203-PREFIX
+204-PREFIX
+205-PREFIX
+207-PREFIX
+230-PREFIX
+
+Command Successful
+
+>
+
+>help mod PREFIX
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is PREFIX
+
+ID Fields Are:
+{Translator_Identifier=value}   Specifies a number that uniquely identifies the prefix translator .Type is:long,MIN:1,MAX:255,DEFAUd
+
+
+
+Modifiable Fields Are:
+ {Name=value}   Provides a freeform entry for recording a name for the prefix translator.Type is:string,MIN:1,MAX:32,DEFAULT:""
+
+
+
+Command Successful
+
+>
+
