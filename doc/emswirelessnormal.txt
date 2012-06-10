@@ -2,10 +2,32 @@
 : EMSWIRELESSNORMAL
 
 
+
+##ttBulkCp
+#
+# SPATIAL.TRANSLATIONTREEBOOKKEEPER, 8 columns, dumped Sat Apr  7 03:45:44 2012
+# columns:
+#      1. TRANSTREESELECTOR INTEGER
+#      2. TREETYPE     TINYINT
+#      3. M1TYPE       TINYINT
+#      4. M2TYPE       TINYINT
+#      5. M3TYPE       TINYINT
+#      6. M4TYPE       TINYINT
+#      7. M5TYPE       TINYINT
+#      8. DESCRIPTION  CHAR(32 BYTE)
+# end
+#
+
+201,1,0,0,0,0,0,"Standard Normalization          "
+
+
+
 : Context
-: cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/Wireless-Normalization/Digit-Translation;
+
+cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/Wireless-Normalization/Digit-Translation;
 
 query 201-EMSWIRELESSNORMAL;
+
 
 
 Add EMSWIRELESSNORMAL Translator_Identifier=<value>,
@@ -16,4 +38,40 @@ Tree_Type=<value>
 [, Modifier4_Type=<value>]
 [, Modifier5_Type=<value>]
 [, Name=<value>]
+
+
+
+: Printout
+
+>cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/Wireless-Normalization/Digit-Translation;
+
+Command Successful
+
+>
+Command Successful
+
+>query 201-EMSWIRELESSNORMAL;
+
+
+ EMSWIRELESSNORMAL:-
+
+Identification:
+
+Translator_Identifier  [Translator Identifier].......201
+Name  [Name].......Standard Normalization
+Tree_Type  [Tree Type].......1
+
+Selector:
+
+Modifier1_Type  [Type 1].......0
+Modifier2_Type  [Type 2].......INVALID_TYPE2 -> 0
+Modifier3_Type  [Type 3].......INVALID_TYPE3 -> 0
+Modifier4_Type  [Type 4].......INVALID_TYPE4 -> 0
+Modifier5_Type  [Type 5].......INVALID_TYPE5 -> 0
+
+
+
+Command Successful
+
+>
 
