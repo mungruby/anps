@@ -1,3 +1,7 @@
+: Resource
+: EMSWIRELESSFENCE
+
+
 
 ##ttBulkCp
 #
@@ -13,8 +17,8 @@
 # end
 #
 
-201,"1                               ",1,11,2297,"1 1D-10D-11D-12D-18D            ",1
-
+201,"242                             ",1,10,2068,"Bahamas Class INTL              ",1
+2068,1,0,0,"1                             ",10,1,1,4,10,1,0,0,"    ",10,0,0,"      ",255,1,1,255,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 
 
@@ -27,7 +31,8 @@ cd Digit-Translation;
 cd 201-EMSWIRELESSNORMAL;
 cd Digit-Normalization;
 
-query 201-1-1-11-EMSWIRELESSFENCE;
+query 201-242-1-10-EMSWIRELESSFENCE;
+
 
 
 >cd;
@@ -64,7 +69,7 @@ Command Successful
 
 >
 
->query 201-1-1-11-EMSWIRELESSFENCE;
+>query 201-242-1-10-EMSWIRELESSFENCE;
 
 
  EMSWIRELESSFENCE:-
@@ -72,9 +77,9 @@ Command Successful
 Identification:
 
 Prefix_Tree  [Prefix Tree].......201
-Digit_String  [Digit String].......1
+Digit_String  [Digit String].......242
 Translation_Group  [Translation Group].......1
-Name  [Name].......1 1D-10D-11D-12D-18D
+Name  [Name].......Bahamas Class INTL
 
 Properties:
 
@@ -83,7 +88,7 @@ Termination_Type  [Termination Type].......1
 Service_Index  [Service Index].......SI_NONE -> 1
 No_Charge  [No-Charge provisioning].......N->0
 Add_Leading_Digits_Type  [Add Leading Digits Type].......SYS_DEF -> 0
-Add_Leading_Digits  [Digits to Add].......
+Add_Leading_Digits  [Digits to Add].......1
 Remove_Leading_Digits  [No. of digits to Remove].......0
 International_prefix_length  [International Prefix Length].......0
 Carrier_Id  [Carrier Id].......
@@ -93,13 +98,13 @@ Start_Position  [Start Position].......1
 
  Digit Count:
 
-Min_Digit_Cnt  [Min Digit Cnt].......11
-Max_Digit_Cnt  [Max Digit Cnt].......11
+Min_Digit_Cnt  [Min Digit Cnt].......10
+Max_Digit_Cnt  [Max Digit Cnt].......10
 
 Route:
 
 Route_Action  [Route Action].......VLR_CHECK_PREFIX_TRANS -> 10
-Route_Index  [Route Index].......201
+Route_Index  [Route Index].......1
 National_Tree  [National Tree Selector].......0
 Call_Gapp_Filter_Id  [Call Gapping Filter ID].......0
 Output_NOA  [Output NOA].......NOA_Translated -> 255

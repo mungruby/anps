@@ -16,7 +16,7 @@ require_relative './callprocessing/test_trunkgroup'
 require_relative './callprocessing/test_trunkgroupbundle'
  
 require_relative './emsdata/test_digitdescriptor'
-# require_relative './emsdata/test_emswirelessfence'
+require_relative './emsdata/test_emswirelessfence'
 require_relative './emsdata/test_nattreeselector'
 require_relative './emsdata/test_origroutemodifier'
 require_relative './emsdata/test_prefixfence'
