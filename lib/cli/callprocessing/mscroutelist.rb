@@ -5,8 +5,14 @@ module CLI
  
     module MSCROUTELIST
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Route-List;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation/Route-List;"
+        "cd #{routeindex}-MSCROUTELIST;"
       end
 
       def query
@@ -53,7 +59,7 @@ module CLI
       end
 
       def mod
-        cli = "cd #{routeindex}-MSCROUTELIST;mod "
+        "mod "
       end
 
       def del

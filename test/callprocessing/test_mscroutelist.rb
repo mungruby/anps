@@ -16,72 +16,26 @@ class Test_MSCROUTELIST < MiniTest::Unit::TestCase
 
   def self.fields
     %w[ ROUTEINDEX
-        TYPE1
-        PARAMETER1
-        OUTPULSEINDEX1
-        TYPE2
-        PARAMETER2
-        OUTPULSEINDEX2
-        TYPE3
-        PARAMETER3
-        OUTPULSEINDEX3
-        TYPE4
-        PARAMETER4
-        OUTPULSEINDEX4
-        TYPE5
-        PARAMETER5
-        OUTPULSEINDEX5
-        TYPE6
-        PARAMETER6
-        OUTPULSEINDEX6
-        TYPE7
-        PARAMETER7
-        OUTPULSEINDEX7
-        TYPE8
-        PARAMETER8
-        OUTPULSEINDEX8
-        DESCRIPTION
-        LOOKAHEAD
-        CLIOUTPULSEINDEX1
-        RNOUTPULSEINDEX1
-        OCNOUTPULSEINDEX1
-        DIGITSOUTPULSEINDEX1
-        DIGITSOUTPULSEINDEX2
-        DIGITSOUTPULSEINDEX3
-        DIGITSOUTPULSEINDEX4
-        DIGITSOUTPULSEINDEX5
-        DIGITSOUTPULSEINDEX6
-        DIGITSOUTPULSEINDEX7
-        DIGITSOUTPULSEINDEX8
-        PREDEFINEDCLIACTIVE1
-        PREDEFINEDCLIACTIVE2
-        PREDEFINEDCLIACTIVE3
-        PREDEFINEDCLIACTIVE4
-        PREDEFINEDCLIACTIVE5
-        PREDEFINEDCLIACTIVE6
-        PREDEFINEDCLIACTIVE7
-        PREDEFINEDCLIACTIVE8
-        CLIOUTPULSEINDEX2
-        RNOUTPULSEINDEX2
-        OCNOUTPULSEINDEX2
-        CLIOUTPULSEINDEX3
-        RNOUTPULSEINDEX3
-        OCNOUTPULSEINDEX3
-        CLIOUTPULSEINDEX4
-        RNOUTPULSEINDEX4
-        OCNOUTPULSEINDEX4
-        CLIOUTPULSEINDEX5
-        RNOUTPULSEINDEX5
-        OCNOUTPULSEINDEX5
-        CLIOUTPULSEINDEX6
-        RNOUTPULSEINDEX6
-        OCNOUTPULSEINDEX6
-        CLIOUTPULSEINDEX7
-        RNOUTPULSEINDEX7
-        OCNOUTPULSEINDEX7
-        CLIOUTPULSEINDEX8
-        RNOUTPULSEINDEX8
-        OCNOUTPULSEINDEX8
+        TYPE1 PARAMETER1 OUTPULSEINDEX1
+        TYPE2 PARAMETER2 OUTPULSEINDEX2
+        TYPE3 PARAMETER3 OUTPULSEINDEX3
+        TYPE4 PARAMETER4 OUTPULSEINDEX4
+        TYPE5 PARAMETER5 OUTPULSEINDEX5
+        TYPE6 PARAMETER6 OUTPULSEINDEX6
+        TYPE7 PARAMETER7 OUTPULSEINDEX7
+        TYPE8 PARAMETER8 OUTPULSEINDEX8
+        DESCRIPTION LOOKAHEAD CLIOUTPULSEINDEX1 RNOUTPULSEINDEX1 OCNOUTPULSEINDEX1
+        DIGITSOUTPULSEINDEX1 DIGITSOUTPULSEINDEX2 DIGITSOUTPULSEINDEX3 DIGITSOUTPULSEINDEX4
+        DIGITSOUTPULSEINDEX5 DIGITSOUTPULSEINDEX6 DIGITSOUTPULSEINDEX7 DIGITSOUTPULSEINDEX8
+        PREDEFINEDCLIACTIVE1 PREDEFINEDCLIACTIVE2 PREDEFINEDCLIACTIVE3 PREDEFINEDCLIACTIVE4
+        PREDEFINEDCLIACTIVE5 PREDEFINEDCLIACTIVE6 PREDEFINEDCLIACTIVE7 PREDEFINEDCLIACTIVE8
+        CLIOUTPULSEINDEX2 RNOUTPULSEINDEX2 OCNOUTPULSEINDEX2
+        CLIOUTPULSEINDEX3 RNOUTPULSEINDEX3 OCNOUTPULSEINDEX3
+        CLIOUTPULSEINDEX4 RNOUTPULSEINDEX4 OCNOUTPULSEINDEX4
+        CLIOUTPULSEINDEX5 RNOUTPULSEINDEX5 OCNOUTPULSEINDEX5
+        CLIOUTPULSEINDEX6 RNOUTPULSEINDEX6 OCNOUTPULSEINDEX6
+        CLIOUTPULSEINDEX7 RNOUTPULSEINDEX7 OCNOUTPULSEINDEX7
+        CLIOUTPULSEINDEX8 RNOUTPULSEINDEX8 OCNOUTPULSEINDEX8
       ].map { |field_name| field_name.downcase.to_sym }
   end
 
@@ -107,8 +61,13 @@ class Test_MSCROUTELIST < MiniTest::Unit::TestCase
     assert_equal 'Detroit Toll Free', @obj.convert_char_description
   end
    
-  def test_cd_cli
+  def test_context_cli
     expected = "cd; cd Office-Parameters/Routing-and-Translation/Route-List;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 746021-MSCROUTELIST;"
     assert_equal expected, @obj.cd
   end
    
@@ -144,7 +103,7 @@ class Test_MSCROUTELIST < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "cd 746021-MSCROUTELIST;mod "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -155,17 +114,13 @@ class Test_MSCROUTELIST < MiniTest::Unit::TestCase
    
   def test_candidate_key
     arr = [@obj]
-
     obj = @obj.clone
-    refute obj.object_id == @obj.object_id
-    assert arr.include? obj
-
-    obj = @obj.clone
-    obj.routeindex = 678001
+    obj.routeindex = nil
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.description = "Test Route List"
+    obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
+    obj.routeindex = @obj.routeindex
     assert arr.any? &obj.candidate_key
   end 
    
