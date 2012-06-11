@@ -5,9 +5,18 @@ module CLI
  
     module EMSWIRELESSFENCE
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Wireless-Translation"
+        cli << "/Wireless-Normalization"
+        cli << "/Digit-Translation"
+        cli << "/#{prefixtreeselector}-EMSWIRELESSNORMAL"
+        cli << "/Digit-Normalization;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/Wireless-Normalization" +
-        "/Digit-Translation/#{prefixtreeselector}-EMSWIRELESSNORMAL/Digit-Normalization;"
+        "cd #{prefixtreeselector}-#{digitpattern}-#{translationgroup}-#{expecteddigitcount}-EMSWIRELESSFENCE;"
       end
 
       def query
@@ -54,7 +63,7 @@ module CLI
       end
 
       def mod
-        "cd #{prefixtreeselector}-#{digitpattern}-#{translationgroup}-#{expecteddigitcount}-EMSWIRELESSFENCE; mod "
+        "mod "
       end
 
       def del

@@ -50,23 +50,19 @@ class Test_EMSWIRELESSFENCE < MiniTest::Unit::TestCase
   end
 
   def test_convert_fields
-    @obj.digitpattern = "242                             "
-    @obj.description = "Bahamas Class INTL              "
-    @obj.df.leadingdigitsadd = "1                             "
-    @obj.df.carrierid = "    "
-    @obj.df.countrycode = "      "
-    @obj.df.cpc = 255
+    obj = self.class.dto.new *self.class.test_data[0]
+    obj.df = self.class.df.new *self.class.test_data[1]
 
-    assert_equal @obj, @obj.convert_fields
-    assert_equal '242', @obj.digitpattern
-    assert_equal 'Bahamas Class INTL', @obj.description
-    assert_equal '1', @obj.df.leadingdigitsadd
-    assert_equal '""', @obj.df.carrierid
-    assert_equal '""', @obj.df.countrycode
-    assert_equal 'Do Not Overwrite', @obj.df.cpc
+    assert_equal obj, obj.convert_fields
+    assert_equal '242', obj.digitpattern
+    assert_equal 'Bahamas Class INTL', obj.description
+    assert_equal '1', obj.df.leadingdigitsadd
+    assert_equal '""', obj.df.carrierid
+    assert_equal '""', obj.df.countrycode
+    assert_equal 'Do Not Overwrite', obj.df.cpc
 
-    assert_nil @obj.digitfenceindex
-    assert_nil @obj.df.digitfenceindex 
+    assert_nil obj.digitfenceindex
+    assert_nil obj.df.digitfenceindex 
   end
 
   def test_convert_char_digitpattern
@@ -99,9 +95,14 @@ class Test_EMSWIRELESSFENCE < MiniTest::Unit::TestCase
     assert_equal 'Do Not Overwrite', @obj.convert_tinyint_cpc
   end
 
-  def test_cd_cli
+  def test_context_cli
     expected =  "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/"
     expected << "Wireless-Normalization/Digit-Translation/201-EMSWIRELESSNORMAL/Digit-Normalization;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 201-242-1-10-EMSWIRELESSFENCE;"
     assert_equal expected, @obj.cd
   end
    
@@ -118,18 +119,16 @@ class Test_EMSWIRELESSFENCE < MiniTest::Unit::TestCase
     expected << "Digit_String_Type=4, Carrier_Id=\"\", Add_Leading_Digits_Type=0, "
     expected << "Echo_Cancellation=0, Country_Code=\"\", Output_NOA=255, Tariff_Group=1, "
     expected << "Destination_Type=1, International_prefix_length=0, National_Tree=0, "
-
     expected << "Start_Position=1, Source_Number_1=0, Modify_Index_1=0, "
     expected << "Source_Number_2=0, Modify_Index_2=0, Source_Number_3=0, Modify_Index_3=0, "
     expected << "Source_Number_4=0, Modify_Index_4=0, Source_Number_5=0, Modify_Index_5=0, "
     expected << "Ann_Or_Tone=0, Call_Gapp_Filter_Id=0, No_Charge=0, "
     expected << "digitFence_CPC=Do Not Overwrite;"
-    # puts @obj.add
     assert_equal expected, @obj.add
   end
    
   def test_mod_cli
-    expected = "cd 201-242-1-10-EMSWIRELESSFENCE; mod "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -140,11 +139,6 @@ class Test_EMSWIRELESSFENCE < MiniTest::Unit::TestCase
    
   def test_candidate_key
     arr = [@obj]
-
-    obj = @obj.clone
-    refute obj.object_id == @obj.object_id
-    assert arr.include? obj
-
     obj = @obj.clone
     obj.prefixtreeselector = nil
     refute arr.any? &obj.candidate_key
@@ -158,7 +152,16 @@ class Test_EMSWIRELESSFENCE < MiniTest::Unit::TestCase
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.description = "Test Prefix Tree"
+    obj.expecteddigitcount = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
+    obj.df.members.each { |attribute| obj.df.public_send "#{attribute}=", nil }
+    obj.prefixtreeselector = @obj.prefixtreeselector
+    obj.digitpattern = @obj.digitpattern
+    obj.translationgroup = @obj.translationgroup
+    obj.expecteddigitcount = @obj.expecteddigitcount
     assert arr.any? &obj.candidate_key
   end 
    
