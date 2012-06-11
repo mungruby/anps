@@ -5,9 +5,16 @@ module CLI
  
     module DIGITDESCRIPTOR
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Routing"
+        cli << "/Orig-Routing"
+        cli << "/Orig-Route-Descriptor;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation" +
-          "/Routing/Orig-Routing/Orig-Route-Descriptor;"
+        "cd #{descriptorindex}-DIGITDESCRIPTOR;"
       end
 
       def query
@@ -15,12 +22,11 @@ module CLI
       end
 
       def add
-        cli = "add DIGITDESCRIPTOR Index=#{descriptorindex}, Name=#{descriptor};"
+        "add DIGITDESCRIPTOR Index=#{descriptorindex}, Name=#{descriptor};"
       end
 
       def mod
-        cli =  "cd #{descriptorindex}-DIGITDESCRIPTOR;\n"
-        cli << "mod DIGITDESCRIPTOR "
+        "mod "
       end
 
       def del

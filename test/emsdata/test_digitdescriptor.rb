@@ -15,15 +15,12 @@ class Test_DIGITDESCRIPTOR < MiniTest::Unit::TestCase
   end
 
   def self.fields
-    @@fields = %w[
-      DESCRIPTOR
-      DESCRIPTORINDEX
-      DESCRIPTORTYPE
+    %w[ DESCRIPTOR DESCRIPTORINDEX DESCRIPTORTYPE
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
-    @@test_data ||= ["REMOTE POOLING RC               ",7665,0]
+    ["REMOTE POOLING RC               ",7665,0]
   end
 
   def setup
@@ -32,10 +29,9 @@ class Test_DIGITDESCRIPTOR < MiniTest::Unit::TestCase
   end
 
   def test_convert_fields
-    @obj.descriptor = "REMOTE POOLING RC               "
-    assert_equal 'REMOTE POOLING RC               ', @obj.descriptor
-    assert_equal @obj, @obj.convert_fields
-    assert_equal 'REMOTE POOLING RC', @obj.descriptor
+    obj = self.class.dto.new *self.class.test_data
+    assert_equal obj, obj.convert_fields
+    assert_equal 'REMOTE POOLING RC', obj.descriptor
   end
 
   def test_convert_char_descriptor
@@ -43,9 +39,14 @@ class Test_DIGITDESCRIPTOR < MiniTest::Unit::TestCase
     assert_equal 'REMOTE POOLING RC', @obj.convert_char_descriptor
   end
 
-  def test_cd_cli
+  def test_context_cli
     expected =  "cd; cd Office-Parameters/Routing-and-Translation"
     expected << "/Routing/Orig-Routing/Orig-Route-Descriptor;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 7665-DIGITDESCRIPTOR;"
     assert_equal expected, @obj.cd
   end
    
@@ -60,7 +61,7 @@ class Test_DIGITDESCRIPTOR < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected =  "cd 7665-DIGITDESCRIPTOR;\nmod DIGITDESCRIPTOR "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -68,6 +69,18 @@ class Test_DIGITDESCRIPTOR < MiniTest::Unit::TestCase
     expected = "del 7665-DIGITDESCRIPTOR;"
     assert_equal expected, @obj.del
   end
+   
+  def test_candidate_key
+    arr = [@obj]
+    obj = @obj.clone
+    obj.descriptorindex = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.descriptor = nil
+    obj.descriptortype = nil
+    assert arr.any? &obj.candidate_key
+  end 
    
   def teardown
     @obj = nil
