@@ -5,9 +5,16 @@ module CLI
  
     module EMSWIRELESSNORMAL
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Wireless-Translation"
+        cli << "/Wireless-Normalization"
+        cli << "/Digit-Translation;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/" +
-        "Wireless-Normalization/Digit-Translation;"
+        "cd #{transtreeselector}-EMSWIRELESSNORMAL;"
       end
 
       def query
@@ -27,7 +34,7 @@ module CLI
       end
 
       def mod
-        "cd #{transtreeselector}-EMSWIRELESSNORMAL; mod Name=#{description};"
+        "mod Name=#{description};"
       end
 
       def del

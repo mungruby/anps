@@ -39,9 +39,14 @@ class Test_EMSWIRELESSNORMAL < MiniTest::Unit::TestCase
     assert_equal 'Standard Normalization', @obj.convert_char_description
   end
    
-  def test_cd_cli
+  def test_context_cli
     expected =  "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/"
     expected << "Wireless-Normalization/Digit-Translation;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 201-EMSWIRELESSNORMAL;"
     assert_equal expected, @obj.cd
   end
    
@@ -56,7 +61,7 @@ class Test_EMSWIRELESSNORMAL < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "cd 201-EMSWIRELESSNORMAL; mod Name=Standard Normalization;"
+    expected = "mod Name=Standard Normalization;"
     assert_equal expected, @obj.mod
   end
    
@@ -77,7 +82,13 @@ class Test_EMSWIRELESSNORMAL < MiniTest::Unit::TestCase
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.description = "Test Wireless Normalization"
+    obj.treetype = nil
+    obj.m1type = nil
+    obj.m2type = nil
+    obj.m3type = nil
+    obj.m4type = nil
+    obj.m5type = nil
+    obj.description = nil
     assert arr.any? &obj.candidate_key
   end 
    
