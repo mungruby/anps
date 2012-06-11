@@ -5,8 +5,14 @@ module CLI
  
     module COUNTRYINFO  
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Mobility-Config-Parameters"
+        cli << "/Country-Info;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Mobility-Config-Parameters/Country-Info;"
+        "cd #{country_id}-COUNTRYINFO;"
       end
 
       def query
@@ -20,7 +26,7 @@ module CLI
       end
 
       def mod
-        cli =  "mod COUNTRYINFO "
+        "mod "
       end
 
       def del
