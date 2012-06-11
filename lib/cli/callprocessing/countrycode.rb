@@ -6,8 +6,10 @@ module CLI
     module COUNTRYCODE
 
       def context
-        "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/" +
-        "International-Translation;"
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Wireless-Translation"
+        cli << "/International-Translation;"
       end
 
       def cd

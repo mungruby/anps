@@ -2,6 +2,7 @@
 require "minitest/autorun"
 require_relative '../../lib/cli/callprocessing/digittranslation'
 require_relative '../../lib/field_converter/callprocessing/digittranslation'
+require_relative '../../lib/comparators/callprocessing/digittranslation'
 
 class Test_DIGITTRANSLATION < MiniTest::Unit::TestCase
 
@@ -9,23 +10,18 @@ class Test_DIGITTRANSLATION < MiniTest::Unit::TestCase
     @@dto ||= Struct.new "Test_DIGITTRANSLATION", *fields do
       include ::CLI::CallProcessing::DIGITTRANSLATION
       include ::FieldConverter::CallProcessing::DIGITTRANSLATION
+      include ::Comparators::CallProcessing::DIGITTRANSLATION
     end
   end
 
   def self.fields
-    @@fields = %w[
-      TRANSLATIONGROUP
-      DIGITPATTERN
-      PORTEDENABLEOFFICE
-      ROUTEACTIONTYPE
-      ROUTEACTION
-      DESCRIPTION
-      NATTREESELECTOR
+    %w[ TRANSLATIONGROUP DIGITPATTERN PORTEDENABLEOFFICE ROUTEACTIONTYPE ROUTEACTION
+        DESCRIPTION NATTREESELECTOR
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
-    @@test_data ||= [1,"740                             ",1,1,400,"CARROLL OH                      ",1]
+    [1,"740                             ",1,1,400,"CARROLL OH                      ",1]
   end
 
   def setup
@@ -35,8 +31,6 @@ class Test_DIGITTRANSLATION < MiniTest::Unit::TestCase
 
   def test_convert_fields
     obj = self.class.dto.new *self.class.test_data
-    assert_equal '740                             ', obj.digitpattern
-    assert_equal 'CARROLL OH                      ', obj.description
     assert_equal obj, obj.convert_fields
     assert_equal '740', obj.digitpattern
     assert_equal 'CARROLL OH', obj.description
@@ -52,9 +46,14 @@ class Test_DIGITTRANSLATION < MiniTest::Unit::TestCase
     assert_equal 'CARROLL OH', @obj.convert_char_description
   end
 
-  def test_cd_cli
+  def test_context_cli
     expected =  "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/"
     expected << "National-Tree-Selector/1-NATTREESELECTOR/National-Translation;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 1-1-740-DIGITTRANSLATION;"
     assert_equal expected, @obj.cd
   end
    
@@ -70,13 +69,40 @@ class Test_DIGITTRANSLATION < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected =  "cd 1-1-740-DIGITTRANSLATION;\nmod DIGITTRANSLATION "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
   def test_del_cli
     expected = "del 1-1-740-DIGITTRANSLATION;"
     assert_equal expected, @obj.del
+  end
+   
+  def test_candidate_key 
+    arr = [@obj]
+
+    obj = @obj.clone
+    refute obj.object_id == @obj.object_id
+    assert arr.include? obj
+
+    obj = @obj.clone
+    obj.translationgroup = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.nattreeselector = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.digitpattern = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.portedenableoffice = nil
+    obj.routeactiontype = nil
+    obj.routeaction = nil
+    obj.description = nil
+    assert arr.any? &obj.candidate_key
   end
    
   def teardown

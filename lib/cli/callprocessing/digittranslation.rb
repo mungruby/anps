@@ -5,9 +5,17 @@ module CLI
  
     module DIGITTRANSLATION
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Wireless-Translation"
+        cli << "/National-Tree-Selector"
+        cli << "/#{nattreeselector}-NATTREESELECTOR"
+        cli << "/National-Translation;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/" +
-        "National-Tree-Selector/#{nattreeselector}-NATTREESELECTOR/National-Translation;"
+        "cd #{translationgroup}-#{nattreeselector}-#{digitpattern}-DIGITTRANSLATION;"
       end
 
       def query
@@ -25,8 +33,7 @@ module CLI
       end
 
       def mod
-        cli =  "cd #{translationgroup}-#{nattreeselector}-#{digitpattern}-DIGITTRANSLATION;\n"
-        cli << "mod DIGITTRANSLATION "
+        "mod "
       end
 
       def del

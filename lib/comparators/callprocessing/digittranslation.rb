@@ -6,10 +6,10 @@ module Comparators
     module DIGITTRANSLATION
 
       def candidate_key
-        Proc.new do |entry|
-          entry.translationgroup == self.translationgroup  and
-          entry.nattreeselector == self.nattreeselector and
-          entry.digitpattern == self.digitpattern
+        lambda do |other|
+          self.translationgroup == other.translationgroup and
+          self.nattreeselector == other.nattreeselector and
+          self.digitpattern == other.digitpattern
         end 
       end
 
