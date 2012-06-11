@@ -5,8 +5,14 @@ module CLI
  
     module TRUNKGROUPBUNDLE
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Trunk-Group-Bundle;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation/Trunk-Group-Bundle;"
+        "cd #{bundleindex}-TRUNKGROUPBUNDLE;"
       end
 
       def query
@@ -20,8 +26,7 @@ module CLI
       end
 
       def mod
-        cli =  "cd #{bundleindex}-TRUNKGROUPBUNDLE;\n"
-        cli << "mod TRUNKGROUPBUNDLE "
+        "mod "
       end
 
       def del

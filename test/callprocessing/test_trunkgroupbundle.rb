@@ -2,48 +2,54 @@
 require "minitest/autorun"
 require_relative '../../lib/cli/callprocessing/trunkgroupbundle'
 require_relative '../../lib/field_converter/callprocessing/trunkgroupbundle'
+require_relative '../../lib/comparators/callprocessing/trunkgroupbundle'
 
 class Test_TRUNKGROUPBUNDLE < MiniTest::Unit::TestCase
-
-  def self.fields
-    @@fields = %w[
-      BUNDLEINDEX
-      SYSGRPORDER
-      SYSGRPNUM
-      WEIGHT
-      ROUTETOSAMEMSF
-      BUNDLEDESC
-      DIGITSOUTPULSEINDEX
-      CLDOUTPULSEINDEX
-      CLIOUTPULSEINDEX
-    ].map { |field_name| field_name.downcase.to_sym }
-  end
 
   def self.dto
     @@dto ||= Struct.new "Test_TRUNKGROUPBUNDLE", *fields do
       include ::CLI::CallProcessing::TRUNKGROUPBUNDLE
       include ::FieldConverter::CallProcessing::TRUNKGROUPBUNDLE
+      include ::Comparators::CallProcessing::TRUNKGROUPBUNDLE
     end
   end
 
-  def setup
-    test_data = [
-      [1,1,86,1,2,"Salt Lake City LD Bundle        ",0,0,0],
+  def self.fields
+    %w[ BUNDLEINDEX SYSGRPORDER SYSGRPNUM WEIGHT ROUTETOSAMEMSF BUNDLEDESC
+        DIGITSOUTPULSEINDEX CLDOUTPULSEINDEX CLIOUTPULSEINDEX
+    ].map { |field_name| field_name.downcase.to_sym }
+  end
+
+  def self.test_data
+    [ [1,1,86,1,2,"Salt Lake City LD Bundle        ",0,0,0],
       [1,2,88,5,2,"Salt Lake City LD Bundle        ",0,0,0],
       [1,3,106,4,2,"Salt Lake City LD Bundle        ",0,0,0]
     ]           
-    @obj = self.class.dto.new *test_data.first
+  end
+
+  def setup
+    @obj = self.class.dto.new *self.class.test_data.first
     @obj.convert_fields
   end
 
   def test_convert_fields
-    # @obj.cpc = 0
-    # @obj.cpc_priority = 255
-    assert_equal @obj, @obj.convert_fields
+    obj = self.class.dto.new *self.class.test_data.first
+    assert_equal obj, obj.convert_fields
+    assert_equal 'Salt Lake City LD Bundle', obj.bundledesc
   end
 
-  def test_cd_cli
+  def test_convert_char_bundledesc
+    @obj.bundledesc = "Salt Lake City LD Bundle        "
+    assert_equal 'Salt Lake City LD Bundle', @obj.convert_char_bundledesc
+  end
+
+  def test_context_cli
     expected = "cd; cd Office-Parameters/Routing-and-Translation/Trunk-Group-Bundle;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 1-TRUNKGROUPBUNDLE;"
     assert_equal expected, @obj.cd
   end
    
@@ -64,13 +70,25 @@ class Test_TRUNKGROUPBUNDLE < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected =  "cd 1-TRUNKGROUPBUNDLE;\nmod TRUNKGROUPBUNDLE "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
   def test_del_cli
     expected = "del 1-TRUNKGROUPBUNDLE;"
     assert_equal expected, @obj.del
+  end
+   
+  def test_candidate_key 
+    arr = [@obj]
+    obj = @obj.clone
+    obj.bundleindex = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
+    obj.bundleindex = @obj.bundleindex
+    assert arr.any? &obj.candidate_key
   end
    
   def teardown
