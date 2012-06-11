@@ -5,9 +5,13 @@ module CLI
  
     module COUNTRYCODE
 
-      def cd
+      def context
         "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/" +
         "International-Translation;"
+      end
+
+      def cd
+        "cd #{countrycode}-COUNTRYCODE;"
       end
 
       def query
@@ -23,8 +27,7 @@ module CLI
       end
 
       def mod
-        cli =  "cd #{countrycode}-COUNTRYCODE;\n"
-        cli << "mod COUNTRYCODE "
+        "mod "
       end
 
       def del

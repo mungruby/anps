@@ -59,7 +59,7 @@ class Test_CFGIMSIGLOBALTITLE < MiniTest::Unit::TestCase
     assert_equal expected, @obj.add
   end
    
-  def test_add_cli_allow
+  def _test_add_cli_allow
     skip
     @obj.convert_fields
     expected =  "add CFGIMSIGLOBALTITLE E212_IMSI_Prefix=310170, E214_GTT_Prefix=310170, "

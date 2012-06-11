@@ -49,7 +49,7 @@ class Test_MCCMNC < MiniTest::Unit::TestCase
     assert_equal 'UCHMSS950', @obj.convert_char_description
   end
 
-  def test_convert_tinyint_accesstype
+  def _test_convert_tinyint_accesstype
     skip("Convert 0 to GSM?")
     assert_equal 'GSM', @obj.convert_tinyint_accesstype
   end
@@ -73,7 +73,7 @@ class Test_MCCMNC < MiniTest::Unit::TestCase
     assert_equal expected, @obj.add
   end
    
-  def test_add_cli_gsm
+  def _test_add_cli_gsm
     skip("Use GSM in the CLI?")
     @obj.convert_fields
     expected =  "add MCCMNC Mobile_Country_Code=310, Mobile_Network_Code=260, "
