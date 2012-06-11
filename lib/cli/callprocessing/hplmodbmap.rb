@@ -5,8 +5,15 @@ module CLI
  
     module HPLMODBMAP
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Mobility-Config-Parameters"
+        cli << "/ODB-Config"
+        cli << "/PLMN-ODB-Mapping;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/PLMN-ODB-Mapping;"
+        "cd #{plmnodbid}-HPLMODBMAP;"
       end
 
       def query
@@ -14,11 +21,11 @@ module CLI
       end
 
       def add
-        cli = "add HPLMODBMAP PLMN_ODB_ID=#{plmnodbid}, Service_Key=#{servicekey};"
+        "add HPLMODBMAP PLMN_ODB_ID=#{plmnodbid}, Service_Key=#{servicekey};"
       end
 
       def mod
-        cli = "mod HPLMODBMAP "
+        "mod "
       end
 
       def del

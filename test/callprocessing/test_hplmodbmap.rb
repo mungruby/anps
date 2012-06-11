@@ -1,34 +1,37 @@
 
 require "minitest/autorun"
 require_relative '../../lib/cli/callprocessing/hplmodbmap'
-# require_relative '../../lib/field_converter/callprocessing/hplmodbmap'
+require_relative '../../lib/comparators/callprocessing/hplmodbmap'
 
 class Test_HPLMODBMAP < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_HPLMODBMAP", *fields do
       include ::CLI::CallProcessing::HPLMODBMAP
-      # include ::FieldConverter::CallProcessing::HPLMODBMAP
+      include ::Comparators::CallProcessing::HPLMODBMAP
     end
   end
 
   def self.fields
-    @@fields = %w[
-      PLMNODBID
-      SERVICEKEY
+    %w[ PLMNODBID SERVICEKEY
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
-    @@test_data = [0,1]
+    [0,1]
   end
 
   def setup
     @obj = self.class.dto.new *self.class.test_data
   end
 
-  def test_cd_cli
+  def test_context_cli
     expected = "cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/PLMN-ODB-Mapping;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 0-HPLMODBMAP;"
     assert_equal expected, @obj.cd
   end
    
@@ -43,7 +46,7 @@ class Test_HPLMODBMAP < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "mod HPLMODBMAP "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -51,6 +54,22 @@ class Test_HPLMODBMAP < MiniTest::Unit::TestCase
     expected = "del 0-HPLMODBMAP;"
     assert_equal expected, @obj.del
   end
+   
+  def test_candidate_key
+    arr = [@obj]
+
+    obj = @obj.clone
+    refute obj.object_id == @obj.object_id
+    assert arr.include? obj
+
+    obj = @obj.clone
+    obj.plmnodbid = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.servicekey = nil
+    assert arr.any? &obj.candidate_key
+  end 
    
   def teardown
     @obj = nil
