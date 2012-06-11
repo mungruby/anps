@@ -15,14 +15,12 @@ class Test_NATTREESELECTOR < MiniTest::Unit::TestCase
   end
 
   def self.fields
-    @@fields = %w[
-      NATTREESELECTOR
-      DESCRIPTION
+    %w[ NATTREESELECTOR DESCRIPTION
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
-    @@test_data ||= [10,"Remote National Pooling Tree    "]
+    [10,"Remote National Pooling Tree    "]
   end
 
   def setup
@@ -31,10 +29,9 @@ class Test_NATTREESELECTOR < MiniTest::Unit::TestCase
   end
 
   def test_convert_fields
-    @obj.description = "Remote National Pooling Tree    "
-    assert_equal 'Remote National Pooling Tree    ', @obj.description
-    assert_equal @obj, @obj.convert_fields
-    assert_equal 'Remote National Pooling Tree', @obj.description
+    obj = self.class.dto.new *self.class.test_data
+    assert_equal obj, obj.convert_fields
+    assert_equal 'Remote National Pooling Tree', obj.description
   end
 
   def test_convert_char_descriptor
@@ -42,9 +39,14 @@ class Test_NATTREESELECTOR < MiniTest::Unit::TestCase
     assert_equal 'Remote National Pooling Tree', @obj.convert_char_description
   end
 
-  def test_cd_cli
+  def test_context_cli
     expected =  "cd; cd Office-Parameters/Routing-and-Translation"
     expected << "/Wireless-Translation/National-Tree-Selector;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 10-NATTREESELECTOR;"
     assert_equal expected, @obj.cd
   end
    
@@ -60,7 +62,7 @@ class Test_NATTREESELECTOR < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected =  "cd 10-NATTREESELECTOR;\nmod NATTREESELECTOR "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -68,6 +70,17 @@ class Test_NATTREESELECTOR < MiniTest::Unit::TestCase
     expected = "del 10-NATTREESELECTOR;"
     assert_equal expected, @obj.del
   end
+   
+  def test_candidate_key
+    arr = [@obj]
+    obj = @obj.clone
+    obj.nattreeselector = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.description = nil
+    assert arr.any? &obj.candidate_key
+  end 
    
   def teardown
     @obj = nil

@@ -5,9 +5,15 @@ module CLI
  
     module NATTREESELECTOR
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Wireless-Translation"
+        cli << "/National-Tree-Selector;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation" +
-          "/Wireless-Translation/National-Tree-Selector;"
+        "cd #{nattreeselector}-NATTREESELECTOR;"
       end
 
       def query
@@ -15,13 +21,11 @@ module CLI
       end
 
       def add
-        cli =  "add NATTREESELECTOR National_Tree_Selector_Identifier=#{nattreeselector}, "
-        cli << "Name=#{description};"
+        "add NATTREESELECTOR National_Tree_Selector_Identifier=#{nattreeselector}, Name=#{description};"
       end
 
       def mod
-        cli =  "cd #{nattreeselector}-NATTREESELECTOR;\n"
-        cli << "mod NATTREESELECTOR "
+        cli = "mod "
       end
 
       def del
