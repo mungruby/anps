@@ -2,6 +2,7 @@
 require "minitest/autorun"
 require_relative '../../lib/cli/callprocessing/lrnlist'
 require_relative '../../lib/field_converter/callprocessing/lrnlist'
+require_relative '../../lib/comparators/callprocessing/lrnlist'
 
 class Test_LRNLIST < MiniTest::Unit::TestCase
 
@@ -9,18 +10,17 @@ class Test_LRNLIST < MiniTest::Unit::TestCase
     @@dto ||= Struct.new "Test_LRNLIST", *fields do
       include ::CLI::CallProcessing::LRNLIST
       include ::FieldConverter::CallProcessing::LRNLIST
+      include ::Comparators::CallProcessing::LRNLIST
     end
   end
 
   def self.fields
-    @@fields = %w[
-      LRN
-      HLR_NUM
+    %w[ LRN HLR_NUM
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
-    @@test_data = ["6032059981     ",0]
+    ["6032059981     ",0]
   end
 
   def setup
@@ -30,7 +30,6 @@ class Test_LRNLIST < MiniTest::Unit::TestCase
 
   def test_convert_fields
     obj = self.class.dto.new *self.class.test_data
-    assert_equal '6032059981     ', obj.lrn
     assert_equal obj, obj.convert_fields
     assert_equal '6032059981', obj.lrn
   end
@@ -40,8 +39,13 @@ class Test_LRNLIST < MiniTest::Unit::TestCase
     assert_equal '6032059981', @obj.convert_char_lrn
   end
 
-  def test_cd_cli
+  def test_context_cli
     expected = "cd; cd Office-Parameters/Network-Parameters/1-LRNLISTKEY;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 6032059981-LRNLIST;"
     assert_equal expected, @obj.cd
   end
    
@@ -56,7 +60,7 @@ class Test_LRNLIST < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "mod LRNLIST "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -64,6 +68,22 @@ class Test_LRNLIST < MiniTest::Unit::TestCase
     expected = "del 6032059981-LRNLIST;"
     assert_equal expected, @obj.del
   end
+   
+  def test_candidate_key
+    arr = [@obj]
+
+    obj = @obj.clone
+    refute obj.object_id == @obj.object_id
+    assert arr.include? obj
+
+    obj = @obj.clone
+    obj.lrn = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.hlr_num = nil
+    assert arr.any? &obj.candidate_key
+  end 
    
   def teardown
     @obj = nil

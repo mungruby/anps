@@ -5,8 +5,14 @@ module CLI
  
     module LRNLIST
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Network-Parameters"
+        cli << "/1-LRNLISTKEY;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Network-Parameters/1-LRNLISTKEY;"
+        "cd #{lrn}-LRNLIST;"
       end
 
       def query
@@ -14,11 +20,11 @@ module CLI
       end
 
       def add
-        cli = "add LRNLIST LRN=#{lrn}, HLR_Number=#{hlr_num};"
+        "add LRNLIST LRN=#{lrn}, HLR_Number=#{hlr_num};"
       end
 
       def mod
-        cli = "mod LRNLIST "
+        "mod "
       end
 
       def del
