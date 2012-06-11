@@ -72,23 +72,13 @@ class Test_EMSWIRELESSNORMAL < MiniTest::Unit::TestCase
    
   def test_candidate_key
     arr = [@obj]
-
-    obj = @obj.clone
-    refute obj.object_id == @obj.object_id
-    assert arr.include? obj
-
     obj = @obj.clone
     obj.transtreeselector = nil
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.treetype = nil
-    obj.m1type = nil
-    obj.m2type = nil
-    obj.m3type = nil
-    obj.m4type = nil
-    obj.m5type = nil
-    obj.description = nil
+    obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
+    obj.transtreeselector = @obj.transtreeselector
     assert arr.any? &obj.candidate_key
   end 
    

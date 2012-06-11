@@ -39,9 +39,14 @@ class Test_PREFIX < MiniTest::Unit::TestCase
     assert_equal 'Standard Prefix Trans', @obj.convert_char_description
   end
    
-  def test_cd_cli
+  def test_context_cli
     expected =  "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/"
     expected << "Prefix-Translation/Digit-Translation;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 1-PREFIX;"
     assert_equal expected, @obj.cd
   end
    
@@ -56,7 +61,7 @@ class Test_PREFIX < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "cd 1-PREFIX; mod Name=Standard Prefix Trans;"
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -67,17 +72,13 @@ class Test_PREFIX < MiniTest::Unit::TestCase
    
   def test_candidate_key
     arr = [@obj]
-
-    obj = @obj.clone
-    refute obj.object_id == @obj.object_id
-    assert arr.include? obj
-
     obj = @obj.clone
     obj.transtreeselector = nil
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.description = "Test Prefix Tree"
+    obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
+    obj.transtreeselector = @obj.transtreeselector
     assert arr.any? &obj.candidate_key
   end 
    

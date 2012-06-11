@@ -5,9 +5,16 @@ module CLI
  
     module PREFIX
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Wireless-Translation"
+        cli << "/Prefix-Translation"
+        cli << "/Digit-Translation;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/" +
-        "Prefix-Translation/Digit-Translation;"
+        "cd #{transtreeselector}-PREFIX;"
       end
 
       def query
@@ -27,7 +34,7 @@ module CLI
       end
 
       def mod
-        "cd #{transtreeselector}-PREFIX; mod Name=#{description};"
+        "mod "
       end
 
       def del
