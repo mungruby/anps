@@ -191,7 +191,21 @@ class Test_EMERGENCYZONE < MiniTest::Unit::TestCase
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.esz_name = "Test PSAP"
+    obj.esz_name = nil
+    obj.gmlc_dn = nil
+    obj.psap_zone_dn = nil
+    obj.begin_esrk = nil
+    obj.end_esrk = nil
+    obj.begin_esrk_pool2 = nil
+    obj.end_esrk_pool2 = nil
+    obj.begin_esrk_pool3 = nil
+    obj.end_esrk_pool3 = nil
+    obj.loc_service_option = nil
+    obj.ec_routing_option = nil
+    obj.scp_address = nil
+    obj.scp_inap_ssn = nil
+    obj.inap_e911_service_key = nil
+    obj.esz_qos_resp_time_cat = nil
     assert arr.any? &obj.candidate_key
   end 
    

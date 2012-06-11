@@ -3,10 +3,13 @@ module Alcatel
   module CallProcessing
     module Resource
       module EMERGENCYZONE
+
         module CommandLine
 
           def context
-            "cd; cd Office-Parameters/Mobility-Config-Parameters/Emergency-Service-Zone-Provisioning;"
+            cli =  "cd; cd Office-Parameters"
+            cli << "/Mobility-Config-Parameters"
+            cli << "/Emergency-Service-Zone-Provisioning;"
           end
 
           def cd
