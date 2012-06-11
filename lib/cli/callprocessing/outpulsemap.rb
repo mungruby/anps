@@ -5,13 +5,18 @@ module CLI
  
     module OUTPULSEMAP
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Outpulse-Maps"
+        cli << "/ISUP-or-BICC-or-SIP-Outpulse-Map;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Outpulse-Maps/ISUP-or-BICC-or-SIP-Outpulse-Map;"
+        "cd #{outpulsemapid}-#{digitpattern}-#{inputnoa}-#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
       end
 
       def query
-        "query #{outpulsemapid}-#{digitpattern}-#{inputnoa}-" +
-        "#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
+        "query #{outpulsemapid}-#{digitpattern}-#{inputnoa}-#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
       end
 
       def add
@@ -62,14 +67,11 @@ module CLI
       end
 
       def mod
-        cli = "cd #{outpulsemapid}-#{digitpattern}-#{inputnoa}-"
-        cli << "#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;\n"
-        cli << "mod OUTPULSEMAP "
+        "mod "
       end
 
       def del
-        "del #{outpulsemapid}-#{digitpattern}-#{inputnoa}-" +
-        "#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
+        "del #{outpulsemapid}-#{digitpattern}-#{inputnoa}-#{mindigitcount}-#{maxdigitcount}-OUTPULSEMAP;"
       end
 
     end
