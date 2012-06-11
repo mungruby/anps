@@ -5,9 +5,14 @@ module CLI
  
     module CFGIMSIGLOBALTITLE
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Mobility-Config-Parameters"
+        cli << "/Mobile-Global-Title-or-Allowed-Roaming-Number;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Mobility-Config-Parameters/" +
-        "Mobile-Global-Title-or-Allowed-Roaming-Number;"
+        "cd #{e212imsistr}-#{e214gttstr}-#{nwknodeid}-CFGIMSIGLOBALTITLE;"
       end
 
       def query
@@ -22,7 +27,7 @@ module CLI
       end
 
       def mod
-        cli =  "mod CFGIMSIGLOBALTITLE "
+        "mod "
       end
 
       def del

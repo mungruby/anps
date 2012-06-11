@@ -2,34 +2,37 @@
 require "minitest/autorun"
 require_relative '../../lib/cli/mmappconfigdata/cfgimsiglobaltitle'
 require_relative '../../lib/field_converter/mmappconfigdata/cfgimsiglobaltitle'
+require_relative '../../lib/comparators/mmappconfigdata/cfgimsiglobaltitle'
 
 class Test_CFGIMSIGLOBALTITLE < MiniTest::Unit::TestCase
-
-  def self.fields
-    @@fields = %w[
-      E212IMSISTR
-      E214GTTSTR
-      NWKNODEID
-      ACTIVEFLAG
-    ].map { |field_name| field_name.downcase.to_sym }
-  end
 
   def self.dto
     @@dto ||= Struct.new "Test_CFGIMSIGLOBALTITLE", *fields do
       include ::CLI::MMAppConfigData::CFGIMSIGLOBALTITLE
       include ::FieldConverter::MMAppConfigData::CFGIMSIGLOBALTITLE
+      include ::Comparators::MMAppConfigData::CFGIMSIGLOBALTITLE
     end
   end
 
+  def self.fields
+    %w[ E212IMSISTR E214GTTSTR NWKNODEID ACTIVEFLAG
+    ].map { |field_name| field_name.downcase.to_sym }
+  end
+
+  def self.test_data
+    ["310170         ","310170         ",0,1]
+  end
+
   def setup
-    test_data = ["310170         ","310170         ",0,1]
-    @obj = self.class.dto.new *test_data
+    @obj = self.class.dto.new *self.class.test_data
+    @obj.convert_fields
   end
 
   def test_convert_fields
-    assert_equal @obj, @obj.convert_fields
-    assert_equal '310170', @obj.e212imsistr
-    assert_equal '310170', @obj.e214gttstr
+    obj = self.class.dto.new *self.class.test_data
+    assert_equal obj, obj.convert_fields
+    assert_equal '310170', obj.e212imsistr
+    assert_equal '310170', obj.e214gttstr
   end
 
   def test_convert_char_e212imsistr
@@ -40,14 +43,18 @@ class Test_CFGIMSIGLOBALTITLE < MiniTest::Unit::TestCase
     assert_equal '310170', @obj.convert_char_e214gttstr
   end
 
-  def test_cd_cli
+  def test_context_cli
     expected = "cd; cd Office-Parameters/Mobility-Config-Parameters/" +
                "Mobile-Global-Title-or-Allowed-Roaming-Number;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 310170-310170-0-CFGIMSIGLOBALTITLE;"
     assert_equal expected, @obj.cd
   end
    
   def test_query_cli
-    @obj.convert_fields
     expected = "query 310170-310170-0-CFGIMSIGLOBALTITLE;"
     assert_equal expected, @obj.query
   end
@@ -68,15 +75,34 @@ class Test_CFGIMSIGLOBALTITLE < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "mod CFGIMSIGLOBALTITLE "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
   def test_del_cli
-    @obj.convert_fields
     expected = "del 310170-310170-0-CFGIMSIGLOBALTITLE;"
     assert_equal expected, @obj.del
   end
+   
+  #  %w[ E212IMSISTR E214GTTSTR NWKNODEID ACTIVEFLAG
+  def test_candidate_key
+    arr = [@obj]
+    obj = @obj.clone
+    obj.e212imsistr = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.e214gttstr = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.nwknodeid = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.activeflag = nil
+    assert arr.any? &obj.candidate_key
+  end 
    
   def teardown
     @obj = nil
