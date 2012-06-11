@@ -5,8 +5,15 @@ module CLI
  
     module SERVICECRITERIA
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Mobility-Config-Parameters"
+        cli << "/ODB-Config"
+        cli << "/Service-Criteria;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/Service-Criteria;"
+        "cd #{servicekey}-SERVICECRITERIA;"
       end
 
       def query
@@ -20,7 +27,7 @@ module CLI
       end
 
       def mod
-        "cd #{servicekey}-SERVICECRITERIA;\nmod SERVICECRITERIA "
+        "mod "
       end
 
       def del

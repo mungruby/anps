@@ -15,10 +15,7 @@ class Test_SERVICECRITERIA < MiniTest::Unit::TestCase
   end
 
   def self.fields
-    %w[
-       SERVICEKEY
-       HANDLINGCRITERIA
-       DESCRIPTION
+    %w[ SERVICEKEY HANDLINGCRITERIA DESCRIPTION
       ].map { |field_name| field_name.downcase.to_sym }
   end
 
@@ -42,8 +39,13 @@ class Test_SERVICECRITERIA < MiniTest::Unit::TestCase
     assert_equal 'BHPLMN Type 1', @obj.convert_char_description
   end
    
-  def test_cd_cli
+  def test_context_cli
     expected = "cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/Service-Criteria;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 1-SERVICECRITERIA;"
     assert_equal expected, @obj.cd
   end
    
@@ -58,7 +60,7 @@ class Test_SERVICECRITERIA < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected =  "cd 1-SERVICECRITERIA;\nmod SERVICECRITERIA "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -67,24 +69,15 @@ class Test_SERVICECRITERIA < MiniTest::Unit::TestCase
     assert_equal expected, @obj.del
   end
    
-  def test_include 
-    arr = [@obj]
-    assert arr.include? @obj
-    obj = self.class.dto.new *self.class.test_data
-    obj.description = ""
-    refute arr.include? obj
-  end 
-
   def test_candidate_key
     arr = [@obj]
-    obj = self.class.dto.new *self.class.test_data
-
-    obj.servicekey = 2
+    obj = @obj.clone
+    obj.servicekey = nil
     refute arr.any? &obj.candidate_key
 
-    obj.servicekey = 1
-    obj.handlingcriteria = 1
-    obj.description = ""
+    obj.servicekey = @obj.servicekey
+    obj.handlingcriteria = nil
+    obj.description = nil
     assert arr.any? &obj.candidate_key
   end 
    
