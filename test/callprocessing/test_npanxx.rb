@@ -15,10 +15,7 @@ class Test_NPANXX < MiniTest::Unit::TestCase
   end
 
   def self.fields
-    %w[
-       LATANUMBER
-       NPA_NXX
-       DESCRIPTION
+    %w[ LATANUMBER NPA_NXX DESCRIPTION
       ].map { |field_name| field_name.downcase.to_sym }
   end
 
@@ -49,8 +46,13 @@ class Test_NPANXX < MiniTest::Unit::TestCase
     assert_equal 'permitted', @obj.convert_char_description
   end
    
-  def test_cd_cli
+  def test_context_cli
     expected = "cd; cd Office-Parameters/Network-Parameters/LATAs/1-LATA;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 425-NPANXX;"
     assert_equal expected, @obj.cd
   end
    
@@ -65,7 +67,7 @@ class Test_NPANXX < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected =  "cd 425-NPANXX;\nmod NPANXX "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -74,24 +76,20 @@ class Test_NPANXX < MiniTest::Unit::TestCase
     assert_equal expected, @obj.del
   end
    
-  def test_include 
-    arr = [@obj]
-    assert arr.include? @obj
-    obj = self.class.dto.new *self.class.test_data
-    obj.description = ""
-    refute arr.include? obj
-  end 
-
+  # %w[ LATANUMBER NPA_NXX DESCRIPTION
   def test_candidate_key
     arr = [@obj]
-    obj = self.class.dto.new *self.class.test_data
-    obj.description = ""
-    assert arr.any? &obj.convert_fields.candidate_key
-    obj.latanumber = 552
+    obj = @obj.clone
+    obj.latanumber = nil
     refute arr.any? &obj.candidate_key
-    obj.latanumber = 1
-    obj.npa_nxx = 552
+
+    obj = @obj.clone
+    obj.npa_nxx = nil
     refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.description = nil
+    assert arr.any? &obj.candidate_key
   end 
    
   def teardown

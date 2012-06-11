@@ -5,8 +5,15 @@ module CLI
  
     module NPANXX 
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Network-Parameters"
+        cli << "/LATAs"
+        cli << "/#{latanumber}-LATA;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Network-Parameters/LATAs/#{latanumber}-LATA;"
+        "cd #{npa_nxx}-NPANXX;"
       end
 
       def query
@@ -14,11 +21,11 @@ module CLI
       end
 
       def add
-        cli = "add NPANXX NPA_NXX_X=#{npa_nxx}, Description=#{description};"
+        "add NPANXX NPA_NXX_X=#{npa_nxx}, Description=#{description};"
       end
 
       def mod
-        "cd #{npa_nxx}-NPANXX;\nmod NPANXX "
+        "mod "
       end
 
       def del
