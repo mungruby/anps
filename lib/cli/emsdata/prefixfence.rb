@@ -5,9 +5,18 @@ module CLI
  
     module PREFIXFENCE
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Wireless-Translation"
+        cli << "/Prefix-Translation"
+        cli << "/Digit-Translation"
+        cli << "/#{prefixtreeselector}-PREFIX"
+        cli << "/Digit-Prefix-Translation;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/Prefix-Translation" +
-        "/Digit-Translation/#{prefixtreeselector}-PREFIX/Digit-Prefix-Translation;"
+        "cd #{prefixtreeselector}-#{digitpattern}-#{translationgroup}-#{expecteddigitcount}-PREFIXFENCE;"
       end
 
       def query
@@ -66,7 +75,7 @@ module CLI
       end
 
       def mod
-        cli = "cd #{prefixtreeselector}-#{digitpattern}-#{translationgroup}-#{expecteddigitcount}-PREFIXFENCE;mod "
+        "mod "
       end
 
       def del

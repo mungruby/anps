@@ -64,23 +64,19 @@ class Test_PREFIXFENCE < MiniTest::Unit::TestCase
   end
 
   def test_convert_fields
-    @obj.digitpattern = "144393930                       "
-    @obj.description = "DCMGW417 MSRNs                  "
-    @obj.df.leadingdigitsadd = "                              "
-    @obj.df.carrierid = "0000"
-    @obj.df.countrycode = "      "
-    @obj.df.cpc = 255
+    obj = self.class.dto.new *self.class.test_data[0]
+    obj.df = self.class.df.new *self.class.test_data[1]
 
-    assert_equal @obj, @obj.convert_fields
-    assert_equal '144393930', @obj.digitpattern
-    assert_equal 'DCMGW417 MSRNs', @obj.description
-    assert_equal "", @obj.df.leadingdigitsadd
-    assert_equal '0000', @obj.df.carrierid
-    assert_equal '""', @obj.df.countrycode
-    assert_equal 'Do Not Overwrite', @obj.df.cpc
+    assert_equal obj, obj.convert_fields
+    assert_equal '144393930', obj.digitpattern
+    assert_equal 'DCMGW417 MSRNs', obj.description
+    assert_equal "", obj.df.leadingdigitsadd
+    assert_equal '0000', obj.df.carrierid
+    assert_equal '""', obj.df.countrycode
+    assert_equal 'Do Not Overwrite', obj.df.cpc
 
-    assert_nil @obj.digitfenceindex
-    assert_nil @obj.df.digitfenceindex 
+    assert_nil obj.digitfenceindex
+    assert_nil obj.df.digitfenceindex 
   end
 
   def test_convert_char_digitpattern
@@ -113,9 +109,14 @@ class Test_PREFIXFENCE < MiniTest::Unit::TestCase
     assert_equal 'Do Not Overwrite', @obj.convert_tinyint_cpc
   end
 
-  def test_cd_cli
+  def test_context_cli
     expected =  "cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/"
     expected << "Prefix-Translation/Digit-Translation/1-PREFIX/Digit-Prefix-Translation;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 1-144393930-1-11-PREFIXFENCE;"
     assert_equal expected, @obj.cd
   end
    
@@ -168,7 +169,7 @@ class Test_PREFIXFENCE < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "cd 1-144393930-1-11-PREFIXFENCE;mod "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -179,11 +180,6 @@ class Test_PREFIXFENCE < MiniTest::Unit::TestCase
    
   def test_candidate_key
     arr = [@obj]
-
-    obj = @obj.clone
-    refute obj.object_id == @obj.object_id
-    assert arr.include? obj
-
     obj = @obj.clone
     obj.prefixtreeselector = nil
     refute arr.any? &obj.candidate_key
@@ -197,7 +193,16 @@ class Test_PREFIXFENCE < MiniTest::Unit::TestCase
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.description = "Test Prefix Tree"
+    obj.expecteddigitcount = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
+    obj.df.members.each { |attribute| obj.df.public_send "#{attribute}=", nil }
+    obj.prefixtreeselector = @obj.prefixtreeselector
+    obj.digitpattern = @obj.digitpattern
+    obj.translationgroup = @obj.translationgroup
+    obj.expecteddigitcount = @obj.expecteddigitcount
     assert arr.any? &obj.candidate_key
   end 
    
