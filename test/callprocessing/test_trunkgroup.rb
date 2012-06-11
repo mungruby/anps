@@ -1,43 +1,40 @@
 
 require "minitest/autorun"
 require_relative '../../lib/cli/callprocessing/trunkgroup'
+require_relative '../../lib/comparators/callprocessing/trunkgroup'
 
 class Test_TRUNKGROUP < MiniTest::Unit::TestCase
-
-  def self.fields
-    @@fields = %w[
-      BUNDLEINDEX
-      SYSGRPORDER
-      SYSGRPNUM
-      WEIGHT
-      ROUTETOSAMEMSF
-      BUNDLEDESC
-      DIGITSOUTPULSEINDEX
-      CLDOUTPULSEINDEX
-      CLIOUTPULSEINDEX
-    ].map { |field_name| field_name.downcase.to_sym }
-  end
 
   def self.dto
     @@dto ||= Struct.new "Test_TRUNKGROUP", *fields do
       include ::CLI::CallProcessing::TRUNKGROUP
+      include ::Comparators::CallProcessing::TRUNKGROUP
       attr_accessor :usergrpnum
     end
   end
 
+  def self.fields
+    %w[ BUNDLEINDEX SYSGRPORDER SYSGRPNUM WEIGHT ROUTETOSAMEMSF BUNDLEDESC
+      DIGITSOUTPULSEINDEX CLDOUTPULSEINDEX CLIOUTPULSEINDEX
+    ].map { |field_name| field_name.downcase.to_sym }
+  end
+
+  def self.test_data
+    [1,3,106,4,2,"Salt Lake City LD Bundle        ",0,0,0]
+  end
+
   def setup
-    test_data = [1,3,106,4,2,"Salt Lake City LD Bundle        ",0,0,0]
-    @obj = self.class.dto.new *test_data
+    @obj = self.class.dto.new *self.class.test_data
     @obj.usergrpnum = 5620400
   end
 
-  def test_cd
-    cd = "cd; cd Office-Parameters/Routing-and-Translation/Trunk-Group-Bundle;"
-    assert_equal cd, ::CLI::CallProcessing::TRUNKGROUP.cd
+  def test_context
+    expected = "cd; cd Office-Parameters/Routing-and-Translation/Trunk-Group-Bundle/1-TRUNKGROUPBUNDLE;"
+    assert_equal expected, @obj.context 
   end
    
   def test_cd_cli
-    expected = "cd 1-TRUNKGROUPBUNDLE;"
+    expected = "cd 3-TRUNKGROUP;"
     assert_equal expected, @obj.cd
   end
    
@@ -53,14 +50,30 @@ class Test_TRUNKGROUP < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected =  "cd 3-TRUNKGROUP;\n"
-    expected << "mod TRUNKGROUP "
+    expected  = "mod "
     assert_equal expected, @obj.mod
   end
    
   def test_del_cli
     expected = "del 3-TRUNKGROUP;"
     assert_equal expected, @obj.del
+  end
+   
+  def test_candidate_key 
+    arr = [@obj]
+    obj = @obj.clone
+    obj.bundleindex = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.sysgrporder = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
+    obj.bundleindex = @obj.bundleindex
+    obj.sysgrporder = @obj.sysgrporder
+    assert arr.any? &obj.candidate_key
   end
    
   def teardown

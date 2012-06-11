@@ -5,12 +5,15 @@ module CLI
  
     module TRUNKGROUP
 
-      def self.cd
-        "cd; cd Office-Parameters/Routing-and-Translation/Trunk-Group-Bundle;"
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Trunk-Group-Bundle"
+        cli << "/#{bundleindex}-TRUNKGROUPBUNDLE;"
       end
 
       def cd
-        "cd #{bundleindex}-TRUNKGROUPBUNDLE;"
+        "cd #{sysgrporder}-TRUNKGROUP;"
       end
 
       def query
@@ -28,8 +31,7 @@ module CLI
       end
 
       def mod
-        cli =  "cd 3-TRUNKGROUP;\n"
-        cli << "mod TRUNKGROUP "
+        "mod "
       end
 
       def del
