@@ -5,9 +5,16 @@ module CLI
  
     module ORIGROUTEMODIFIER
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/Routing"
+        cli << "/Orig-Routing"
+        cli << "/Orig-Route-Modifier;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation" +
-          "/Routing/Orig-Routing/Orig-Route-Modifier;"
+        "cd #{origroutingmodifier}-ORIGROUTEMODIFIER;"
       end
 
       def query
@@ -19,8 +26,7 @@ module CLI
       end
 
       def mod
-        cli =  "cd #{origroutingmodifier}-ORIGROUTEMODIFIER;\n"
-        cli << "mod ORIGROUTEMODIFIER "
+        "mod "
       end
 
       def del

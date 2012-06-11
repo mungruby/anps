@@ -15,14 +15,12 @@ class Test_ORIGROUTEMODIFIER < MiniTest::Unit::TestCase
   end
 
   def self.fields
-    @@fields = %w[
-      ORIGROUTINGMODIFIER
-      DESCRIPTION
+    %w[ ORIGROUTINGMODIFIER DESCRIPTION
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
-    @@test_data ||= [1,"CHMGW678                        "]
+    [1,"CHMGW678                        "]
   end
 
   def setup
@@ -31,10 +29,9 @@ class Test_ORIGROUTEMODIFIER < MiniTest::Unit::TestCase
   end
 
   def test_convert_fields
-    @obj.description = 'CHMGW678                        '
-    assert_equal 'CHMGW678                        ', @obj.description
-    assert_equal @obj, @obj.convert_fields
-    assert_equal 'CHMGW678', @obj.description
+    obj = self.class.dto.new *self.class.test_data
+    assert_equal obj, obj.convert_fields
+    assert_equal 'CHMGW678', obj.description
   end
 
   def test_convert_char_description
@@ -42,9 +39,14 @@ class Test_ORIGROUTEMODIFIER < MiniTest::Unit::TestCase
     assert_equal 'CHMGW678', @obj.convert_char_description
   end
 
-  def test_cd_cli
+  def test_context_cli
     expected =  "cd; cd Office-Parameters/Routing-and-Translation"
     expected << "/Routing/Orig-Routing/Orig-Route-Modifier;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 1-ORIGROUTEMODIFIER;"
     assert_equal expected, @obj.cd
   end
    
@@ -59,7 +61,7 @@ class Test_ORIGROUTEMODIFIER < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "cd 1-ORIGROUTEMODIFIER;\nmod ORIGROUTEMODIFIER "
+    expected = "mod "
     assert_equal expected, @obj.mod
   end
    
@@ -68,18 +70,14 @@ class Test_ORIGROUTEMODIFIER < MiniTest::Unit::TestCase
     assert_equal expected, @obj.del
   end
    
-  def test_include 
-    arr = [@obj]
-    assert arr.include? @obj
-    obj = self.class.dto.new *self.class.test_data
-    obj.description = ""
-    refute arr.include? obj
-  end 
-
   def test_candidate_key
     arr = [@obj]
-    obj = self.class.dto.new *self.class.test_data
-    obj.description = ""
+    obj = @obj.clone
+    obj.origroutingmodifier = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
+    obj.description = nil
     assert arr.any? &obj.candidate_key
   end 
    
