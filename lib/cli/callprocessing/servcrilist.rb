@@ -5,8 +5,12 @@ module CLI
  
     module SERVCRILIST
 
-      def cd
+      def context
         "cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/1-SERVICECRILISTKEY;"
+      end
+
+      def cd
+        "cd #{servicekey}-#{digitpattern}-#{digittype}-SERVCRILIST;"
       end
 
       def query

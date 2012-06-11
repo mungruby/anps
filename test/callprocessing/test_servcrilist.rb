@@ -15,10 +15,7 @@ class Test_SERVCRILIST < MiniTest::Unit::TestCase
   end
 
   def self.fields
-    %w[
-       SERVICEKEY
-       DIGITPATTERN
-       DIGITTYPE
+    %w[ SERVICEKEY DIGITPATTERN DIGITTYPE
       ].map { |field_name| field_name.downcase.to_sym }
   end
 
@@ -46,8 +43,13 @@ class Test_SERVCRILIST < MiniTest::Unit::TestCase
     assert_equal '18777584887', @obj.convert_binary_digitpattern
   end
    
-  def test_cd_cli
+  def test_context_cli
     expected = "cd; cd Office-Parameters/Mobility-Config-Parameters/ODB-Config/1-SERVICECRILISTKEY;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 1-611-0-SERVCRILIST;"
     assert_equal expected, @obj.cd
   end
    
@@ -62,7 +64,7 @@ class Test_SERVCRILIST < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected =  "The resource cannot be modified."
+    expected = "The resource cannot be modified."
     assert_equal expected, @obj.mod
   end
    
@@ -73,21 +75,16 @@ class Test_SERVCRILIST < MiniTest::Unit::TestCase
    
   def test_candidate_key
     arr = [@obj]
-
     obj = @obj.clone
-    refute obj.object_id == @obj.object_id
-    assert arr.include? obj
-
-    obj = @obj.clone
-    obj.servicekey = 2
+    obj.servicekey = nil
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.digitpattern = '1611'
+    obj.digitpattern = nil
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.digittype = 1
+    obj.digittype = nil
     refute arr.any? &obj.candidate_key
   end 
    
