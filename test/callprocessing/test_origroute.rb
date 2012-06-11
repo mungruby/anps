@@ -13,14 +13,9 @@ class Test_ORIGROUTE < MiniTest::Unit::TestCase
   end
 
   def self.fields
-    %w[ ROUTEINDEX
-        ORIGROUTINGMODIFIER
-        DIGITTYPE
-        ROUTEACTIONTYPE
-        ROUTEACTION
-        AMATRANSLATIONINDEX
-        DESCRIPTION
-      ].map { |field_name| field_name.downcase.to_sym }
+    %w[ ROUTEINDEX ORIGROUTINGMODIFIER DIGITTYPE ROUTEACTIONTYPE ROUTEACTION
+        AMATRANSLATIONINDEX DESCRIPTION
+    ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
@@ -31,8 +26,13 @@ class Test_ORIGROUTE < MiniTest::Unit::TestCase
     @obj = self.class.dto.new *self.class.test_data
   end
 
-  def test_cd_cli
+  def test_context_cli
     expected = "cd; cd Office-Parameters/Routing-and-Translation/Routing/Orig-Routing/Orig-Route;"
+    assert_equal expected, @obj.context
+  end
+   
+  def test_cd_cli
+    expected = "cd 442-7665-ORIGROUTE;"
     assert_equal expected, @obj.cd
   end
    
@@ -48,7 +48,7 @@ class Test_ORIGROUTE < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "cd 442-7665-ORIGROUTE;mod "
+    expected = "mod Route_Action=7, Route_Index=421252;"
     assert_equal expected, @obj.mod
   end
    
@@ -59,23 +59,18 @@ class Test_ORIGROUTE < MiniTest::Unit::TestCase
    
   def test_candidate_key
     arr = [@obj]
-
     obj = @obj.clone
-    refute obj.object_id == @obj.object_id
-    assert arr.include? obj
-
-    obj = @obj.clone
-    obj.routeindex = 7666
+    obj.routeindex = nil
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.origroutingmodifier = 1442
+    obj.origroutingmodifier = nil
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
-    obj.routeactiontype = 3
-    obj.routeaction = 252124
-    obj.amatranslationindex = 0
+    obj.routeactiontype = nil
+    obj.routeaction = nil
+    obj.amatranslationindex = nil
     assert arr.any? &obj.candidate_key
   end 
    
