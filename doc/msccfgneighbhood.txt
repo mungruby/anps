@@ -1,0 +1,105 @@
+: Resource
+: MSCCFGNEIGHBHOOD
+
+
+
+##ttBulkCp
+#
+# SPATIAL.MSC_CFG_NEIGHBORHOOD, 7 columns, dumped Mon Mar 26 03:46:27 2012
+# columns:
+#      1. MCC          BINARY(3)
+#      2. MNC          BINARY(3)
+#      3. LAC          INTEGER
+#      4. MSCID        INTEGER
+#      5. VLRID        INTEGER
+#      6. DESCRIPTION  CHAR(32 BYTE)
+#      7. ADMINSTATE   TINYINT
+# end
+#
+
+{030100},{02060f},7804,309,310,"CHMSS966_CHBSC121               ",2
+{030100},{020600},7804,365,366,"CHMSS932                        ",2
+
+
+
+cd; 
+cd Office-Parameters;
+cd Mobility-Config-Parameters;
+cd Neighborhood-MSC-or-VLR;
+
+cd; cd Office-Parameters/Mobility-Config-Parameters/Neighborhood-MSC-or-VLR;
+
+query 310-260-7804-MSCCFGNEIGHBHOOD;
+
+add MSCCFGNEIGHBHOOD Location_Area_Code=23796, MSC_ID=341, VLR_ID=342, Mobile_Country_Code=310, Mobile_Network_Code=260, Description=ATMSS997_ATRNC001 LAC 23796;
+
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/Neighborhood-MSC-or-VLR;
+
+Command Successful
+
+>
+Command Successful
+
+>query 310-260-7804-MSCCFGNEIGHBHOOD;
+
+
+ MSCCFGNEIGHBHOOD:-
+
+Identification:
+
+Location_Area_Code  [Location Area Code].......7804
+Description  [Description].......CHMSS932
+Mobile_Country_Code  [Mobile Country Code].......310
+Mobile_Network_Code  [Mobile Network Code].......260
+
+Properties:
+
+MSC_ID  [MSC ID].......365
+VLR_ID  [VLR ID].......366
+
+Status:
+
+Availability  [Availability].......AVAILABLE -> 2
+
+
+
+Command Successful
+
+>
+
+
+
+>help mod MSCCFGNEIGHBHOOD  
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is MSCCFGNEIGHBHOOD
+
+ID Fields Are:
+{Mobile_Country_Code=value}   Specifies the mobile country code (MCC).Type is:string,MIN:3,MAX:3,DEFAULT:Not Defined
+
+{Mobile_Network_Code=value}   Specifies the mobile network code (MNC).Type is:string,MIN:2,MAX:3,DEFAULT:Not Defined
+
+<Location_Area_Code=value>   Specifies the location area code (LAC).Type is:long,MIN:0,MAX:65535,DEFAULT:Not Defined
+
+
+
+Modifiable Fields Are:
+ {MSC_ID=value}   Specifies the MSC ID. , Valid values are: 2147483647 ,1 ,5 ,7 ,9 ,11 ,15 ,17 ,20 ,24 ,26 ,28 ,30 ,32 ,34 ,36 ,38 3
+ {VLR_ID=value}   Specifies the VLR ID. , Valid values are: 2147483647 ,2 ,6 ,8 ,10 ,16 ,18 ,21 ,25 ,27 ,29 ,31 ,33 ,35 ,37 ,39 ,414
+ {Description=value}   Description.Type is:string,MIN:0,MAX:32,DEFAULT:Not Defined
+
+ {Availability=value}   Administarative State, Type is: enum, Valid Enum values are: [Unavailable->1, Available->2] 
+ ,Default Value: 1
+
+
+Command Successful
+
+>
+

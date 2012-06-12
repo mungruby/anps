@@ -26,6 +26,7 @@ require_relative './mmappconfigdata/test_cfgimsiglobaltitle'
 require_relative './mmappconfigdata/test_countryinfo'
 require_relative './mmappconfigdata/test_digitprefix'
 require_relative './mmappconfigdata/test_mccmnc'
+require_relative './mmappconfigdata/test_msccfgneighbhood'
 require_relative './mmappconfigdata/test_restrictedlaccell'
 require_relative './mmappconfigdata/test_restrictedplmn'
  

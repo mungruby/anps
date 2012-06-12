@@ -1,0 +1,118 @@
+: Resource
+: MSCNETWORKNODE
+
+
+
+##ttBulkCp
+#
+# SPATIAL.MSC_CFG_NETWORKNODES, 12 columns, dumped Mon Mar 26 03:46:28 2012
+# columns:
+#      1. NODEID       INTEGER
+#      2. NODETYPE     TINYINT
+#      3. POINTCODE    INTEGER
+#      4. ADDRESS      BINARY(9)
+#      5. VERSION      TINYINT
+#      6. DESCRIPTION  CHAR(32 BYTE)
+#      7. ROUTINGCHOICE TINYINT
+#      8. FORMAT       TINYINT
+#      9. NOA          TINYINT
+#     10. XLATIONTYPE  SMALLINT
+#     11. CAMELPHASES  BINARY(2)
+#     12. NETWORKID    TINYINT
+# end
+#
+
+3,70,0,{00ffffffffffffffff},0,"NPDB                            ",4,2,0,242,{8000},6
+1,0,13876724,{0b4150748260f3ffff},3,"Own Node MSC                    ",2,0,0,0,{0000},6
+2,1,13876724,{0b4150747260f3ffff},3,"Own Node VLR                    ",2,0,0,0,{0000},6
+4,3,0,{0b4140541504f4ffff},3,"SCP                             ",0,0,0,0,{0000},6
+23,7,0,{0b4150741204f8ffff},0,"GMLC LCS                        ",0,0,0,0,{8000},6
+329,0,0,{0b4140548510f9ffff},0,"ATMSS996 MSC - UMA              ",0,0,0,0,{8000},6
+
+
+
+: Context
+
+cd; cd Office-Parameters/Mobility-Config-Parameters/Network-Nodes;
+
+query <n>-MSCNETWORKNODE;
+
+
+
+Add MSCNETWORKNODE Node_ID=<value>,
+Node_Type_1=<value>,
+Local=<value>,
+Standard=<value>,
+Routing_Choice=<value>,
+Network_ID=<value>,
+CAMEL_Ph1=<value>,
+CAMEL_Ph2=<value>,
+CAMEL_Ph3=<value>,
+Point_Code=<value>,
+Intl_Fmt_Addr__E_164=<value>,
+Description=<value>
+[,MAP_Version=<value>]
+[, GTT_Coding_Format=<value>]
+[, Nature_of_Address=<value>]
+[, Digit_Translation_Type=<value>]
+
+
+
+
+
+
+: Resource
+: MSCCFGMSCSYSTABLE
+: Own MSC/VLR
+: Context
+cd; cd Office-Parameters/Mobility-Config-Parameters/Own-MSC-or-VLR;
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters;
+
+Command Successful
+
+>cd Own-MSC-or-VLR
+
+Command Successful
+
+>list
+1-MSCCFGMSCSYSTABLE
+
+Command Successful
+
+>query 1-MSCCFGMSCSYSTABLE
+
+
+ MSCCFGMSCSYSTABLE:-
+
+Identification:
+
+MSC_ID  [MSC ID].......1
+VLR_ID  [VLR ID].......2
+Description  [Desc/Switch Name].......SFMSS840
+VLR_NAME  [VLR Name Dot String].......
+
+Properties:
+
+Mobile_Country_Code  [Mobile Country Code].......310
+Mobile_Network_Code  [Mobile Network Code].......260
+CN_ID  [CN ID].......840
+
+MSCID:
+
+MarketID  [Market ID].......0
+SwitchNumber  [Switch Number].......0
+
+Camel Phase:
+
+Phase_3  [Phase 3].......Y->1
+Phase_2  [Phase 2].......Y->1
+Phase_1  [Phase 1].......Y->1
+
+
+
+Command Successful
+
+>
+

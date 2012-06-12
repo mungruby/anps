@@ -1,26 +1,22 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/mmappconfigdata/mccmnc'
-require_relative '../../lib/field_converter/mmappconfigdata/mccmnc'
-require_relative '../../lib/comparators/mmappconfigdata/mccmnc'
+require_relative '../../lib/alcatel/mmappconfigdata/resource/msccfgneighbhood'
 
-class Test_MCCMNC < MiniTest::Unit::TestCase
+class Test_MSCCFGNEIGHBHOOD < MiniTest::Unit::TestCase
 
   def self.dto
-    @@dto ||= Struct.new "Test_MCCMNC", *fields do
-      include ::CLI::MMAppConfigData::MCCMNC
-      include ::FieldConverter::MMAppConfigData::MCCMNC
-      include ::Comparators::MMAppConfigData::MCCMNC
-    end
+    @@dto ||= Struct.new "Test_MSCCFGNEIGHBHOOD", *fields do
+      include Alcatel::MMAppConfigData::Resource::MSCCFGNEIGHBHOOD
+   end
   end
 
   def self.fields
-    %w[ MCC MNC MCC_MNC_ID PLMNID DESCRIPTION ACCESSTYPE
+    %w[ MCC MNC LAC MSCID VLRID DESCRIPTION ADMINSTATE
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
-    ["{030100}","{020600}",2,1,"UCHMSS950                       ",0]
+    ["{030100}","{020600}",7804,365,366,"CHMSS932                        ",2]
   end
 
   def setup
@@ -33,7 +29,7 @@ class Test_MCCMNC < MiniTest::Unit::TestCase
     assert_equal obj, obj.convert_fields
     assert_equal '310', obj.mcc
     assert_equal '260', obj.mnc
-    assert_equal 'UCHMSS950', obj.description
+    assert_equal 'CHMSS932', obj.description
   end
 
   def test_convert_binary_mcc
@@ -49,40 +45,28 @@ class Test_MCCMNC < MiniTest::Unit::TestCase
   end
 
   def test_convert_char_description
-    @obj.description = "UCHMSS950                       "
-    assert_equal 'UCHMSS950', @obj.convert_char_description
-  end
-
-  def _test_convert_tinyint_accesstype
-    skip("Convert 0 to GSM?")
-    assert_equal 'GSM', @obj.convert_tinyint_accesstype
+    @obj.description = "CHMSS932                        "
+    assert_equal 'CHMSS932', @obj.convert_char_description
   end
 
   def test_context_cli
-    expected = "cd; cd Office-Parameters/Mobility-Config-Parameters/MSC-MCC-and-MNC;"
+    expected = "cd; cd Office-Parameters/Mobility-Config-Parameters/Neighborhood-MSC-or-VLR;"
     assert_equal expected, @obj.context
   end
    
   def test_cd_cli
-    expected = "cd 310-260-MCCMNC;"
+    expected = "cd 310-260-7804-MSCCFGNEIGHBHOOD;"
     assert_equal expected, @obj.cd
   end
    
   def test_query_cli
-    expected = "query 310-260-MCCMNC;"
+    expected = "query 310-260-7804-MSCCFGNEIGHBHOOD;"
     assert_equal expected, @obj.query
   end
    
-  def test_add_cli
-    expected =  "add MCCMNC Mobile_Country_Code=310, Mobile_Network_Code=260, "
-    expected << "PLMN_Id=1, Access_Type=0, Description=UCHMSS950;"
-    assert_equal expected, @obj.add
-  end
-   
-  def _test_add_cli_gsm
-    skip("Use GSM in the CLI?")
-    expected =  "add MCCMNC Mobile_Country_Code=310, Mobile_Network_Code=260, "
-    expected << "PLMN_Id=1, Access_Type=GSM, Description=UCHMSS950;"
+  def _test_add_cli
+    expected =  "add MSCCFGNEIGHBHOOD Mobile_Country_Code=310, Mobile_Network_Code=260, "
+    expected << "Location_Area_Code=7804, MSC_ID=365, VLR_ID=366, Description=CHMSS932;"
     assert_equal expected, @obj.add
   end
    
@@ -92,7 +76,7 @@ class Test_MCCMNC < MiniTest::Unit::TestCase
   end
    
   def test_del_cli
-    expected = "del 310-260-MCCMNC;"
+    expected = "del 310-260-7804-MSCCFGNEIGHBHOOD;"
     assert_equal expected, @obj.del
   end
    
@@ -107,9 +91,14 @@ class Test_MCCMNC < MiniTest::Unit::TestCase
     refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
+    obj.lac = nil
+    refute arr.any? &obj.candidate_key
+
+    obj = @obj.clone
     obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
     obj.mcc = @obj.mcc
     obj.mnc = @obj.mnc
+    obj.lac = @obj.lac
     assert arr.any? &obj.candidate_key
   end 
    
