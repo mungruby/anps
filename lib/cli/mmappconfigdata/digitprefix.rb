@@ -5,8 +5,14 @@ module CLI
  
     module DIGITPREFIX  
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Mobility-Config-Parameters"
+        cli << "/Digit-Prefix;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Mobility-Config-Parameters/Digit-Prefix;"
+        "cd #{digitprefix}-DIGITPREFIX;"
       end
 
       def query
@@ -20,7 +26,7 @@ module CLI
       end
 
       def mod
-        cli =  "mod DIGITPREFIX "
+        "mod "
       end
 
       def del
