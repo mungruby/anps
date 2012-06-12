@@ -5,8 +5,10 @@ module CLI
  
     module SPMPCARDCALLTYPE
 
-      def self.cd
-        "cd; cd Office-Parameters/Mobility-Config-Parameters/MSRN-HON-Distribution;"
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Mobility-Config-Parameters"
+        cli << "/MSRN-HON-Distribution;"
       end
 
       def cd
@@ -26,7 +28,7 @@ module CLI
       end
 
       def mod
-        cli =  "mod SPMPCARDCALLTYPE "
+        "mod "
       end
 
       def del
