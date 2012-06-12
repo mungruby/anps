@@ -84,7 +84,6 @@ class Test_CFGIMSIGLOBALTITLE < MiniTest::Unit::TestCase
     assert_equal expected, @obj.del
   end
    
-  #  %w[ E212IMSISTR E214GTTSTR NWKNODEID ACTIVEFLAG
   def test_candidate_key
     arr = [@obj]
     obj = @obj.clone

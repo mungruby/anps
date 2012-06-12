@@ -5,8 +5,14 @@ module CLI
  
     module MCCMNC
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Mobility-Config-Parameters"
+        cli << "/MSC-MCC-and-MNC;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Mobility-Config-Parameters/MSC-MCC-and-MNC;"
+        "cd #{mcc}-#{mnc}-MCCMNC;"
       end
 
       def query
@@ -22,7 +28,7 @@ module CLI
       end
 
       def mod
-        cli =  "mod MCCMNC "
+        "mod "
       end
 
       def del
