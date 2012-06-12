@@ -64,7 +64,7 @@ class Test_MSCCFGNEIGHBHOOD < MiniTest::Unit::TestCase
     assert_equal expected, @obj.query
   end
    
-  def _test_add_cli
+  def test_add_cli
     expected =  "add MSCCFGNEIGHBHOOD Mobile_Country_Code=310, Mobile_Network_Code=260, "
     expected << "Location_Area_Code=7804, MSC_ID=365, VLR_ID=366, Description=CHMSS932;"
     assert_equal expected, @obj.add
