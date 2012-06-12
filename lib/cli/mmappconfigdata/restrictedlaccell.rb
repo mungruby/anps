@@ -5,8 +5,10 @@ module CLI
  
     module RESTRICTEDLACCELL
 
-      def self.cd
-        "cd; cd Office-Parameters/Mobility-Config-Parameters/LAC-Restriction-Provisioning;"
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Mobility-Config-Parameters"
+        cli << "/LAC-Restriction-Provisioning;"
       end
 
       def cd
@@ -30,7 +32,7 @@ module CLI
       end
 
       def mod
-        cli =  "mod RESTRICTEDLACCELL "
+        "mod "
       end
 
       def del
