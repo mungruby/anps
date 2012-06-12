@@ -5,8 +5,10 @@ module CLI
  
     module RESTRICTEDPLMN  
 
-      def self.cd
-        "cd; cd Office-Parameters/Mobility-Config-Parameters/Restricted-PLMN;"
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Mobility-Config-Parameters"
+        cli << "/Restricted-PLMN;"
       end
 
       def cd
@@ -25,7 +27,7 @@ module CLI
       end
 
       def mod
-        cli =  "mod RESTRICTEDPLMN "
+        "mod "
       end
 
       def del
