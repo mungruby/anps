@@ -5,8 +5,14 @@ module CLI
  
     module SPMMSISDNHLR
 
+      def context
+        cli =  "cd; cd Office-Parameters"
+        cli << "/Routing-and-Translation"
+        cli << "/MSISDN-To-HLR;"
+      end
+
       def cd
-        "cd; cd Office-Parameters/Routing-and-Translation/MSISDN-To-HLR;"
+        "cd #{msisdn_begin}-#{msisdn_end}-SPMMSISDNHLR;"
       end
 
       def query
@@ -21,7 +27,7 @@ module CLI
       end
 
       def mod
-        cli = "mod SPMMSISDNHLR "
+        "mod "
       end
 
       def del
