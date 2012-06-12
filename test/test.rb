@@ -1,5 +1,6 @@
 
 require_relative './callprocessing/test_countrycode'
+require_relative './callprocessing/test_digitsoutpulsemap'
 require_relative './callprocessing/test_digittranslation'
 require_relative './callprocessing/test_emergencyzone'
 require_relative './callprocessing/test_emswirelessnormal'

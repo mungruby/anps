@@ -1,0 +1,252 @@
+: Resource
+: DIGITSOUTPULSEMAP
+
+
+
+##ttBulkCp
+#
+# SPATIAL.CPCALLMDIGITSOUTPULSEMAP, 30 columns, dumped Mon Jun 11 03:45:27 2012
+# columns:
+#      1. DIGITTYPE    TINYINT
+#      2. INPUTNOA     TINYINT
+#      3. NODEID       INTEGER
+#      4. SERVICEKEY   INTEGER
+#      5. OUTPULSEMAPINDEX SMALLINT
+#      6. DIGITPATTERN CHAR(32 BYTE)
+#      7. MINDIGITCOUNT TINYINT
+#      8. MAXDIGITCOUNT TINYINT
+#      9. SEND         SMALLINT
+#     10. STARTPOSITION TINYINT
+#     11. DIGITSTODELETE TINYINT
+#     12. INSERTDIGITS CHAR(30 BYTE)
+#     13. NORMALIZELOC TINYINT
+#     14. SOURCENUMBER1 TINYINT
+#     15. MODIFYDIGITINDEX1 SMALLINT
+#     16. SOURCENUMBER2 TINYINT
+#     17. MODIFYDIGITINDEX2 SMALLINT
+#     18. SOURCENUMBER3 TINYINT
+#     19. MODIFYDIGITINDEX3 SMALLINT
+#     20. SOURCENUMBER4 TINYINT
+#     21. MODIFYDIGITINDEX4 SMALLINT
+#     22. SOURCENUMBER5 TINYINT
+#     23. MODIFYDIGITINDEX5 SMALLINT
+#     24. OUTPUTNOA    TINYINT
+#     25. DESCRIPTION  CHAR(32 BYTE)
+#     26. PRESENTATIONIND TINYINT
+#     27. NUMBERINCOMPLETEIND TINYINT
+#     28. SCREENINGIND TINYINT
+#     29. CAPTUREINCDR TINYINT
+#     30. PHONECONTEXT CHAR(32 BYTE)
+# end
+#
+
+9,0,0,0,118,"?                               ",1,32,1,1,0,"118                           ",1,0,0,0,0,0,0,0,0,0,0,1,"E911 SIP-IMT +118               ",255,255,255,1,"                                "
+9,1,0,0,118,"?                               ",1,32,1,1,0,"118                           ",1,0,0,0,0,0,0,0,0,0,0,1,"E911 SIP-IMT +118               ",255,255,255,1,"                                "
+9,2,0,0,118,"?                               ",1,32,1,1,0,"118                           ",1,0,0,0,0,0,0,0,0,0,0,1,"E911 SIP-IMT +118               ",255,255,255,1,"                                "
+9,4,0,0,118,"?                               ",1,32,1,1,0,"118                           ",1,0,0,0,0,0,0,0,0,0,0,1,"E911 SIP-IMT +118               ",255,255,255,1,"                                "
+# 4/4 rows copied
+
+
+
+cd; cd Office-Parameters/Outpulse-Maps/ISUP-or-BICC-or-SIP-Outpulse-Map;
+
+
+cd; cd Office-Parameters/Outpulse-Maps;
+
+
+>cd; cd Office-Parameters/Outpulse-Maps;
+
+Command Successful
+
+>
+Command Successful
+
+>list
+Mobile-Outpulse-Map
+ISUP-or-BICC-or-SIP-Outpulse-Map
+CLI-Outpulse-Map
+RN-Outpulse-Map
+OCN-Outpulse-Map
+Digits-Manipulations
+
+Command Successful
+
+>
+
+
+cd;
+cd Office-Parameters;
+cd Outpulse-Maps;
+cd Digits-Manipulations;
+cd Digits-Outpulse-Map;
+
+list
+
+>list
+9-4-0-0-118-?-1-32-DIGITSOUTPULSEMAP
+9-2-0-0-118-?-1-32-DIGITSOUTPULSEMAP
+9-1-0-0-118-?-1-32-DIGITSOUTPULSEMAP
+9-0-0-0-118-?-1-32-DIGITSOUTPULSEMAP
+
+Command Successful
+
+>
+
+
+query 9-0-0-0-118-?-1-32-DIGITSOUTPULSEMAP;
+
+
+>query 9-0-0-0-118-?-1-32-DIGITSOUTPULSEMAP;
+
+
+ DIGITSOUTPULSEMAP:-
+
+Identification:
+
+Digit_Type  [Digit Type].......SIP_RQST_URI -> 9
+Digit_String  [Digit Pattern].......?
+Input_NOA  [Input NOA].......Unknown -> 0
+Name  [Name].......E911 SIP-IMT +118
+Outpulse_Map  [Outpulse Map Index].......118
+Min_Digit_Cnt  [Min Digit Count].......1
+Max_Digit_Cnt  [Max Digit Count].......32
+
+Properties:
+
+Sent  [Send].......Y->1
+Start_Position  [Start Position].......1
+Digits_To_Delete  [Digits To Delete].......0
+Insert_Digits  [Insert Digits].......118
+Output_NOA  [Output NOA].......NOA_INTERNATIONAL -> 1
+Capture_In_CDR  [Capture In CDR].......Yes -> 1
+Phone_RN_Context  [Phone Context].......
+
+Modify Digits Sources:
+
+Source_Number_1  [Source Number 1].......NONE1 -> 0
+Modify_Index_1  [Modify Index 1].......0
+Source_Number_2  [Source Number 2].......NONE2 -> 0
+Modify_Index_2  [Modify Index 2].......0
+Source_Number_3  [Source Number 3].......NONE3 -> 0
+Modify_Index_3  [Modify Index 3].......0
+Source_Number_4  [Source Number 4].......NONE4 -> 0
+Modify_Index_4  [Modify Index 4].......0
+Source_Number_5  [Source Number 5].......NONE5 -> 0
+Modify_Index_5  [Modify Index 5].......0
+
+
+
+Command Successful
+
+>
+
+
+>help mod DIGITSOUTPULSEMAP
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is DIGITSOUTPULSEMAP
+
+ID Fields Are:
+<Digit_Type=value>   Specifies Type of digits., Type is: enum, Valid Enum values are: [Location Number->1, Original Called Party Num
+ber->2, Redirecting Number->3, DTAP Connected Number->4, Calling Line Number->5, DTAP Calling Line Number->6, Called Party Number->7
+, SS_FTN->8, SIP Request URI->9, SIP To Header->10, SIP_From_Header->11, SIP P-Asserted-Identity->12, SIP Forwarding Number->13, SIP
+ Routing Number->14] 
+{Input_NOA=value}   Input nature of address., Type is: enum, Valid Enum values are: [Unknown->0, International->1, National->2, Subs
+criber->4] 
+ ,Default Value: 0
+<SCP_NodeID=value>   Specifies SCP node identificator. ,  MIN: 0,MAX: 255
+{Service_Key=value}   Service Key unique to a particular SCPType is:long,MIN:0,MAX:2147483647,DEFAULT:0
+
+<Outpulse_Map=value>   Specifies the index of the outpulse map.Type is:long,MIN:0,MAX:32767,DEFAULT:0
+
+{Digit_String=value}   Specifies the digit pattern of the specified DIGITTYPE.Type is:string,MIN:0,MAX:32,DEFAULT:Not Defined
+
+{Min_Digit_Cnt=value}   Specifies the minimun digit count of the specified DIGITTYPE.Type is:long,MIN:1,MAX:32,DEFAULT:1
+
+{Max_Digit_Cnt=value}   Specifies the maximun digit count of the specified DIGITTYPE.Type is:long,MIN:1,MAX:32,DEFAULT:5
+
+
+
+Modifiable Fields Are:
+ {Sent=value}   Specifies if the DIGITTYPE is to be sent or not. Type is:bool, Valid values are: N->0,Y->1 DEFAULT: Y {Start_Positio
+n=value}   Specifies the start position to delete digits or insert digits.Type is:long,MIN:1,MAX:32,DEFAULT:1
+
+ {Digits_To_Delete=value}   Specifies the number of digits to delete from the specified DIGITTYPE.Type is:long,MIN:0,MAX:32,DEFAULT:
+0
+
+ {Insert_Digits=value}   Specifies the digits string to insert into the specified DIGITTYPE.Type is:string,MIN:0,MAX:Not Defined,DEF
+AULT:""
+
+ {Not_Sent=value}   Specifies if the location number will be modified according to the format of the called party. Type is:bool, Val
+id values are: N->0,Y->1 DEFAULT: Y {Source_Number_1=value}   Number to be inserted to the DIGITTYPE., Type is: enum, Valid Enum val
+ues are: [None->0, MSISDN->1, Redirecting Number->2, Original Called Party->3, LAC->4, Cell ID/SAC->5, IMSI->6, Carrier ID->7, CLI->
+8, MCC->9, MNC->10, IMEI->11, Orig Dialed Number->12] 
+ ,Default Value: 0
+ {Modify_Index_1=value}   Specify the acces to CpCallmModifyDigitSource. ,  MIN: 0,MAX: Not Defined
+ {Source_Number_2=value}   Number to be inserted to the DIGITTYPE., Type is: enum, Valid Enum values are: [None->0, MSISDN->1, Redir
+ecting Number->2, Original Called Party->3, LAC->4, Cell ID/SAC->5, IMSI->6, Carrier ID->7, CLI->8, MCC->9, MNC->10, IMEI->11, Orig 
+Dialed Number->12] 
+ ,Default Value: 0
+ {Modify_Index_2=value}   Specify the acces to CpCallmModifyDigitSource. ,  MIN: 0,MAX: Not Defined
+ {Source_Number_3=value}   Number to be inserted to the DIGITTYPE., Type is: enum, Valid Enum values are: [None->0, MSISDN->1, Redir
+ecting Number->2, Original Called Party->3, LAC->4, Cell ID/SAC->5, IMSI->6, Carrier ID->7, CLI->8, MCC->9, MNC->10, IMEI->11, Orig 
+Dialed Number->12] 
+ ,Default Value: 0
+ {Modify_Index_3=value}   Specify the acces to CpCallmModifyDigitSource. ,  MIN: 0,MAX: Not Defined
+ {Source_Number_4=value}   Number to be inserted to the DIGITTYPE., Type is: enum, Valid Enum values are: [None->0, MSISDN->1, Redir
+ecting Number->2, Original Called Party->3, LAC->4, Cell ID/SAC->5, IMSI->6, Carrier ID->7, CLI->8, MCC->9, MNC->10, IMEI->11, Orig 
+Dialed Number->12] 
+ ,Default Value: 0
+ {Modify_Index_4=value}   Specify the acces to CpCallmModifyDigitSource. ,  MIN: 0,MAX: Not Defined
+ {Source_Number_5=value}   Number to be inserted to the DIGITTYPE., Type is: enum, Valid Enum values are: [None->0, MSISDN->1, Redir
+ecting Number->2, Original Called Party->3, LAC->4, Cell ID/SAC->5, IMSI->6, Carrier ID->7, CLI->8, MCC->9, MNC->10, IMEI->11, Orig 
+Dialed Number->12] 
+ ,Default Value: 0
+ {Modify_Index_5=value}   Specify the acces to CpCallmModifyDigitSource. ,  MIN: 0,MAX: Not Defined
+ {Output_NOA=value}   Output nature of address., Type is: enum, Valid Enum values are: [NOA_INTERNATIONAL->1, NOA_NATIONAL->2] 
+ ,Default Value: 255
+ {Name=value}   Provides a freeform entry for recording a name for the digit outpulse map.Type is:string,MIN:0,MAX:32,DEFAULT:""
+
+ {Presentation_Ind=value}   PRESENTATIONIND specifies the value of the Address Presentation Restricted Indicator field if the DIGITT
+YPE is CLI, RN or OCN, Type is: enum, Valid Enum values are: [Presentation Allowed->0, Presentation Restricted->1, Address not avail
+able->2, Restricted by Network->3, No Change->255] 
+ ,Default Value: 255
+ {Num_Incomplete_Ind=value}   NUMBERINCOMPLETEIND specifies the value of the Number Incomplete Indicator (NI) field if the DIGITTYPE
+ is CLI only., Type is: enum, Valid Enum values are: [Complete->0, Incomplete->1, No Change->255] 
+ ,Default Value: 255
+ {Screening_Ind=value}   SCREENINGIND specifies the value of Screening Indicator (SI) field if the DIGITTYPE is CLI only., Type is: 
+enum, Valid Enum values are: [UserProvidedNotVerified->0, UserProvidedVerifiedPassed->1, UserProvidedVerifiedFailed->2, Network Prov
+ided->3, No Change->255] 
+ ,Default Value: 255
+ {Capture_In_CDR=value}   CAPTUREINCDR specifies if the modified digits needs to be captured in CDR., Type is: enum, Valid Enum valu
+es are: [NO->0, YES->1] 
+ ,Default Value: 1
+ {Phone_RN_Context=value}   Specifies phone/RN context if a local number is sent in a SIP header with TEL URL or SIP URI with user=p
+hone.Type is:string,MIN:0,MAX:32,DEFAULT:""
+
+
+
+Command Successful
+
+>
+
+
+
+
+Add DIGITSOUTPULSEMAP Digit_Type=9, Digit_String=?, Name=E911 SIP-IMT +118, Insert_Digits=118, Input_NOA=0, SCP_NodeID=0, Service_Key=0, Outpulse_Map=120, Min_Digit_Cnt=1, Max_Digit_Cnt=32, Source_Number_1=0, Source_Number_2=0, Source_Number_3=0, Source_Number_4=0, Source_Number_5=0, Output_NOA=1, Sent=1, Modify_Index_1=0, Modify_Index_2=0, Modify_Index_3=0, Modify_Index_4=0, Modify_Index_5=0;
+Add DIGITSOUTPULSEMAP Digit_Type=9, Digit_String=?, Name=E911 SIP-IMT +118, Insert_Digits=118, Input_NOA=1, SCP_NodeID=0, Service_Key=0, Outpulse_Map=120, Min_Digit_Cnt=1, Max_Digit_Cnt=32, Source_Number_1=0, Source_Number_2=0, Source_Number_3=0, Source_Number_4=0, Source_Number_5=0, Output_NOA=1, Sent=1, Modify_Index_1=0, Modify_Index_2=0, Modify_Index_3=0, Modify_Index_4=0, Modify_Index_5=0;
+Add DIGITSOUTPULSEMAP Digit_Type=9, Digit_String=?, Name=E911 SIP-IMT +118, Insert_Digits=118, Input_NOA=2, SCP_NodeID=0, Service_Key=0, Outpulse_Map=120, Min_Digit_Cnt=1, Max_Digit_Cnt=32, Source_Number_1=0, Source_Number_2=0, Source_Number_3=0, Source_Number_4=0, Source_Number_5=0, Output_NOA=1, Sent=1, Modify_Index_1=0, Modify_Index_2=0, Modify_Index_3=0, Modify_Index_4=0, Modify_Index_5=0;
+Add DIGITSOUTPULSEMAP Digit_Type=9, Digit_String=?, Name=E911 SIP-IMT +118, Insert_Digits=118, Input_NOA=4, SCP_NodeID=0, Service_Key=0, Outpulse_Map=120, Min_Digit_Cnt=1, Max_Digit_Cnt=32, Source_Number_1=0, Source_Number_2=0, Source_Number_3=0, Source_Number_4=0, Source_Number_5=0, Output_NOA=1, Sent=1, Modify_Index_1=0, Modify_Index_2=0, Modify_Index_3=0, Modify_Index_4=0, Modify_Index_5=0;
+
+
+query 9-0-0-0-118-?-1-32-DIGITSOUTPULSEMAP; 
+query 9-1-0-0-118-?-1-32-DIGITSOUTPULSEMAP; 
+query 9-2-0-0-118-?-1-32-DIGITSOUTPULSEMAP; 
+query 9-4-0-0-118-?-1-32-DIGITSOUTPULSEMAP;
+
+
