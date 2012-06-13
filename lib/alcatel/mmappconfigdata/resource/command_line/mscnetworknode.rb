@@ -41,8 +41,8 @@ module Alcatel
           def add
             cli =  "add MSCNETWORKNODE Node_ID=#{nodeid}, "
             cli << "Node_Type_1=#{nodetype}, "
-            cli << "Local=#{}, "
-            cli << "Standard=#{}, "
+            cli << "Local=#{1}, "                            # magic number
+            cli << "Standard=#{1}, "                         # magic number
             cli << "Routing_Choice=#{routingchoice}, "
             cli << "Network_ID=#{networkid}, "
             cli << "CAMEL_Ph1=#{camelphases}, "

@@ -28,18 +28,22 @@ class Test_MSCNETWORKNODE < MiniTest::Unit::TestCase
   def test_convert_fields
     obj = self.class.dto.new *self.class.test_data
     assert_equal obj, obj.convert_fields
-    # assert_equal '310', obj.mcc
+    assert_equal '211-189-244', obj.pointcode
     assert_equal 'Own Node MSC', obj.description
   end
 
-  def _test_convert_integer_pointcode
+  def test_convert_integer_pointcode
+    @obj.pointcode = 0
+    assert_equal '000-000-000', @obj.convert_integer_pointcode
     @obj.pointcode = 13876724
-    assert_equal '', @obj.convert_integer_pointcode
+    assert_equal '211-189-244', @obj.convert_integer_pointcode
   end
 
   def test_convert_binary_address
     @obj.address = "{0b4150748260f3ffff}"
     assert_equal '14054728063', @obj.convert_binary_address
+    @obj.address = "{00ffffffffffffffff}"
+    assert_equal '', @obj.convert_binary_address
   end
 
   def _test_convert_binary_camelphases
@@ -86,9 +90,9 @@ class Test_MSCNETWORKNODE < MiniTest::Unit::TestCase
   #  [, Digit_Translation_Type=<value>]
   #
   def test_add_cli
-    expected =  "add MSCNETWORKNODE Node_ID=1, Node_Type_1=0, Local=, Standard=, Routing_Choice=2, "
+    expected =  "add MSCNETWORKNODE Node_ID=1, Node_Type_1=0, Local=1, Standard=1, Routing_Choice=2, "
     expected << "Network_ID=6, CAMEL_Ph1={0000}, CAMEL_Ph2={0000}, CAMEL_Ph3={0000}, "
-    expected << "Point_Code=13876724, Intl_Fmt_Addr__E_164=14054728063, MAP_Version=3, "
+    expected << "Point_Code=211-189-244, Intl_Fmt_Addr__E_164=14054728063, MAP_Version=3, "
     expected << "GTT_Coding_Format=0, Nature_of_Address=0, Digit_Translation_Type=0, "
     expected << "Description=Own Node MSC;"
     assert_equal expected, @obj.add
@@ -104,17 +108,11 @@ class Test_MSCNETWORKNODE < MiniTest::Unit::TestCase
     assert_equal expected, @obj.del
   end
    
-  #  %w[ NODEID NODETYPE POINTCODE ADDRESS VERSION DESCRIPTION
-  #      ROUTINGCHOICE FORMAT NOA XLATIONTYPE CAMELPHASES NETWORKID
   def test_candidate_key
     arr = [@obj]
     obj = @obj.clone
     obj.nodeid = nil
     refute arr.any? &obj.candidate_key
-
-    # obj = @obj.clone
-    # obj.mnc = nil
-    # refute arr.any? &obj.candidate_key
 
     obj = @obj.clone
     obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }

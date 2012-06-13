@@ -7,15 +7,24 @@ module Alcatel
         module Converter
 
           def convert_fields
+            self.pointcode = convert_integer_pointcode
             self.address = convert_binary_address
-            # self.mnc = convert_binary_mnc
             self.description = convert_char_description
             self
           end
 
-          # def convert_binary_mnc
-          #   mnc.match(/{.([0-9a-f]).([0-9a-f]).([0-9a-f])}/).to_a.drop(1).join.delete('f')
-          # end
+          def convert_integer_pointcode
+            case self.pointcode
+              when 0 then '000-000-000'
+            else
+              decimal = pointcode
+              a = decimal / 65536
+              decimal = decimal - (a * 65536)
+              b = decimal / 256
+              c = decimal - (b * 256)
+              "#{a}-#{b}-#{c}"
+            end
+          end
 
           def convert_binary_address
             arr_to_fill, idx = 0, 0
