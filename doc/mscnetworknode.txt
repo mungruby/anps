@@ -29,6 +29,9 @@
 23,7,0,{0b4150741204f8ffff},0,"GMLC LCS                        ",0,0,0,0,{8000},6
 329,0,0,{0b4140548510f9ffff},0,"ATMSS996 MSC - UMA              ",0,0,0,0,{8000},6
 
+136,0,0,{0b5126721520f3ffff},0,"SFMSS840_MSC                    ",0,0,0,0,{e000},6
+1003,3,0,{0b4150741264f5ffff},3,"ZOOVE SCP                       ",0,0,0,0,{2000},6
+
 
 
 : Context
@@ -210,6 +213,80 @@ Supported CAMEL Phases:
 CAMEL_Ph1  [CAMEL Ph1].......Y->1
 CAMEL_Ph2  [CAMEL Ph2].......N->0
 CAMEL_Ph3  [CAMEL Ph3].......N->0
+
+
+
+Command Successful
+
+>
+
+
+
+query 136-MSCNETWORKNODE;
+
+>query 136-MSCNETWORKNODE;
+
+
+ MSCNETWORKNODE:-
+
+Identification:
+
+Node_ID  [Node ID].......136
+Node_Type_1  [Node Type].......MSC -> 0
+Local  [Local].......Y->1
+Standard  [Standard].......Y->1
+
+Properties:
+
+Routing_Choice  [Routing Choice].......GTT -> 0
+Description  [Description].......SFMSS840_MSC
+MAP_Version  [MAP Version].......USE_MAP_STACK -> 0
+Network_ID  [Network Type].......6
+Point_Code  [Point Code].......000-000-000
+Intl_Fmt_Addr__E_164  [Intl Fmt Addr (E.164)].......15622751023
+
+Supported CAMEL Phases:
+
+CAMEL_Ph1  [CAMEL Ph1].......Y->1
+CAMEL_Ph2  [CAMEL Ph2].......Y->1
+CAMEL_Ph3  [CAMEL Ph3].......Y->1
+
+
+
+Command Successful
+
+>
+
+
+
+query 1003-MSCNETWORKNODE;
+
+>query 1003-MSCNETWORKNODE;
+
+
+ MSCNETWORKNODE:-
+
+Identification:
+
+Node_ID  [Node ID].......1003
+Node_Type_1  [Node Type].......SCP -> 3
+Local  [Local].......Y->1
+Standard  [Standard].......Y->1
+
+Properties:
+
+Routing_Choice  [Routing Choice].......GTT -> 0
+Description  [Description].......ZOOVE SCP
+MAP_Version  [MAP Version].......MAP_VER_2P -> 3
+Network_ID  [Network Type].......6
+Point_Code  [Point Code].......000-000-000
+Intl_Fmt_Addr__E_164  [Intl Fmt Addr (E.164)].......14054721465
+
+Supported CAMEL Phases:
+
+CAMEL_Ph1  [CAMEL Ph1].......N->0
+CAMEL_Ph2  [CAMEL Ph2].......N->0
+CAMEL_Ph3  [CAMEL Ph3].......Y->1
 
 
 

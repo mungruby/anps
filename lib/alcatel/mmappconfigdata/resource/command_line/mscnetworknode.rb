@@ -45,9 +45,9 @@ module Alcatel
             cli << "Standard=#{1}, "                         # magic number
             cli << "Routing_Choice=#{routingchoice}, "
             cli << "Network_ID=#{networkid}, "
-            cli << "CAMEL_Ph1=#{camelphases}, "
-            cli << "CAMEL_Ph2=#{camelphases}, "
-            cli << "CAMEL_Ph3=#{camelphases}, "
+            cli << "CAMEL_Ph1=#{camelphases[0]}, "
+            cli << "CAMEL_Ph2=#{camelphases[1]}, "
+            cli << "CAMEL_Ph3=#{camelphases[2]}, "
             cli << "Point_Code=#{pointcode}, "
             cli << "Intl_Fmt_Addr__E_164=#{address}, "
             cli << "MAP_Version=#{version}, "

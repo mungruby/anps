@@ -46,9 +46,25 @@ class Test_MSCNETWORKNODE < MiniTest::Unit::TestCase
     assert_equal '', @obj.convert_binary_address
   end
 
-  def _test_convert_binary_camelphases
-    @obj.camelphases = ""
-    assert_equal '', @obj.convert_binary_camelphases
+  def test_convert_binary_camelphases
+    @obj.camelphases = "{0000}"
+    assert_equal [0,0,0,0], @obj.convert_binary_camelphases
+    @obj.camelphases = "{2000}"
+    assert_equal [0,0,1,0], @obj.convert_binary_camelphases
+    @obj.camelphases = "{5000}"
+    assert_equal [0,1,0,1], @obj.convert_binary_camelphases
+    @obj.camelphases = "{6000}"
+    assert_equal [0,1,1,0], @obj.convert_binary_camelphases
+    @obj.camelphases = "{8000}"
+    assert_equal [1,0,0,0], @obj.convert_binary_camelphases
+    @obj.camelphases = "{a000}"
+    assert_equal [1,0,1,0], @obj.convert_binary_camelphases
+    @obj.camelphases = "{c000}"
+    assert_equal [1,1,0,0], @obj.convert_binary_camelphases
+    @obj.camelphases = "{e000}"
+    assert_equal [1,1,1,0], @obj.convert_binary_camelphases
+    @obj.camelphases = "{ffff}"
+    assert_equal %w[Unk Unk Unk Unk], @obj.convert_binary_camelphases
   end
 
   def test_convert_char_description
@@ -91,11 +107,44 @@ class Test_MSCNETWORKNODE < MiniTest::Unit::TestCase
   #
   def test_add_cli
     expected =  "add MSCNETWORKNODE Node_ID=1, Node_Type_1=0, Local=1, Standard=1, Routing_Choice=2, "
-    expected << "Network_ID=6, CAMEL_Ph1={0000}, CAMEL_Ph2={0000}, CAMEL_Ph3={0000}, "
+    expected << "Network_ID=6, CAMEL_Ph1=0, CAMEL_Ph2=0, CAMEL_Ph3=0, "
     expected << "Point_Code=211-189-244, Intl_Fmt_Addr__E_164=14054728063, MAP_Version=3, "
     expected << "GTT_Coding_Format=0, Nature_of_Address=0, Digit_Translation_Type=0, "
     expected << "Description=Own Node MSC;"
     assert_equal expected, @obj.add
+  end
+   
+  def _test_add_cli_camelphases
+    test_data = [136,0,0,"{0b5126721520f3ffff}",0,"SFMSS840_MSC                    ",0,0,0,0,"{e000}",6]
+    obj = self.class.dto.new *test_data
+    obj.convert_fields
+    expected =  "add MSCNETWORKNODE Node_ID=136, Node_Type_1=0, Local=1, Standard=1, Routing_Choice=0, "
+    expected << "Network_ID=6, CAMEL_Ph1=1, CAMEL_Ph2=1, CAMEL_Ph3=1, "
+    expected << "Point_Code=000-000-000, Intl_Fmt_Addr__E_164=15622751023, MAP_Version=0, "
+    expected << "GTT_Coding_Format=0, Nature_of_Address=0, Digit_Translation_Type=0, "
+    expected << "Description=SFMSS840_MSC;"
+    assert_equal expected, obj.add
+  end
+   
+  def test_add_cli_camelphases_1
+    test_data = [3,70,0,"{00ffffffffffffffff}",0,"NPDB                            ",4,2,0,242,"{8000}",6]
+    obj = self.class.dto.new *test_data
+    obj.convert_fields
+    assert obj.add =~ /CAMEL_Ph1=1, CAMEL_Ph2=0, CAMEL_Ph3=0/
+  end
+   
+  def test_add_cli_camelphases_3
+    test_data = [1003,3,0,"{0b4150741264f5ffff}",3,"ZOOVE SCP                       ",0,0,0,0,"{2000}",6]
+    obj = self.class.dto.new *test_data
+    obj.convert_fields
+    assert obj.add =~ /CAMEL_Ph1=0, CAMEL_Ph2=0, CAMEL_Ph3=1/
+  end
+   
+  def test_add_cli_camelphases_1_2_3
+    test_data = [136,0,0,"{0b5126721520f3ffff}",0,"SFMSS840_MSC                    ",0,0,0,0,"{e000}",6]
+    obj = self.class.dto.new *test_data
+    obj.convert_fields
+    assert obj.add =~ /CAMEL_Ph1=1, CAMEL_Ph2=1, CAMEL_Ph3=1/
   end
    
   def test_mod_cli
