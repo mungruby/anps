@@ -1,0 +1,88 @@
+: Resource
+: LNPLIST
+
+
+
+##ttBulkCp
+#
+# SPATIAL.CPCALLMLNPORDER, 2 columns, dumped Thu Jun 14 03:45:56 2012
+# columns:
+#      1. DIGITPATTERN CHAR(15 BYTE)
+#      2. LNPORDER     TINYINT
+# end
+#
+
+"12             ",1
+
+
+
+cd; cd Office-Parameters/Network-Parameters/1-LNPLISTKEY;
+
+query 12-LNPLIST;
+
+
+
+>cd; cd Office-Parameters/Network-Parameters/1-LNPLISTKEY;
+
+Command Successful
+
+>
+Command Successful
+
+>query 12-LNPLIST;
+
+
+ LNPLIST:-
+
+Identification:
+
+MSISDN_Pattern__with_CC  [MSISDN Pattern (with CC)].......12
+
+Properties:
+
+LNP_Order  [LNP Order].......hlr_portable -> 1
+
+
+
+Command Successful
+
+
+
+>help add LNPLIST
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add LNPLIST
+<MSISDN_Pattern__with_CC=value>   Specifies the LNP digit pattern.Type is:string,MIN:1,MAX:15,DEFAULT:""
+
+{LNP_Order=value}   LNP Order., Type is: enum, Valid Enum values are: [Not Portable->0, Portable but Query HLR first->1, Portable a ,Default Value: 0
+
+
+Command Successful
+
+
+
+>help mod LNPLIST
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is LNPLIST
+
+ID Fields Are:
+{MSISDN_Pattern__with_CC=value}   Specifies the LNP digit pattern.Type is:string,MIN:1,MAX:15,DEFAULT:""
+
+
+
+Modifiable Fields Are:
+ {LNP_Order=value}   LNP Order., Type is: enum, Valid Enum values are: [Not Portable->0, Portable but Query HLR first->1, Portable  
+ ,Default Value: 0
+
+
+Command Successful
+
+>
+
