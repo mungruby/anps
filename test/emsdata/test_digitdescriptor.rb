@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/EmsData/digitdescriptor'
-require_relative '../../lib/field_converter/EmsData/digitdescriptor'
-require_relative '../../lib/comparators/EmsData/digitdescriptor'
+require_relative '../../lib/alcatel/emsdata/resource/digitdescriptor'
 
 class Test_DIGITDESCRIPTOR < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_DIGITDESCRIPTOR", *fields do
-      include ::CLI::EmsData::DIGITDESCRIPTOR
-      include ::FieldConverter::EmsData::DIGITDESCRIPTOR
-      include ::Comparators::EmsData::DIGITDESCRIPTOR
+      include Alcatel::EmsData::Resource::DIGITDESCRIPTOR
     end
   end
 
