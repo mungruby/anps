@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/countrycode'
-require_relative '../../lib/field_converter/callprocessing/countrycode'
-require_relative '../../lib/comparators/callprocessing/countrycode'
+require_relative '../../lib/alcatel/callprocessing/resource/countrycode'
 
 class Test_COUNTRYCODE < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_COUNTRYCODE", *fields do
-      include ::CLI::CallProcessing::COUNTRYCODE
-      include ::FieldConverter::CallProcessing::COUNTRYCODE
-      include ::Comparators::CallProcessing::COUNTRYCODE
+      include Alcatel::CallProcessing::Resource::COUNTRYCODE
     end
   end
 
