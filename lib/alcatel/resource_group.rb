@@ -1,6 +1,6 @@
 
 module Alcatel
-  module ResourceCluster
+  module ResourceGroup
 
     # hook method
     def self.included base
@@ -19,7 +19,7 @@ module Alcatel
     end
 
     def each &block
-      entries.each(&block)
+      @entries.each(&block)
     end
   end
 end

@@ -1,12 +1,12 @@
 
-require_relative '../../../lib/alcatel/resource_cluster'
+require_relative '../../../lib/alcatel/resource_group'
 
 module Alcatel
   module SubscriberData
 
     class SPM_PCARD_CALLTYPE
 
-      include ResourceCluster
+      include ResourceGroup
 
       def self.resource_name
         'SPMPCARDCALLTYPE'
