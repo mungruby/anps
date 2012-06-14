@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/subscriberdata/spmmsisdnhlr'
-require_relative '../../lib/field_converter/subscriberdata/spmmsisdnhlr'
-require_relative '../../lib/comparators/subscriberdata/spmmsisdnhlr'
+require_relative '../../lib/alcatel/subscriberdata/resource/spmmsisdnhlr'
 
 class Test_SPMMSISDNHLR < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_SPMMSISDNHLR", *fields do
-      include ::CLI::SubscriberData::SPMMSISDNHLR
-      include ::FieldConverter::SubscriberData::SPMMSISDNHLR
-      include ::Comparators::SubscriberData::SPMMSISDNHLR
+      include Alcatel::SubscriberData::Resource::SPMMSISDNHLR
     end
   end
 
