@@ -1,0 +1,196 @@
+: Resource Name
+: EMERGENCYCALL
+
+
+
+##ttBulkCp
+#
+# SPATIAL.EMERGENCY_CALL, 11 columns, dumped Fri Jun 15 03:45:52 2012
+# columns:
+#      1. MCC_MNC_ID   SMALLINT
+#      2. LAC          INTEGER
+#      3. CELLID_BEGIN INTEGER
+#      4. CELLID_END   INTEGER
+#      5. ESRD         CHAR(16 BYTE)
+#      6. SOLUTION_TYPE TINYINT
+#      7. ESZ_ID       INTEGER
+#      8. CAMA_INFO_DIGITS TINYINT
+#      9. ESRK_ASSIGNMENT_METHOD TINYINT
+#     10. LOC_DELIVERY_METHOD TINYINT
+#     11. ESRK_PREFIX  CHAR(16 BYTE)
+# end
+#
+
+2,11296,117580,117580,"0               ",2,319551,0,3,2,"                "
+1,7809,1051,1051,"0               ",2,6789851,0,3,2,"                "
+
+
+
+cd;cd Office-Parameters/Mobility-Config-Parameters/LAC-or-CELL-Emergency-Call-Provisioning;
+
+
+>query 310260-11296-52044-52044-0-EMERGENCYCALL;
+
+
+ EMERGENCYCALL:-
+
+Properties:
+
+Mcc_Mnc_Id  [MCC / MNC].......310260
+Location_Area_Code  [Location Area Code].......11296
+NetworkType  [NetworkType].......UMTS -> 0
+Esrd  [Emer Srvc Rout Digits].......0
+E911_Solution_Type  [Type of E911 Solution].......PHASE_2 -> 2
+Emer_Srvc_Zone_ID  [Emer Srvc Zone ID].......319551
+ESRK_Assn_Method  [ESRK Assn. Method].......GMLC_QUERY -> 3
+Location_Delivery_Method  [Loc Delivery Method].......NCAS -> 2
+
+SAC Range:
+
+SAC_Id_Begin  [SAC Id Begin].......52044
+SAC_Id_End  [SAC Id End].......52044
+
+
+
+Command Successful
+
+>
+
+
+
+>query 31026-7809-1051-1051-1-EMERGENCYCALL;
+
+
+ EMERGENCYCALL:-
+
+Properties:
+
+Mcc_Mnc_Id  [MCC / MNC].......31026
+Location_Area_Code  [Location Area Code].......7809
+NetworkType  [NetworkType].......GSM -> 1
+Esrd  [Emer Srvc Rout Digits].......0
+E911_Solution_Type  [Type of E911 Solution].......PHASE_2 -> 2
+Emer_Srvc_Zone_ID  [Emer Srvc Zone ID].......6789851
+ESRK_Assn_Method  [ESRK Assn. Method].......GMLC_QUERY -> 3
+Location_Delivery_Method  [Loc Delivery Method].......NCAS -> 2
+
+Cell Range:
+
+Cell_Id_Begin  [Cell Id Begin].......1051
+Cell_Id_End  [Cell Id End].......1051
+
+SAC Range:
+
+SAC_Id_Begin  [SAC Id Begin].......0
+SAC_Id_End  [SAC Id End].......0
+
+
+
+Command Successful
+
+>
+
+
+
+>query 310260-7174-10030-10030-0-EMERGENCYCALL;
+
+
+ EMERGENCYCALL:-
+
+Properties:
+
+Mcc_Mnc_Id  [MCC / MNC].......310260
+Location_Area_Code  [Location Area Code].......7174
+NetworkType  [NetworkType].......UMTS -> 0
+Esrd  [Emer Srvc Rout Digits].......0
+E911_Solution_Type  [Type of E911 Solution].......PHASE_2 -> 2
+Emer_Srvc_Zone_ID  [Emer Srvc Zone ID].......6789842
+ESRK_Assn_Method  [ESRK Assn. Method].......GMLC_QUERY -> 3
+Location_Delivery_Method  [Loc Delivery Method].......NCAS -> 2
+
+SAC Range:
+
+SAC_Id_Begin  [SAC Id Begin].......10030
+SAC_Id_End  [SAC Id End].......10030
+
+
+
+Add EMERGENCYCALL NetworkType=<value>, MCC_MNC_ID=<value>, LAC=<value>,
+Cell_ID_Begin=<value>, Cell_ID_End=<value>, E911_Solution_Type=
+<value>, Emer_Srvc_Zone_ID=<value>,[, ESRD=<value>][, ESRK_Assn_
+Method=<value>][, Location_Delivery_Method=<value>], | SAC_Id_Begin=
+<value>, SAC_Id_End=<value>,}
+
+
+query <mmm>-<lll>-<bbbb>-<eeee>-<ttt>-EMERGENCYCALL
+
+
+query <mcc_mnc>-<lac>-<cellid_begin>-<cellid_end>-<solution_type>-EMERGENCYCALL
+
+query 310260-11296-117580-117580-2-EMERGENCYCALL;
+
+callprocessing
+
+query 310260-11296-117580-117580-0-EMERGENCYCALL;
+
+
+
+>help add EMERGENCYCALL
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add EMERGENCYCALL
+<Mcc_Mnc_Id=value>   Indicates the MCC/MNC. , Valid values are: UNKW ,31026 ,310260
+<Location_Area_Code=value>   Specifies Location Area Code (LAC) ,  MIN: 0,MAX: Not Defined
+<NetworkType=value>   No help provisioned, Type is: enum, Valid Enum values are: [UMTS->0, GSM->1] 
+<Cell_Id_Begin=value>   Specifies cell id beginType is:long,MIN:0,MAX:65535,DEFAULT:Not Defined
+
+<Cell_Id_End=value>   Specifies cell id endType is:long,MIN:0,MAX:65535,DEFAULT:Not Defined
+
+<E911_Solution_Type=value>   Type of E911 Solution, Type is: enum, Valid Enum values are: [Phase0 911->0, Phase1 E911->1, Phase2 E9 
+ ,Default Value: 0
+<Emer_Srvc_Zone_ID=value>   Emergency Service Zone ID , Valid values are: 10 ,13 ,18 ,19 ,21 ,23 ,28 ,30 ,32 ,35 ,36 ,37 ,38 ,40 ,41
+{Esrd=value}   Emergency Service Routing Digits (ESRD)Type is:string,MIN:0,MAX:10,DEFAULT:Not Defined
+
+{ESRK_Assn_Method=value}   ESRK Assignment Method, Type is: enum, Valid Enum values are: [No WSS ESRK Assignment->0, MPC Assigned E 
+ ,Default Value: 0
+{Location_Delivery_Method=value}   Location delivery method, Type is: enum, Valid Enum values are: [HYBRID->0, Channel Associated S 
+ ,Default Value: 0
+{SAC_Id_Begin=value}   No help provisionedType is:long,MIN:0,MAX:Not Defined,DEFAULT:Not Defined
+
+{SAC_Id_End=value}   No help provisionedType is:long,MIN:0,MAX:Not Defined,DEFAULT:Not Defined
+
+
+
+>help mod EMERGENCYCALL
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is EMERGENCYCALL
+
+ID Fields Are:
+<Mcc_Mnc_Id=value>   Indicates the MCC/MNC. , Valid values are: UNKW ,31026 ,310260
+<Location_Area_Code=value>   Specifies Location Area Code (LAC) ,  MIN: 0,MAX: Not Defined
+<Cell_Id_Begin=value>   Specifies cell id beginType is:long,MIN:0,MAX:65535,DEFAULT:Not Defined
+
+<Cell_Id_End=value>   Specifies cell id endType is:long,MIN:0,MAX:65535,DEFAULT:Not Defined
+
+<NetworkType=value>   No help provisioned, Type is: enum, Valid Enum values are: [UMTS->0, GSM->1] 
+
+
+Modifiable Fields Are:
+ {Esrd=value}   Emergency Service Routing Digits (ESRD)Type is:string,MIN:0,MAX:10,DEFAULT:Not Defined
+
+ {E911_Solution_Type=value}   Type of E911 Solution, Type is: enum, Valid Enum values are: [Phase0 911->0, Phase1 E911->1, Phase2 E 
+ ,Default Value: 0
+ {Emer_Srvc_Zone_ID=value}   Emergency Service Zone ID , Valid values are: 10 ,13 ,18 ,19 ,21 ,23 ,28 ,30 ,32 ,35 ,36 ,37 ,38 ,40 ,1
+ {ESRK_Assn_Method=value}   ESRK Assignment Method, Type is: enum, Valid Enum values are: [No WSS ESRK Assignment->0, MPC Assigned  
+ ,Default Value: 0
+ {Location_Delivery_Method=value}   Location delivery method, Type is: enum, Valid Enum values are: [HYBRID->0, Channel Associated  
+ ,Default Value: 0
+
+
