@@ -11,6 +11,9 @@
 # end
 #
 
+"20 ",7,15,420,"Egypt                           "
+
+
 
 cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/International-Translation;
 query 20-COUNTRYCODE;

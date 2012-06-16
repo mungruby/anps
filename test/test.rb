@@ -46,6 +46,7 @@ require_relative './subscriberdata/test_spmpcardcalltype'
  
  
 # Tables
+require_relative './callprocessing/test_cpcallmcountrycode'
 require_relative './emsdata/test_emsdigitdescriptor'
 require_relative './subscriberdata/test_spm_pcard_calltype'
 
