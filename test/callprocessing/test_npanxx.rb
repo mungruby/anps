@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/npanxx'
-require_relative '../../lib/field_converter/callprocessing/npanxx'
-require_relative '../../lib/comparators/callprocessing/npanxx'
+require_relative '../../lib/alcatel/callprocessing/resource/npanxx'
 
 class Test_NPANXX < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_NPANXX", *fields do
-      include ::CLI::CallProcessing::NPANXX
-      include ::FieldConverter::CallProcessing::NPANXX
-      include ::Comparators::CallProcessing::NPANXX
+      include Alcatel::CallProcessing::Resource::NPANXX
     end
   end
 

@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/prefix'
-require_relative '../../lib/field_converter/callprocessing/prefix'
-require_relative '../../lib/comparators/callprocessing/prefix'
+require_relative '../../lib/alcatel/callprocessing/resource/prefix'
 
 class Test_PREFIX < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_PREFIX", *fields do
-      include ::CLI::CallProcessing::PREFIX
-      include ::FieldConverter::CallProcessing::PREFIX
-      include ::Comparators::CallProcessing::PREFIX
+      include Alcatel::CallProcessing::Resource::PREFIX
     end
   end
 

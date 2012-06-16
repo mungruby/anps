@@ -1,14 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/origroute'
-require_relative '../../lib/comparators/callprocessing/origroute'
+require_relative '../../lib/alcatel/callprocessing/resource/origroute'
 
 class Test_ORIGROUTE < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_ORIGROUTE", *fields do
-      include ::CLI::CallProcessing::ORIGROUTE
-      include ::Comparators::CallProcessing::ORIGROUTE
+      include Alcatel::CallProcessing::Resource::ORIGROUTE
     end
   end
 

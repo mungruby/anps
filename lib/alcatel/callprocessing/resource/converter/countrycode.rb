@@ -3,6 +3,7 @@ module Alcatel
   module CallProcessing
     module Resource
       module COUNTRYCODE
+
         module Converter
 
           def convert_fields

@@ -3,6 +3,7 @@ module Alcatel
   module CallProcessing
     module Resource
       module LNPLIST
+
         module Comparator
 
           def candidate_key

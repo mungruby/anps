@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/servicecriteria'
-require_relative '../../lib/field_converter/callprocessing/servicecriteria'
-require_relative '../../lib/comparators/callprocessing/servicecriteria'
+require_relative '../../lib/alcatel/callprocessing/resource/servicecriteria'
 
 class Test_SERVICECRITERIA < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_SERVICECRITERIA", *fields do
-      include ::CLI::CallProcessing::SERVICECRITERIA
-      include ::FieldConverter::CallProcessing::SERVICECRITERIA
-      include ::Comparators::CallProcessing::SERVICECRITERIA
+      include Alcatel::CallProcessing::Resource::SERVICECRITERIA
     end
   end
 

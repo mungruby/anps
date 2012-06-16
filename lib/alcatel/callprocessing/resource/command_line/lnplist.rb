@@ -3,6 +3,7 @@ module Alcatel
   module CallProcessing
     module Resource
       module LNPLIST
+
         module CommandLine
 
           def context

@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/emswirelessnormal'
-require_relative '../../lib/field_converter/callprocessing/emswirelessnormal'
-require_relative '../../lib/comparators/callprocessing/emswirelessnormal'
+require_relative '../../lib/alcatel/callprocessing/resource/emswirelessnormal'
 
 class Test_EMSWIRELESSNORMAL < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_EMSWIRELESSNORMAL", *fields do
-      include ::CLI::CallProcessing::EMSWIRELESSNORMAL
-      include ::FieldConverter::CallProcessing::EMSWIRELESSNORMAL
-      include ::Comparators::CallProcessing::EMSWIRELESSNORMAL
+      include Alcatel::CallProcessing::Resource::EMSWIRELESSNORMAL
     end
   end
 

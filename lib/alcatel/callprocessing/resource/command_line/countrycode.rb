@@ -3,6 +3,7 @@ module Alcatel
   module CallProcessing
     module Resource
       module COUNTRYCODE
+
         module CommandLine
 
           def context

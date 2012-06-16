@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/lrnlist'
-require_relative '../../lib/field_converter/callprocessing/lrnlist'
-require_relative '../../lib/comparators/callprocessing/lrnlist'
+require_relative '../../lib/alcatel/callprocessing/resource/lrnlist'
 
 class Test_LRNLIST < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_LRNLIST", *fields do
-      include ::CLI::CallProcessing::LRNLIST
-      include ::FieldConverter::CallProcessing::LRNLIST
-      include ::Comparators::CallProcessing::LRNLIST
+      include Alcatel::CallProcessing::Resource::LRNLIST
     end
   end
 

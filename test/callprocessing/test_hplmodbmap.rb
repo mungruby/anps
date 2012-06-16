@@ -1,14 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/hplmodbmap'
-require_relative '../../lib/comparators/callprocessing/hplmodbmap'
+require_relative '../../lib/alcatel/callprocessing/resource/hplmodbmap'
 
 class Test_HPLMODBMAP < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_HPLMODBMAP", *fields do
-      include ::CLI::CallProcessing::HPLMODBMAP
-      include ::Comparators::CallProcessing::HPLMODBMAP
+      include Alcatel::CallProcessing::Resource::HPLMODBMAP
     end
   end
 

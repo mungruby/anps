@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
 require_relative '../../lib/alcatel/callprocessing/resource/emergencyzone'
-# require_relative '../../lib/field_converter/callprocessing/emergencyzone'
-# require_relative '../../lib/field_converter/callprocessing/emergencyzone'
 
 class Test_EMERGENCYZONE < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_EMERGENCYZONE", *fields do
       include Alcatel::CallProcessing::Resource::EMERGENCYZONE
-      # include ::CLI::CallProcessing::EMERGENCYZONE
-      # include ::FieldConverter::CallProcessing::EMERGENCYZONE
     end
   end
 

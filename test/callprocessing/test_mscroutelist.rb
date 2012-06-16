@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/mscroutelist'
-require_relative '../../lib/field_converter/callprocessing/mscroutelist'
-require_relative '../../lib/comparators/callprocessing/mscroutelist'
+require_relative '../../lib/alcatel/callprocessing/resource/mscroutelist'
 
 class Test_MSCROUTELIST < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_MSCROUTELIST", *fields do
-      include ::CLI::CallProcessing::MSCROUTELIST
-      include ::FieldConverter::CallProcessing::MSCROUTELIST
-      include ::Comparators::CallProcessing::MSCROUTELIST
+      include Alcatel::CallProcessing::Resource::MSCROUTELIST
     end
   end
 

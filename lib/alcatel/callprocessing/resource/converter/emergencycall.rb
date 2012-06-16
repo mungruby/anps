@@ -3,6 +3,7 @@ module Alcatel
   module CallProcessing
     module Resource
       module EMERGENCYCALL
+
         module Converter
 
           UMTS = 0

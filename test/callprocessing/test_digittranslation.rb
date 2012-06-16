@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/digittranslation'
-require_relative '../../lib/field_converter/callprocessing/digittranslation'
-require_relative '../../lib/comparators/callprocessing/digittranslation'
+require_relative '../../lib/alcatel/callprocessing/resource/digittranslation'
 
 class Test_DIGITTRANSLATION < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_DIGITTRANSLATION", *fields do
-      include ::CLI::CallProcessing::DIGITTRANSLATION
-      include ::FieldConverter::CallProcessing::DIGITTRANSLATION
-      include ::Comparators::CallProcessing::DIGITTRANSLATION
+      include Alcatel::CallProcessing::Resource::DIGITTRANSLATION
     end
   end
 

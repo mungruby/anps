@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/outpulsemap'
-require_relative '../../lib/field_converter/callprocessing/outpulsemap'
-require_relative '../../lib/comparators/callprocessing/outpulsemap'
+require_relative '../../lib/alcatel/callprocessing/resource/outpulsemap'
 
 class Test_OUTPULSEMAP < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_OUTPULSEMAP", *fields do
-      include ::CLI::CallProcessing::OUTPULSEMAP
-      include ::FieldConverter::CallProcessing::OUTPULSEMAP
-      include ::Comparators::CallProcessing::OUTPULSEMAP
+      include Alcatel::CallProcessing::Resource::OUTPULSEMAP
     end
   end
 

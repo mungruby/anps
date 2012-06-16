@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/callprocessing/trunkgroupbundle'
-require_relative '../../lib/field_converter/callprocessing/trunkgroupbundle'
-require_relative '../../lib/comparators/callprocessing/trunkgroupbundle'
+require_relative '../../lib/alcatel/callprocessing/resource/trunkgroupbundle'
 
 class Test_TRUNKGROUPBUNDLE < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_TRUNKGROUPBUNDLE", *fields do
-      include ::CLI::CallProcessing::TRUNKGROUPBUNDLE
-      include ::FieldConverter::CallProcessing::TRUNKGROUPBUNDLE
-      include ::Comparators::CallProcessing::TRUNKGROUPBUNDLE
+      include Alcatel::CallProcessing::Resource::TRUNKGROUPBUNDLE
     end
   end
 
