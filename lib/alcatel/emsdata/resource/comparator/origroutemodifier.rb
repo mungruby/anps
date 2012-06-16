@@ -2,12 +2,12 @@
 module Alcatel
   module EmsData
     module Resource
-      module DIGITDESCRIPTOR 
+      module ORIGROUTEMODIFIER
 
         module Comparator 
 
           def candidate_key
-            lambda { |other| self.descriptorindex == other.descriptorindex }
+            lambda { |other| self.origroutingmodifier == other.origroutingmodifier }
           end
 
         end

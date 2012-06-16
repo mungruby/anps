@@ -2,7 +2,7 @@
 module Alcatel
   module EmsData
     module Resource
-      module DIGITDESCRIPTOR
+      module ORIGROUTEMODIFIER
 
         module CommandLine
 
@@ -11,19 +11,19 @@ module Alcatel
             cli << "/Routing-and-Translation"
             cli << "/Routing"
             cli << "/Orig-Routing"
-            cli << "/Orig-Route-Descriptor;"
+            cli << "/Orig-Route-Modifier;"
           end
 
           def cd
-            "cd #{descriptorindex}-DIGITDESCRIPTOR;"
+            "cd #{origroutingmodifier}-ORIGROUTEMODIFIER;"
           end
 
           def query
-            "query #{descriptorindex}-DIGITDESCRIPTOR;"
+            "query #{origroutingmodifier}-ORIGROUTEMODIFIER;"
           end
 
           def add
-            "add DIGITDESCRIPTOR Index=#{descriptorindex}, Name=#{descriptor};"
+            "add ORIGROUTEMODIFIER Profile_Identifier=#{origroutingmodifier}, Name=#{description};"
           end
 
           def mod
@@ -31,7 +31,7 @@ module Alcatel
           end
 
           def del
-            "del #{descriptorindex}-DIGITDESCRIPTOR;"
+            "del #{origroutingmodifier}-ORIGROUTEMODIFIER;"
           end
 
         end

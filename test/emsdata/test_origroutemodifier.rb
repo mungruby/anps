@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/EmsData/origroutemodifier'
-require_relative '../../lib/field_converter/EmsData/origroutemodifier'
-require_relative '../../lib/comparators/EmsData/origroutemodifier'
+require_relative '../../lib/alcatel/emsdata/resource/origroutemodifier'
 
 class Test_ORIGROUTEMODIFIER < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_ORIGROUTEMODIFIER", *fields do
-      include ::CLI::EmsData::ORIGROUTEMODIFIER
-      include ::FieldConverter::EmsData::ORIGROUTEMODIFIER
-      include ::Comparators::EmsData::ORIGROUTEMODIFIER
+      include Alcatel::EmsData::Resource::ORIGROUTEMODIFIER
     end
   end
 

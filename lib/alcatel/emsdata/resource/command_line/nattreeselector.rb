@@ -2,36 +2,35 @@
 module Alcatel
   module EmsData
     module Resource
-      module DIGITDESCRIPTOR
+      module NATTREESELECTOR
 
         module CommandLine
 
           def context
             cli =  "cd; cd Office-Parameters"
             cli << "/Routing-and-Translation"
-            cli << "/Routing"
-            cli << "/Orig-Routing"
-            cli << "/Orig-Route-Descriptor;"
+            cli << "/Wireless-Translation"
+            cli << "/National-Tree-Selector;"
           end
 
           def cd
-            "cd #{descriptorindex}-DIGITDESCRIPTOR;"
+            "cd #{nattreeselector}-NATTREESELECTOR;"
           end
 
           def query
-            "query #{descriptorindex}-DIGITDESCRIPTOR;"
+            "query #{nattreeselector}-NATTREESELECTOR;"
           end
 
           def add
-            "add DIGITDESCRIPTOR Index=#{descriptorindex}, Name=#{descriptor};"
+            "add NATTREESELECTOR National_Tree_Selector_Identifier=#{nattreeselector}, Name=#{description};"
           end
 
           def mod
-            "mod "
+            cli = "mod "
           end
 
           def del
-            "del #{descriptorindex}-DIGITDESCRIPTOR;"
+            "del #{nattreeselector}-NATTREESELECTOR;"
           end
 
         end

@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/EmsData/nattreeselector'
-require_relative '../../lib/field_converter/EmsData/nattreeselector'
-require_relative '../../lib/comparators/EmsData/nattreeselector'
+require_relative '../../lib/alcatel/emsdata/resource/nattreeselector'
 
 class Test_NATTREESELECTOR < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_NATTREESELECTOR", *fields do
-      include ::CLI::EmsData::NATTREESELECTOR
-      include ::FieldConverter::EmsData::NATTREESELECTOR
-      include ::Comparators::EmsData::NATTREESELECTOR
+      include Alcatel::EmsData::Resource::NATTREESELECTOR
     end
   end
 

@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/EmsData/prefixfence'
-require_relative '../../lib/field_converter/EmsData/prefixfence'
-require_relative '../../lib/comparators/EmsData/prefixfence'
+require_relative '../../lib/alcatel/emsdata/resource/prefixfence'
 
 class Test_PREFIXFENCE < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_PREFIXFENCE", *emsprefixfence do
-      include ::CLI::EmsData::PREFIXFENCE
-      include ::FieldConverter::EmsData::PREFIXFENCE
-      include ::Comparators::EmsData::PREFIXFENCE
+      include Alcatel::EmsData::Resource::PREFIXFENCE
       attr_accessor :df, :ccd
     end
   end

@@ -1,0 +1,97 @@
+: Resource Name
+: TRANSLATIONGROUP
+
+: Table
+: CallProcessing
+: CPCALLMTRANSLATIONGRP
+
+
+##ttBulkCp
+#
+# SPATIAL.CPCALLMTRANSLATIONGRP, 2 columns, dumped Fri Jun 15 03:45:42 2012
+# columns:
+#      1. TRANSLATIONGROUP SMALLINT
+#      2. DESCRIPTION  CHAR(32 BYTE)
+# end
+#
+
+1,"Standard National Trans Group   "
+
+
+
+: Context
+cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/National-Translation;
+
+System/Office-Parameters/Routing-and-Translation/Wireless-Translation/National-Translation;
+
+query 1-TRANSLATIONGROUP;
+
+
+Command syntax
+
+Add TRANSLATIONGROUP Group_Number=<value>, Name=<value>
+
+Mod Name= <value>
+
+
+
+cd;
+cd Office-Parameters;
+cd Routing-and-Translation;
+cd Wireless-Translation;
+cd National-Translation;
+
+
+
+cd;
+cd Office-Parameters;
+cd Routing-and-Translation;
+cd Wireless-Translation;
+cd National-Tree-Selector;
+cd 1-NATTREESELECTOR;
+cd National-Translation;
+
+
+
+>help add TRANSLATIONGROUP
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add TRANSLATIONGROUP
+<Group_Number=value>   Specifies the translation group number.Type is:long,MIN:1,MAX:65535,DEFAULT:Not Defined
+
+{Name=value}   Provides a freeform entry for recording a name for the translation group.Type is:string,MIN:1,MAX:32,DEFAULT:""
+
+
+
+Command Successful
+
+>
+
+
+
+>help mod TRANSLATIONGROUP
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is TRANSLATIONGROUP
+
+ID Fields Are:
+<Group_Number=value>   Specifies the translation group number.Type is:long,MIN:1,MAX:65535,DEFAULT:Not Defined
+
+
+
+Modifiable Fields Are:
+ {Name=value}   Provides a freeform entry for recording a name for the translation group.Type is:string,MIN:1,MAX:32,DEFAULT:""
+
+
+
+Command Successful
+
+>
+
+
