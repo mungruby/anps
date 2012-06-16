@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/subscriberdata/spmpcardcalltype'
-require_relative '../../lib/field_converter/subscriberdata/spmpcardcalltype'
-require_relative '../../lib/comparators/subscriberdata/spmpcardcalltype'
+require_relative '../../lib/alcatel/subscriberdata/resource/spmpcardcalltype'
 
 class Test_SPMPCARDCALLTYPE < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_SPMPCARDCALLTYPE", *fields do
-      include ::CLI::SubscriberData::SPMPCARDCALLTYPE
-      include ::FieldConverter::SubscriberData::SPMPCARDCALLTYPE
-      include ::Comparators::SubscriberData::SPMPCARDCALLTYPE
+      include Alcatel::SubscriberData::Resource::SPMPCARDCALLTYPE
     end
   end
 
