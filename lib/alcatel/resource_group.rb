@@ -9,11 +9,11 @@ module Alcatel
     end
 
     module ClassMethods
-      def resource name, members
+      def resource name, members, &block
         if Struct.const_defined? name
           Struct.const_get name
         else
-          Struct.new name, *members
+          Struct.new name, *members, &block
         end
       end
     end
