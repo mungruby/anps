@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/mmappconfigdata/digitprefix'
-require_relative '../../lib/field_converter/mmappconfigdata/digitprefix'
-require_relative '../../lib/comparators/mmappconfigdata/digitprefix'
+require_relative '../../lib/alcatel/mmappconfigdata/resource/digitprefix'
 
 class Test_DIGITPREFIX < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_DIGITPREFIX", *fields do
-      include ::CLI::MMAppConfigData::DIGITPREFIX
-      include ::FieldConverter::MMAppConfigData::DIGITPREFIX
-      include ::Comparators::MMAppConfigData::DIGITPREFIX
+      include Alcatel::MMAppConfigData::Resource::DIGITPREFIX
     end
   end
 

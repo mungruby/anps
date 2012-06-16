@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/mmappconfigdata/restrictedlaccell'
-require_relative '../../lib/field_converter/mmappconfigdata/restrictedlaccell'
-require_relative '../../lib/comparators/mmappconfigdata/restrictedlaccell'
+require_relative '../../lib/alcatel/mmappconfigdata/resource/restrictedlaccell'
 
 class Test_RESTRICTEDLACCELL < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_RESTRICTEDLACCELL", *fields do
-      include ::CLI::MMAppConfigData::RESTRICTEDLACCELL
-      include ::FieldConverter::MMAppConfigData::RESTRICTEDLACCELL
-      include ::Comparators::MMAppConfigData::RESTRICTEDLACCELL
+      include Alcatel::MMAppConfigData::Resource::RESTRICTEDLACCELL
       attr_accessor :mcc_mnc
     end
   end

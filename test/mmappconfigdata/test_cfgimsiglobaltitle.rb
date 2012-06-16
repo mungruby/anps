@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/mmappconfigdata/cfgimsiglobaltitle'
-require_relative '../../lib/field_converter/mmappconfigdata/cfgimsiglobaltitle'
-require_relative '../../lib/comparators/mmappconfigdata/cfgimsiglobaltitle'
+require_relative '../../lib/alcatel/mmappconfigdata/resource/cfgimsiglobaltitle'
 
 class Test_CFGIMSIGLOBALTITLE < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_CFGIMSIGLOBALTITLE", *fields do
-      include ::CLI::MMAppConfigData::CFGIMSIGLOBALTITLE
-      include ::FieldConverter::MMAppConfigData::CFGIMSIGLOBALTITLE
-      include ::Comparators::MMAppConfigData::CFGIMSIGLOBALTITLE
+      include Alcatel::MMAppConfigData::Resource::CFGIMSIGLOBALTITLE
     end
   end
 

@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/mmappconfigdata/mccmnc'
-require_relative '../../lib/field_converter/mmappconfigdata/mccmnc'
-require_relative '../../lib/comparators/mmappconfigdata/mccmnc'
+require_relative '../../lib/alcatel/mmappconfigdata/resource/mccmnc'
 
 class Test_MCCMNC < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_MCCMNC", *fields do
-      include ::CLI::MMAppConfigData::MCCMNC
-      include ::FieldConverter::MMAppConfigData::MCCMNC
-      include ::Comparators::MMAppConfigData::MCCMNC
+      include Alcatel::MMAppConfigData::Resource::MCCMNC
     end
   end
 

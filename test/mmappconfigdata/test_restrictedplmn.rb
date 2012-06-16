@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/mmappconfigdata/restrictedplmn'
-require_relative '../../lib/field_converter/mmappconfigdata/restrictedplmn'
-require_relative '../../lib/comparators/mmappconfigdata/restrictedplmn'
+require_relative '../../lib/alcatel/mmappconfigdata/resource/restrictedplmn'
 
 class Test_RESTRICTEDPLMN < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_RESTRICTEDPLMN", *fields do
-      include ::CLI::MMAppConfigData::RESTRICTEDPLMN
-      include ::FieldConverter::MMAppConfigData::RESTRICTEDPLMN
-      include ::Comparators::MMAppConfigData::RESTRICTEDPLMN
+      include Alcatel::MMAppConfigData::Resource::RESTRICTEDPLMN
     end
   end
 

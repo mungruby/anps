@@ -1,16 +1,12 @@
 
 require "minitest/autorun"
-require_relative '../../lib/cli/mmappconfigdata/countryinfo'
-require_relative '../../lib/field_converter/mmappconfigdata/countryinfo'
-require_relative '../../lib/comparators/mmappconfigdata/countryinfo'
+require_relative '../../lib/alcatel/mmappconfigdata/resource/countryinfo'
 
 class Test_COUNTRYINFO < MiniTest::Unit::TestCase
 
   def self.dto
     @@dto ||= Struct.new "Test_COUNTRYINFO", *fields do
-      include ::CLI::MMAppConfigData::COUNTRYINFO
-      include ::FieldConverter::MMAppConfigData::COUNTRYINFO
-      include ::Comparators::MMAppConfigData::COUNTRYINFO
+      include Alcatel::MMAppConfigData::Resource::COUNTRYINFO
     end
   end
 
