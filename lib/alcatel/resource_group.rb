@@ -21,6 +21,10 @@ module Alcatel
     def each &block
       @entries.each(&block)
     end
+
+    def compare other_tbl
+      # false
+    end
   end
 end
 

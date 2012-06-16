@@ -59,6 +59,44 @@ class Test_EMSDIGITDESCRIPTOR < MiniTest::Unit::TestCase
     assert_equal expected, @obj.first.del
   end
 
+  def test_include
+    obj = @obj.first.clone
+    assert @obj.include? obj
+
+    obj = @obj.first.clone
+    obj.descriptor = nil
+    refute @obj.include? obj
+
+    obj = @obj.first.clone
+    obj.descriptorindex = nil
+    refute @obj.include? obj
+
+    obj = @obj.first.clone
+    obj.descriptortype = nil
+    refute @obj.include? obj
+  end
+
+  def test_any
+    obj = @obj.first.clone
+    assert @obj.any? &obj.candidate_key
+
+    obj = @obj.first.clone
+    obj.descriptorindex = nil
+    refute @obj.any? &obj.candidate_key
+
+    obj = @obj.first.clone
+    obj.descriptor = nil
+    assert @obj.any? &obj.candidate_key
+
+    obj = @obj.first.clone
+    obj.descriptortype = nil
+    assert @obj.any? &obj.candidate_key
+  end
+
+  def test_compare
+    assert @obj.respond_to? :compare
+  end
+
   def teardown
     @obj = nil
   end

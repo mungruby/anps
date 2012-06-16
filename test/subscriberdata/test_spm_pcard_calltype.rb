@@ -62,6 +62,42 @@ class Test_SPM_PCARD_CALLTYPE < MiniTest::Unit::TestCase
     assert_equal expected, @obj.first.del
   end
 
+  def test_include
+    obj = @obj.first.clone
+    assert @obj.include? obj
+
+    obj = @obj.first.clone
+    obj.calledpty_begin = nil
+    refute @obj.include? obj
+
+    obj = @obj.first.clone
+    obj.calledpty_end = nil
+    refute @obj.include? obj
+  end
+
+  def test_any
+    obj = @obj.first.clone
+    assert @obj.any? &obj.candidate_key
+
+    obj = @obj.first.clone
+    obj.calledpty_begin = nil
+    refute @obj.any? &obj.candidate_key
+
+    obj = @obj.first.clone
+    obj.calledpty_end = nil
+    refute @obj.any? &obj.candidate_key
+
+    obj = @obj.first.clone
+    obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
+    obj.calledpty_begin = @obj.first.calledpty_begin
+    obj.calledpty_end = @obj.first.calledpty_end
+    assert @obj.any? &obj.candidate_key
+  end
+
+  def test_compare
+    assert @obj.respond_to? :compare
+  end
+
   def teardown
     @obj = nil
   end
