@@ -8,23 +8,21 @@ module Alcatel
 
       include ResourceGroup
 
-      def self.resource_name
-        'SPMPCARDCALLTYPE'
+      def self.dto
+        @dto ||= resource('SPMPCARDCALLTYPE', fields) do
+          include Resource::SPMPCARDCALLTYPE
+        end
       end
 
-      def self.members
+      def self.fields
         %w[ CALLEDPTY_BEGIN CALLEDPTY_END PCARDNUM CALLTYPE ADMINSTATE
         ].map { |field_name| field_name.downcase.to_sym }
       end
 
       attr_accessor :mss_name
 
-      def initialize mss_name, entries
-        @mss_name = mss_name
-        data_object = self.class.resource(self.class.resource_name, self.class.members)
-        @entries = entries.map do |row|
-          data_object.new *row
-        end
+      def initialize mss_name, table
+        @mss_name, @entries = mss_name, table.map { |row| self.class.dto.new *row }
       end
 
     end
