@@ -1,0 +1,239 @@
+: Resource Name
+: SYSTEMEMERGENCYCALL
+
+: Table
+: CallProcessing
+: SYSTEM_EMERGENCY_CALL
+
+
+##ttBulkCp
+#
+# SPATIAL.SYSTEM_EMERGENCY_CALL, 20 columns, dumped Fri Jun 15 03:45:42 2012
+# columns:
+#      1. DUMMY        TINYINT
+#      2. DEFAULT_PSAP_ZONE_DN CHAR(16 BYTE)
+#      3. DEFAULT_ESRD CHAR(16 BYTE)
+#      4. INVALID_ESRK CHAR(16 BYTE)
+#      5. DEFAULT_MPC_DN CHAR(16 BYTE)
+#      6. POS_INFO_TIMER INTEGER
+#      7. GMLC_MPC_QUERY_TIMER INTEGER
+#      8. PSAP_ROUTING_OPTION TINYINT
+#      9. NON_DIAL_EMGCY_PREFIX CHAR(10 BYTE)
+#     10. DEFAULT_ESRK CHAR(16 BYTE)
+#     11. DEFAULT_SOLUTION_TYPE TINYINT
+#     12. DEFAULT_LOC_DELIVERY_METHOD TINYINT
+#     13. GMLC_DN_ESRD CHAR(16 BYTE)
+#     14. DEFAULT_CAMA_INFO_DIGIT TINYINT
+#     15. DEFAULT_SCP_ADDRESS BINARY(10)
+#     16. DEFAULT_REMOTE_SSN TINYINT
+#     17. POS_INFO_TIMER_3G INTEGER
+#     18. EXTENDED_POS_INFO_TIMER_3G INTEGER
+#     19. TRANSLATION_OPTION TINYINT
+#     20. CLI_FOR_SIMLESS_CALL TINYINT
+# end
+#
+
+0,"911             ","                ","9999999999      ","911             ",4,7,1,"911       ","                ",0,3,"911             ",0,{00000000000000000000},0,4,60,1,0
+# 1/1 row copied
+
+
+
+cd; cd Office-Parameters/Mobility-Config-Parameters/0-SYSTEMEMERGENCYCALL;
+
+
+cd; cd Office-Parameters/Mobility-Config-Parameters;
+
+>query 0-SYSTEMEMERGENCYCALL
+
+cd 0-SYSTEMEMERGENCYCALL;
+
+query
+
+up
+
+cd MSC-E911-CALL;
+
+query
+
+>query
+
+Command Not Completed :
+query
+^
+-30007:Invalid context Current context is a folder.
+
+
+
+
+>cd; cd Office-Parameters/Mobility-Config-Parameters/0-SYSTEMEMERGENCYCALL;
+
+Command Successful
+
+>
+Command Successful
+
+>
+
+
+
+>query
+
+
+ SYSTEMEMERGENCYCALL:-
+
+System Emergency Parameters:
+
+Sys_PSAP_Zone_DN  [Sys. PSAP Zone DN].......2222222222
+Default_E911_Solution  [Default E911 Solution].......PHASE_0 -> 0
+System_ESRD  [System ESRD].......7777777777
+Default_ESRK  [Default ESRK].......
+Invalid_ESRK  [Invalid ESRK].......9999999999
+MPC_DN  [MPC DN].......911
+Post_Info_Timer  [Post Info Timer].......7
+SCP-GMLC-MPC_Qry_Tmr  [SCP/GMLC/MPC Qry Tmr].......7
+PSAP_Call_Routing  [PSAP Call Routing].......PSAP_DN -> 0
+Non_Dial_Emgcy_Prefix  [Non Dial Emgcy Prefix].......911
+Def_Loc_Deliv_Method  [Def Loc Deliv Method].......NONE -> 3
+GMLC_Address  [GMLC Address].......911
+Def_SCP_Address  [Def SCP Address].......0000000000000000
+Non_Emer_Setup_Trans_Opt  [Non-Emer Setup Trans Opt].......USE_DIAL_NUM -> 1
+Default_Remote_SSN  [Default Remote SSN].......0
+CLI_for_Simless_Call  [CLI for Simless Call].......USE_IMEI_NUM -> 0
+Pos_Info_UMTS_Timer  [Pos Info UMTS Timer(seconds)].......4
+Extnd_Pos_Info_UMTS_Timer  [Extnd Pos Info UMTS Timer(seconds)].......60
+
+
+
+Command Successful
+
+>
+
+
+
+>help add SYSTEMEMERGENCYCALL
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add SYSTEMEMERGENCYCALL
+<Default_E911_Solution=value>   Type of E911 Solution, Type is: enum, Valid Enum values are: [Phase0 911->0, Phase1 E911->1, Phase2 
+ ,Default Value: 2
+<Def_SCP_Address=value>   SCP Address for E911 service. ,  MIN: 0,MAX: Not Defined
+{Sys_PSAP_Zone_DN=value}   Default System PSAP Zone DNType is:string,MIN:1,MAX:10,DEFAULT:911
+
+{System_ESRD=value}   System Default ESRDType is:string,MIN:0,MAX:10,DEFAULT:Not Defined
+
+{Invalid_ESRK=value}   Invalid ESRK DefinitionType is:string,MIN:1,MAX:10,DEFAULT:9999999999
+
+{MPC_DN=value}   Mobile Position Center (MPC) DNType is:string,MIN:0,MAX:10,DEFAULT:911
+
+{Post_Info_Timer=value}   Position Information Timer (POST) in SecondsType is:long,MIN:0,MAX:7,DEFAULT:4
+
+{SCP-GMLC-MPC_Qry_Tmr=value}   SCP/GMLC/MPC Query timer in SecondsType is:long,MIN:3,MAX:25,DEFAULT:7
+
+{PSAP_Call_Routing=value}   Incoming MPC Call Routing, Type is: enum, Valid Enum values are: [Route using PSAP DN->0, Route using E 
+ ,Default Value: 1
+{Non_Dial_Emgcy_Prefix=value}   Non-Dialable Calling Party PrefixType is:string,MIN:0,MAX:3,DEFAULT:911
+
+{Default_ESRK=value}   Default ESRK DefinitionType is:string,MIN:1,MAX:10,DEFAULT:Not Defined
+
+{Def_Loc_Deliv_Method=value}   Default Location delivery method, Type is: enum, Valid Enum values are: [None->3, Hybrid->0, CAS->1, 
+ ,Default Value: 1
+{GMLC_Address=value}   GMLC associated with this MSCType is:string,MIN:1,MAX:15,DEFAULT:Not Defined
+
+{Default_Remote_SSN=value}   INAP Subsystem number for E911 serviceType is:long,MIN:0,MAX:255,DEFAULT:12
+
+{Pos_Info_UMTS_Timer=value}   Position Info Timer for UMTS in seconds for calls having NCAS/HCAS as loation delivery MethodType is:4
+
+{Extnd_Pos_Info_UMTS_Timer=value}   Position Info Timer for UMTS in seconds for  calls having CAS  as Location delivery methodType 0
+
+{Non_Emer_Setup_Trans_Opt=value}   Translation Option, Type is: enum, Valid Enum values are: [Use Emergency Provisioning->0, Use Di 
+ ,Default Value: 0
+{CLI_for_Simless_Call=value}   CLI for Simless Call, Type is: enum, Valid Enum values are: [Use IMEI Derived Number->0, Use MSC ID- 
+ ,Default Value: 0
+
+
+Command Successful
+
+>
+
+
+
+>help mod SYSTEMEMERGENCYCALL
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is SYSTEMEMERGENCYCALL
+
+ID Fields Are:
+{systemEmergencyCallDummy=value}   No help provisionedType is:long,MIN:0,MAX:Not Defined,DEFAULT:0
+
+
+
+Modifiable Fields Are:
+ {Sys_PSAP_Zone_DN=value}   Default System PSAP Zone DNType is:string,MIN:1,MAX:10,DEFAULT:911
+
+ {System_ESRD=value}   System Default ESRDType is:string,MIN:0,MAX:10,DEFAULT:Not Defined
+
+ {Invalid_ESRK=value}   Invalid ESRK DefinitionType is:string,MIN:1,MAX:10,DEFAULT:9999999999
+
+ {MPC_DN=value}   Mobile Position Center (MPC) DNType is:string,MIN:0,MAX:10,DEFAULT:911
+
+ {Post_Info_Timer=value}   Position Information Timer (POST) in SecondsType is:long,MIN:0,MAX:7,DEFAULT:4
+
+ {SCP-GMLC-MPC_Qry_Tmr=value}   SCP/GMLC/MPC Query timer in SecondsType is:long,MIN:3,MAX:25,DEFAULT:7
+
+ {PSAP_Call_Routing=value}   Incoming MPC Call Routing, Type is: enum, Valid Enum values are: [Route using PSAP DN->0, Route using  
+ ,Default Value: 1
+ {Non_Dial_Emgcy_Prefix=value}   Non-Dialable Calling Party PrefixType is:string,MIN:0,MAX:3,DEFAULT:911
+
+ {Default_ESRK=value}   Default ESRK DefinitionType is:string,MIN:1,MAX:10,DEFAULT:Not Defined
+
+ {Default_E911_Solution=value}   Type of E911 Solution, Type is: enum, Valid Enum values are: [Phase0 911->0, Phase1 E911->1, Phase 
+ ,Default Value: 2
+ {Def_Loc_Deliv_Method=value}   Default Location delivery method, Type is: enum, Valid Enum values are: [None->3, Hybrid->0, CAS->1 
+ ,Default Value: 1
+ {GMLC_Address=value}   GMLC associated with this MSCType is:string,MIN:1,MAX:15,DEFAULT:Not Defined
+
+ {Def_SCP_Address=value}   SCP Address for E911 service. ,  MIN: 0,MAX: Not Defined
+ {Default_Remote_SSN=value}   INAP Subsystem number for E911 serviceType is:long,MIN:0,MAX:255,DEFAULT:12
+
+ {Pos_Info_UMTS_Timer=value}   Position Info Timer for UMTS in seconds for calls having NCAS/HCAS as loation delivery MethodType is4
+
+ {Extnd_Pos_Info_UMTS_Timer=value}   Position Info Timer for UMTS in seconds for  calls having CAS  as Location delivery methodType0
+
+ {Non_Emer_Setup_Trans_Opt=value}   Translation Option, Type is: enum, Valid Enum values are: [Use Emergency Provisioning->0, Use D 
+ ,Default Value: 0
+ {CLI_for_Simless_Call=value}   CLI for Simless Call, Type is: enum, Valid Enum values are: [Use IMEI Derived Number->0, Use MSC ID 
+ ,Default Value: 0
+
+
+Command Successful
+
+>
+
+
+
+Add SYSTEMEMERGENCYCALL Default_E911_Solution=<value>,
+Def_SCP_Address=<value>,
+[Sys_PSAP_Zone_DN=<value>,]
+[System_ESRD=<value>,]
+[Default_ESRK=<value>,]
+[Invalid_ESRK=<value>,]
+[MPC_DN=<value>,]
+[Post_Info_Timer=<value>,]
+[SCP-GMLC-MPC_Qry_Tmr=<value>,]
+[PSAP_Call_Routing=<value>,]
+[Non_Dial_Emgcy_Prefix=<value>,]
+[Def_Loc_Deliv_Method=<value>,]
+[GMLC_Address=<value>,]
+[Non_Emer_Setup_Trans_Opt=<value>,]
+[Default_Remote_SSN=<value>,]
+[CLI_for_Simless_Call=<value>]
+[Pos_Info_UMTS_Timer=<value>,]
+[Extnd_Pos_Info_UMTS_Timer=<value>,]
+
+
