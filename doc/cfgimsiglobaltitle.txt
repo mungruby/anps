@@ -64,3 +64,44 @@ Command Successful
 
 >
 
+
+
+>help add CFGIMSIGLOBALTITLE
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add CFGIMSIGLOBALTITLE
+<E212_IMSI_Prefix=value>   Specifies E.212 IMSI.Type is:string,MIN:5,MAX:15,DEFAULT:Not Defined
+
+<E214_GTT_Prefix=value>   Specifies E.214 Glocal Title.Type is:string,MIN:0,MAX:15,DEFAULT:Not Defined
+
+<Active=value>   Specifies active flag., Type is: enum, Valid Enum values are: [False->0, True->1] 
+<Network_Node=value>   Specifies HLR Network Node ID. , Valid values are: 0
+
+
+
+>help mod CFGIMSIGLOBALTITLE
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is CFGIMSIGLOBALTITLE
+
+ID Fields Are:
+{E212_IMSI_Prefix=value}   Specifies E.212 IMSI.Type is:string,MIN:5,MAX:15,DEFAULT:Not Defined
+
+{E214_GTT_Prefix=value}   Specifies E.214 Glocal Title.Type is:string,MIN:0,MAX:15,DEFAULT:Not Defined
+
+<Network_Node=value>   Specifies HLR Network Node ID. , Valid values are: 0
+
+
+Modifiable Fields Are:
+ {E214_GTT_Prefix=value}   Specifies E.214 Glocal Title.Type is:string,MIN:0,MAX:15,DEFAULT:Not Defined
+
+ {Network_Node=value}   Specifies HLR Network Node ID. , Valid values are: 0
+ {Active=value}   Specifies active flag., Type is: enum, Valid Enum values are: [False->0, True->1] 
+
+

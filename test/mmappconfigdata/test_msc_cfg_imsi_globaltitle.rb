@@ -1,23 +1,23 @@
 
 require "minitest/autorun"
-require_relative '../../lib/alcatel/callprocessing/cpcallmcountrycode'
+require_relative '../../lib/alcatel/mmappconfigdata/msc_cfg_imsi_globaltitle'
 
-class Test_CPCALLMCOUNTRYCODE < MiniTest::Unit::TestCase
+class Test_MSC_CFG_IMSI_GLOBALTITLE < MiniTest::Unit::TestCase
 
   def self.fields
-    %w[ COUNTRYCODE MINLENGTH MAXLENGTH ROUTEINDEX DESCRIPTION
+    %w[ E212IMSISTR E214GTTSTR NWKNODEID ACTIVEFLAG
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
     [
-     ["1  ",11,11,400,"Canada United States Bahamas    "],
-     ["20 ",7,15,420,"Egypt                           "]
+     ["310170         ","310170         ",0,1],
+     ["310180         ","310180         ",0,1]
     ]
   end
 
   def setup
-    @obj = Alcatel::CallProcessing::CPCALLMCOUNTRYCODE.new('test_mss', self.class.test_data)
+    @obj = Alcatel::MMAppConfigData::MSC_CFG_IMSI_GLOBALTITLE.new('test_mss', self.class.test_data)
   end
 
   def test_mss_name
@@ -35,8 +35,9 @@ class Test_CPCALLMCOUNTRYCODE < MiniTest::Unit::TestCase
     assert @obj.respond_to? :each
   end
 
-  def test_first_entry
+  def test_first_entry_has_cli_methods
     obj = @obj.first
+
     assert_block do
       [:context, :cd, :query, :add, :mod, :del].map { |method|
         obj.respond_to? method }.include?(false) ? false : true
@@ -55,7 +56,15 @@ class Test_CPCALLMCOUNTRYCODE < MiniTest::Unit::TestCase
     assert @obj.include? obj
 
     obj = cli_obj.clone
-    obj.countrycode = nil
+    obj.e212imsistr = nil
+    refute @obj.include? obj
+
+    obj = cli_obj.clone
+    obj.e214gttstr = nil
+    refute @obj.include? obj
+
+    obj = cli_obj.clone
+    obj.nwknodeid = nil
     refute @obj.include? obj
   end
 
@@ -66,12 +75,19 @@ class Test_CPCALLMCOUNTRYCODE < MiniTest::Unit::TestCase
     assert @obj.any? &obj.candidate_key
 
     obj = cli_obj.clone
-    obj.countrycode = nil
+    obj.e212imsistr = nil
     refute @obj.any? &obj.candidate_key
 
     obj = cli_obj.clone
-    obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
-    obj.countrycode = cli_obj.countrycode
+    obj.e214gttstr = nil
+    refute @obj.any? &obj.candidate_key
+
+    obj = cli_obj.clone
+    obj.nwknodeid = nil
+    refute @obj.any? &obj.candidate_key
+
+    obj = cli_obj.clone
+    obj.activeflag = nil
     assert @obj.any? &obj.candidate_key
   end
 
