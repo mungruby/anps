@@ -48,6 +48,7 @@ require_relative './subscriberdata/test_spmpcardcalltype'
 # Tables
 require_relative './callprocessing/test_cpcallmcountrycode'
 require_relative './emsdata/test_emsdigitdescriptor'
+require_relative './mmappconfigdata/test_msc_cfg_country_digit_prefixes'
 require_relative './mmappconfigdata/test_msc_cfg_country_info'
 require_relative './mmappconfigdata/test_msc_cfg_imsi_globaltitle'
 require_relative './subscriberdata/test_spm_pcard_calltype'

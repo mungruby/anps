@@ -1,23 +1,23 @@
 
 require "minitest/autorun"
-require_relative '../../lib/alcatel/mmappconfigdata/msc_cfg_country_info'
+require_relative '../../lib/alcatel/mmappconfigdata/msc_cfg_country_digit_prefixes'
 
-class Test_MSC_CFG_COUNTRY_INFO < MiniTest::Unit::TestCase
+class Test_MSC_CFG_COUNTRY_DIGIT_PREFIXES < MiniTest::Unit::TestCase
 
   def self.fields
-    %w[ COUNTRY_ID COUNTRY_NAME CB_CRITERIA
+    %w[ DIGITPREFIX COUNTRY_ID DESCRIPTION
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
     [
-     [1,"Mexico                        ",0],
-     [2,"Caribbean                     ",1]
+     ["52             ",1,"Mexico                        "],
+     ["1264           ",2,"Anguilla                      "]
     ]
   end
 
   def setup
-    @obj = Alcatel::MMAppConfigData::MSC_CFG_COUNTRY_INFO.new('test_mss', self.class.test_data)
+    @obj = Alcatel::MMAppConfigData::MSC_CFG_COUNTRY_DIGIT_PREFIXES.new('test_mss', self.class.test_data)
   end
 
   def test_mss_name
@@ -54,7 +54,7 @@ class Test_MSC_CFG_COUNTRY_INFO < MiniTest::Unit::TestCase
     assert @obj.include? obj
 
     obj = cli_obj.clone
-    obj.country_id = nil
+    obj.digitprefix = nil
     refute @obj.include? obj
   end
 
@@ -65,11 +65,7 @@ class Test_MSC_CFG_COUNTRY_INFO < MiniTest::Unit::TestCase
 
     obj = cli_obj.clone
     obj.country_id = nil
-    refute @obj.any? &obj.candidate_key
-
-    obj = cli_obj.clone
-    obj.members.each { |attribute| obj.public_send "#{attribute}=", nil }
-    obj.country_id = cli_obj.country_id
+    obj.description = nil
     assert @obj.any? &obj.candidate_key
   end
 

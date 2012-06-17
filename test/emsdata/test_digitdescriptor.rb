@@ -57,7 +57,7 @@ class Test_DIGITDESCRIPTOR < MiniTest::Unit::TestCase
   end
    
   def test_mod_cli
-    expected = "mod "
+    expected = "The resource cannot be modified."
     assert_equal expected, @obj.mod
   end
    

@@ -1,3 +1,10 @@
+: Resource Name
+: DIGITDESCRIPTOR
+
+: Table
+: EmsData
+: EMSDIGITDESCRIPTOR
+
 
 ##ttBulkCp
 #
@@ -15,24 +22,21 @@
 
 cd; cd Office-Parameters/Routing-and-Translation/Routing/Orig-Routing/Orig-Route-Descriptor;
 
-"query #{descriptorindex}-DIGITDESCRIPTOR;"
-
-add DIGITDESCRIPTOR Index=#{descriptorindex}, Name=#{descriptor};
-
 query 7665-DIGITDESCRIPTOR;
+
+"query #{descriptorindex}-DIGITDESCRIPTOR;"
 
 add DIGITDESCRIPTOR Index=7665, Name=REMOTE POOLING RC;
 
+"add DIGITDESCRIPTOR Index=#{descriptorindex}, Name=#{descriptor};"
+
 del 7665-DIGITDESCRIPTOR;
+
+"del #{descriptorindex}-DIGITDESCRIPTOR;"
 
 
 
 >cd; cd Office-Parameters/Routing-and-Translation/Routing/Orig-Routing/Orig-Route-Descriptor;
-
-Command Successful
-
->
-Command Successful
 
 >query 7665-DIGITDESCRIPTOR;
 
@@ -44,7 +48,18 @@ Name  [Name].......REMOTE POOLING RC
 
 
 
-Command Successful
+>help add DIGITDESCRIPTOR
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add DIGITDESCRIPTOR
+<Index=value>   Descriptor IndexType is:long,MIN:1,MAX:999999,DEFAULT:Not Defined
 
->
+<Name=value>   Specifies a string that uniquely identifies a digit descriptor.Type is:string,MIN:1,MAX:32,DEFAULT:Not Defined
+
+
+
+>help mod DIGITDESCRIPTOR
+The resource cannot be modified.There are no parameters that can be modifiable
+
 

@@ -1,3 +1,10 @@
+: Resource Name
+: DIGITPREFIX
+
+: Table
+: MMAppConfigData
+: MSC_CFG_COUNTRY_DIGIT_PREFIXES
+
 
 ##ttBulkCp
 #
@@ -12,11 +19,6 @@
 
 >cd; cd Office-Parameters/Mobility-Config-Parameters/Digit-Prefix;
 
-Command Successful
-
->
-Command Successful
-
 >query 1264-DIGITPREFIX;
 
 
@@ -28,7 +30,35 @@ Description  [Description].......Anguilla
 
 
 
-Command Successful
+>help add DIGITPREFIX
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add DIGITPREFIX
+<Digit_Prefix=value>   Digit Prefix/Digit PatternType is:string,MIN:0,MAX:Not Defined,DEFAULT:Not Defined
 
->
+<Country_Region_ID=value>   Country/Region ID ,  MIN: 1,MAX: 255
+{Description=value}   Digit Prefix/Digit Pattern DescriptionType is:string,MIN:0,MAX:Not Defined,DEFAULT:Not Defined
+
+
+
+Command Successful
+>help mod DIGITPREFIX
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is DIGITPREFIX
+
+ID Fields Are:
+{Digit_Prefix=value}   Digit Prefix/Digit PatternType is:string,MIN:0,MAX:Not Defined,DEFAULT:Not Defined
+
+
+
+Modifiable Fields Are:
+ {Description=value}   Digit Prefix/Digit Pattern DescriptionType is:string,MIN:0,MAX:Not Defined,DEFAULT:Not Defined
+
 

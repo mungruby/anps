@@ -29,34 +29,22 @@ class Test_EMSDIGITDESCRIPTOR < MiniTest::Unit::TestCase
 
   def test_enumerable
     assert_kind_of Enumerable, @obj
-    assert @obj.entries
+    assert @obj.entries.size == 1
     assert @obj.first
     assert @obj.respond_to? :each
   end
 
-  def test_first_entry
-    obj = @obj.entries.first.convert_fields
-    assert_equal 'REMOTE POOLING RC', obj.descriptor
-    assert_equal 7665, obj.descriptorindex
-    assert_equal 0, obj.descriptortype
+  def test_first_entry_has_cli_methods
+    obj = @obj.first
+    assert_block do
+      [:context, :cd, :query, :add, :mod, :del].map { |method|
+        obj.respond_to? method }.include?(false) ? false : true
+    end
+  end
 
-    expected = "cd; cd Office-Parameters/Routing-and-Translation/Routing/Orig-Routing/Orig-Route-Descriptor;"
-    assert_equal expected, @obj.first.context
-
-    expected = "query 7665-DIGITDESCRIPTOR;"
-    assert_equal expected, @obj.first.query
-
-    expected = "cd 7665-DIGITDESCRIPTOR;"
-    assert_equal expected, @obj.first.cd
-
-    expected = "add DIGITDESCRIPTOR Index=7665, Name=REMOTE POOLING RC;" 
-    assert_equal expected, @obj.first.convert_fields.add
-
-    expected =  "mod "
-    assert_equal expected, @obj.first.mod
-     
-    expected = "del 7665-DIGITDESCRIPTOR;"
-    assert_equal expected, @obj.first.del
+  def test_resource_has_expected_members
+    obj = @obj.first
+    assert self.class.fields == obj.members
   end
 
   def test_include

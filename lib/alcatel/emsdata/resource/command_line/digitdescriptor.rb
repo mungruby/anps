@@ -27,7 +27,7 @@ module Alcatel
           end
 
           def mod
-            "mod "
+            "The resource cannot be modified."
           end
 
           def del
