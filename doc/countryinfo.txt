@@ -1,3 +1,10 @@
+: Resource Name
+: COUNTRYINFO
+
+: Table
+: MMAppConfigData
+: MSC_CFG_COUNTRY_INFO
+
 
 ##ttBulkCp
 #
@@ -8,6 +15,7 @@
 #      3. CB_CRITERIA  TINYINT
 # end
 #
+
 
 
 >cd; cd Office-Parameters/Mobility-Config-Parameters/Country-Info;
@@ -31,4 +39,37 @@ Barring_Criteria  [Barring Criteria].......International -> 1
 Command Successful
 
 >
+
+
+
+>help add COUNTRYINFO
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add COUNTRYINFO
+<Country_Region_ID=value>   Country/Region ID ,  MIN: 1,MAX: 255
+<Name=value>   Country/Region NameType is:string,MIN:0,MAX:Not Defined,DEFAULT:Not Defined
+
+{Barring_Criteria=value}   International or National for barring purpose, Type is: enum, Valid Enum values are: [National->0, Inter 
+ ,Default Value: 0
+
+
+
+>help mod COUNTRYINFO
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is COUNTRYINFO
+
+ID Fields Are:
+<Country_Region_ID=value>   Country/Region ID ,  MIN: 1,MAX: 255
+
+
+Modifiable Fields Are:
+ {Name=value}   Country/Region NameType is:string,MIN:0,MAX:Not Defined,DEFAULT:Not Defined
+
 

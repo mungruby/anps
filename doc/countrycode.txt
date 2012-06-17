@@ -1,3 +1,10 @@
+: Resource Name
+: COUNTRYCODE
+
+: Table
+: CallProcessing
+: CPCALLMCOUNTRYCODE
+
 
 ##ttBulkCp
 #
@@ -16,18 +23,11 @@
 
 
 cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/International-Translation;
-query 20-COUNTRYCODE;
 
-cd 20-COUNTRYCODE
-query
+query 20-COUNTRYCODE;
 
 
 >cd; cd Office-Parameters/Routing-and-Translation/Wireless-Translation/International-Translation;
-
-Command Successful
-
->
-Command Successful
 
 >query 20-COUNTRYCODE;
 
@@ -47,31 +47,43 @@ Orig__Route_Descriptor  [Orig. Route Descriptor].......420
 
 
 
-Command Successful
+>help add COUNTRYCODE
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add COUNTRYCODE
+<Country_Code=value>   Country code (3 digits maximum).Type is:string,MIN:1,MAX:3,DEFAULT:Not Defined
 
->cd 20-COUNTRYCODE;
+<Orig__Route_Descriptor=value>   The route index to use for this country code. , Valid values are: 1 ,21 ,29 ,36 ,43 ,44 ,45 ,46 ,49
+{Min__Length=value}   The minimum expected number of digits excluding Country Code.Type is:long,MIN:4,MAX:32,DEFAULT:7
 
-Command Successful
+{Max__Length=value}   The maximum expected number of digits excluding Country Code.Type is:long,MIN:4,MAX:32,DEFAULT:7
 
->query;
-
-
- COUNTRYCODE:-
-
-Identification:
-
-Country_Code  [Country Code].......20
-Name  [Name].......Egypt
-Min__Length  [Min. Length].......7
-Max__Length  [Max. Length].......15
-
-Route:
-
-Orig__Route_Descriptor  [Orig. Route Descriptor].......420
+{Name=value}   Provides a freeform entry for recording a name for the country code.Type is:string,MIN:0,MAX:32,DEFAULT:""
 
 
 
-Command Successful
+>help mod COUNTRYCODE
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is COUNTRYCODE
 
->
+ID Fields Are:
+<Country_Code=value>   Country code (3 digits maximum).Type is:string,MIN:1,MAX:3,DEFAULT:Not Defined
+
+
+
+Modifiable Fields Are:
+ {Min__Length=value}   The minimum expected number of digits excluding Country Code.Type is:long,MIN:4,MAX:32,DEFAULT:7
+
+ {Max__Length=value}   The maximum expected number of digits excluding Country Code.Type is:long,MIN:4,MAX:32,DEFAULT:7
+
+ {Orig__Route_Descriptor=value}   The route index to use for this country code. , Valid values are: 1 ,21 ,29 ,36 ,43 ,44 ,45 ,46 ,9
+ {Name=value}   Provides a freeform entry for recording a name for the country code.Type is:string,MIN:0,MAX:32,DEFAULT:""
+
 
