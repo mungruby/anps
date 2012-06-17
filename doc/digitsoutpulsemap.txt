@@ -1,6 +1,9 @@
 : Resource
 : DIGITSOUTPULSEMAP
 
+: Table
+: CallProcessing
+: CPCALLMDIGITSOUTPULSEMAP
 
 
 ##ttBulkCp
@@ -48,18 +51,7 @@
 
 
 
-cd; cd Office-Parameters/Outpulse-Maps/ISUP-or-BICC-or-SIP-Outpulse-Map;
-
-
-cd; cd Office-Parameters/Outpulse-Maps;
-
-
 >cd; cd Office-Parameters/Outpulse-Maps;
-
-Command Successful
-
->
-Command Successful
 
 >list
 Mobile-Outpulse-Map
@@ -68,10 +60,6 @@ CLI-Outpulse-Map
 RN-Outpulse-Map
 OCN-Outpulse-Map
 Digits-Manipulations
-
-Command Successful
-
->
 
 
 cd;
@@ -139,6 +127,7 @@ Modify_Index_5  [Modify Index 5].......0
 Command Successful
 
 >
+
 
 
 >help mod DIGITSOUTPULSEMAP
@@ -231,18 +220,10 @@ hone.Type is:string,MIN:0,MAX:32,DEFAULT:""
 
 
 
-Command Successful
-
->
-
-
-
-
 Add DIGITSOUTPULSEMAP Digit_Type=9, Digit_String=?, Name=E911 SIP-IMT +118, Insert_Digits=118, Input_NOA=0, SCP_NodeID=0, Service_Key=0, Outpulse_Map=120, Min_Digit_Cnt=1, Max_Digit_Cnt=32, Source_Number_1=0, Source_Number_2=0, Source_Number_3=0, Source_Number_4=0, Source_Number_5=0, Output_NOA=1, Sent=1, Modify_Index_1=0, Modify_Index_2=0, Modify_Index_3=0, Modify_Index_4=0, Modify_Index_5=0;
 Add DIGITSOUTPULSEMAP Digit_Type=9, Digit_String=?, Name=E911 SIP-IMT +118, Insert_Digits=118, Input_NOA=1, SCP_NodeID=0, Service_Key=0, Outpulse_Map=120, Min_Digit_Cnt=1, Max_Digit_Cnt=32, Source_Number_1=0, Source_Number_2=0, Source_Number_3=0, Source_Number_4=0, Source_Number_5=0, Output_NOA=1, Sent=1, Modify_Index_1=0, Modify_Index_2=0, Modify_Index_3=0, Modify_Index_4=0, Modify_Index_5=0;
 Add DIGITSOUTPULSEMAP Digit_Type=9, Digit_String=?, Name=E911 SIP-IMT +118, Insert_Digits=118, Input_NOA=2, SCP_NodeID=0, Service_Key=0, Outpulse_Map=120, Min_Digit_Cnt=1, Max_Digit_Cnt=32, Source_Number_1=0, Source_Number_2=0, Source_Number_3=0, Source_Number_4=0, Source_Number_5=0, Output_NOA=1, Sent=1, Modify_Index_1=0, Modify_Index_2=0, Modify_Index_3=0, Modify_Index_4=0, Modify_Index_5=0;
 Add DIGITSOUTPULSEMAP Digit_Type=9, Digit_String=?, Name=E911 SIP-IMT +118, Insert_Digits=118, Input_NOA=4, SCP_NodeID=0, Service_Key=0, Outpulse_Map=120, Min_Digit_Cnt=1, Max_Digit_Cnt=32, Source_Number_1=0, Source_Number_2=0, Source_Number_3=0, Source_Number_4=0, Source_Number_5=0, Output_NOA=1, Sent=1, Modify_Index_1=0, Modify_Index_2=0, Modify_Index_3=0, Modify_Index_4=0, Modify_Index_5=0;
-
 
 query 9-0-0-0-118-?-1-32-DIGITSOUTPULSEMAP; 
 query 9-1-0-0-118-?-1-32-DIGITSOUTPULSEMAP; 

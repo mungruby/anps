@@ -35,7 +35,7 @@ class Test_CPCALLMCOUNTRYCODE < MiniTest::Unit::TestCase
     assert @obj.respond_to? :each
   end
 
-  def test_first_entry
+  def test_first_entry_cli_methods
     obj = @obj.first
     assert_block do
       [:context, :cd, :query, :add, :mod, :del].map { |method|
