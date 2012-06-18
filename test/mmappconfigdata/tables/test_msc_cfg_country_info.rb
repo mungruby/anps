@@ -1,6 +1,6 @@
 
 require "minitest/autorun"
-require_relative '../../lib/alcatel/mmappconfigdata/msc_cfg_country_info'
+require_relative '../../../lib/alcatel/mmappconfigdata/msc_cfg_country_info'
 
 class Test_MSC_CFG_COUNTRY_INFO < MiniTest::Unit::TestCase
 

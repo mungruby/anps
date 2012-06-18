@@ -58,15 +58,15 @@ require_relative './callprocessing/tables/test_system_emergency_call'
  
 # Tables
 # EmsData
-require_relative './emsdata/test_emsdigitdescriptor'
+require_relative './emsdata/tables/test_emsdigitdescriptor'
  
 # Tables
 # MMAppConfigData
-require_relative './mmappconfigdata/test_msc_cfg_country_digit_prefixes'
-require_relative './mmappconfigdata/test_msc_cfg_country_info'
-require_relative './mmappconfigdata/test_msc_cfg_imsi_globaltitle'
+require_relative './mmappconfigdata/tables/test_msc_cfg_country_digit_prefixes'
+require_relative './mmappconfigdata/tables/test_msc_cfg_country_info'
+require_relative './mmappconfigdata/tables/test_msc_cfg_imsi_globaltitle'
  
 # Tables
 # SubscriberData
-require_relative './subscriberdata/test_spm_pcard_calltype'
+require_relative './subscriberdata/tables/test_spm_pcard_calltype'
 

@@ -1,22 +1,23 @@
 
 require "minitest/autorun"
-require_relative '../../lib/alcatel/EmsData/emsdigitdescriptor'
+require_relative '../../../lib/alcatel/mmappconfigdata/msc_cfg_imsi_globaltitle'
 
-class Test_EMSDIGITDESCRIPTOR < MiniTest::Unit::TestCase
+class Test_MSC_CFG_IMSI_GLOBALTITLE < MiniTest::Unit::TestCase
 
   def self.fields
-    %w[ DESCRIPTOR DESCRIPTORINDEX DESCRIPTORTYPE
+    %w[ E212IMSISTR E214GTTSTR NWKNODEID ACTIVEFLAG
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
     [
-      ["REMOTE POOLING RC               ",7665,0]
+     ["310170         ","310170         ",0,1],
+     ["310180         ","310180         ",0,1]
     ]
   end
 
   def setup
-    @obj = Alcatel::EmsData::EMSDIGITDESCRIPTOR.new('test_mss', self.class.test_data)
+    @obj = Alcatel::MMAppConfigData::MSC_CFG_IMSI_GLOBALTITLE.new('test_mss', self.class.test_data)
   end
 
   def test_mss_name
@@ -29,13 +30,14 @@ class Test_EMSDIGITDESCRIPTOR < MiniTest::Unit::TestCase
 
   def test_enumerable
     assert_kind_of Enumerable, @obj
-    assert @obj.entries.size == 1
+    assert @obj.entries.size == 2
     assert @obj.first
     assert @obj.respond_to? :each
   end
 
   def test_first_entry_has_cli_methods
     obj = @obj.first
+
     assert_block do
       [:context, :cd, :query, :add, :mod, :del].map { |method|
         obj.respond_to? method }.include?(false) ? false : true
@@ -48,36 +50,44 @@ class Test_EMSDIGITDESCRIPTOR < MiniTest::Unit::TestCase
   end
 
   def test_include
-    obj = @obj.first.clone
+    cli_obj = @obj.first
+
+    obj = cli_obj.clone
     assert @obj.include? obj
 
-    obj = @obj.first.clone
-    obj.descriptor = nil
+    obj = cli_obj.clone
+    obj.e212imsistr = nil
     refute @obj.include? obj
 
-    obj = @obj.first.clone
-    obj.descriptorindex = nil
+    obj = cli_obj.clone
+    obj.e214gttstr = nil
     refute @obj.include? obj
 
-    obj = @obj.first.clone
-    obj.descriptortype = nil
+    obj = cli_obj.clone
+    obj.nwknodeid = nil
     refute @obj.include? obj
   end
 
   def test_any
-    obj = @obj.first.clone
+    cli_obj = @obj.first
+
+    obj = cli_obj.clone
     assert @obj.any? &obj.candidate_key
 
-    obj = @obj.first.clone
-    obj.descriptorindex = nil
+    obj = cli_obj.clone
+    obj.e212imsistr = nil
     refute @obj.any? &obj.candidate_key
 
-    obj = @obj.first.clone
-    obj.descriptor = nil
-    assert @obj.any? &obj.candidate_key
+    obj = cli_obj.clone
+    obj.e214gttstr = nil
+    refute @obj.any? &obj.candidate_key
 
-    obj = @obj.first.clone
-    obj.descriptortype = nil
+    obj = cli_obj.clone
+    obj.nwknodeid = nil
+    refute @obj.any? &obj.candidate_key
+
+    obj = cli_obj.clone
+    obj.activeflag = nil
     assert @obj.any? &obj.candidate_key
   end
 

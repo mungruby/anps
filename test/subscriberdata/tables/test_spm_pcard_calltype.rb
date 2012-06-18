@@ -1,6 +1,6 @@
 
 require "minitest/autorun"
-require_relative '../../lib/alcatel/subscriberdata/spm_pcard_calltype'
+require_relative '../../../lib/alcatel/subscriberdata/spm_pcard_calltype'
 
 class Test_SPM_PCARD_CALLTYPE < MiniTest::Unit::TestCase
 
