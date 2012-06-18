@@ -51,9 +51,10 @@ require_relative './subscriberdata/test_spmpcardcalltype'
 require_relative './callprocessing/tables/test_cpcallmcountrycode'
 require_relative './callprocessing/tables/test_cpcallmdigitsoutpulsemap'
 require_relative './callprocessing/tables/test_cpcallmdigittranslator'
-require_relative './callprocessing/tables/test_emergency_call'
 require_relative './callprocessing/tables/test_cpcallmlnporder'
 require_relative './callprocessing/tables/test_cpcallmlrnlist'
+require_relative './callprocessing/tables/test_emergency_call'
+require_relative './callprocessing/tables/test_emergency_zone'
 require_relative './callprocessing/tables/test_system_emergency_call'
  
 # Tables
