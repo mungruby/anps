@@ -69,5 +69,6 @@ require_relative './mmappconfigdata/tables/test_msc_cfg_imsi_globaltitle'
  
 # Tables
 # SubscriberData
+require_relative './subscriberdata/tables/test_spm_msisdn_hlr'
 require_relative './subscriberdata/tables/test_spm_pcard_calltype'
 
