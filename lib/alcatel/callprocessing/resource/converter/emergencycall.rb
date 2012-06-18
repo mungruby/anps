@@ -10,6 +10,10 @@ module Alcatel
           GSM = 1
 
           def convert_fields
+            # self.mcc = MCC_MNC.mcc(mcc_mnc_id) 
+            # self.mcc = self.class.mcc(mcc_mnc_id) 
+            # self.mnc = MCC_MNC.mnc(mcc_mnc_id) 
+            # self.mcc = self.class.mnc(mcc_mnc_id) 
             self.network_type = set_network_type
             self.cellid_begin = convert_cellid_begin(network_type)
             self.cellid_end = convert_cellid_end(network_type)

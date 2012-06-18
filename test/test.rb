@@ -47,12 +47,24 @@ require_relative './subscriberdata/test_spmpcardcalltype'
  
  
 # Tables
+# CallProcessing
 require_relative './callprocessing/test_cpcallmcountrycode'
 require_relative './callprocessing/test_cpcallmdigitsoutpulsemap'
+require_relative './callprocessing/test_cpcallmdigittranslator'
+require_relative './callprocessing/test_emergency_call'
 require_relative './callprocessing/test_system_emergency_call'
+ 
+# Tables
+# EmsData
 require_relative './emsdata/test_emsdigitdescriptor'
+ 
+# Tables
+# MMAppConfigData
 require_relative './mmappconfigdata/test_msc_cfg_country_digit_prefixes'
 require_relative './mmappconfigdata/test_msc_cfg_country_info'
 require_relative './mmappconfigdata/test_msc_cfg_imsi_globaltitle'
+ 
+# Tables
+# SubscriberData
 require_relative './subscriberdata/test_spm_pcard_calltype'
 
