@@ -1,6 +1,6 @@
 
 require "minitest/autorun"
-require_relative '../../lib/alcatel/callprocessing/cpcallmdigitsoutpulsemap'
+require_relative '../../../lib/alcatel/callprocessing/cpcallmdigitsoutpulsemap'
 
 class Test_CPCALLMDIGITSOUTPULSEMAP < MiniTest::Unit::TestCase
 

@@ -1,6 +1,6 @@
 
 require "minitest/autorun"
-require_relative '../../lib/alcatel/callprocessing/cpcallmcountrycode'
+require_relative '../../../lib/alcatel/callprocessing/cpcallmcountrycode'
 
 class Test_CPCALLMCOUNTRYCODE < MiniTest::Unit::TestCase
 

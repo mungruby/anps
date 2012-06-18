@@ -1,6 +1,6 @@
 
 require "minitest/autorun"
-require_relative '../../lib/alcatel/callprocessing/cpcallmdigittranslator'
+require_relative '../../../lib/alcatel/callprocessing/cpcallmdigittranslator'
 
 class Test_CPCALLMDIGITTRANSLATOR < MiniTest::Unit::TestCase
 

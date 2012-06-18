@@ -1,6 +1,6 @@
 
 require "minitest/autorun"
-require_relative '../../lib/alcatel/callprocessing/system_emergency_call'
+require_relative '../../../lib/alcatel/callprocessing/system_emergency_call'
 
 class Test_SYSTEM_EMERGENCY_CALL < MiniTest::Unit::TestCase
 
