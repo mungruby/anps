@@ -60,6 +60,7 @@ require_relative './callprocessing/tables/test_system_emergency_call'
 # Tables
 # EmsData
 require_relative './emsdata/tables/test_emsdigitdescriptor'
+require_relative './emsdata/tables/test_emsnationaltreeselector'
  
 # Tables
 # MMAppConfigData
