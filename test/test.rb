@@ -68,6 +68,7 @@ require_relative './mmappconfigdata/tables/test_msc_cfg_country_info'
 require_relative './mmappconfigdata/tables/test_msc_cfg_imsi_globaltitle'
 require_relative './mmappconfigdata/tables/test_msc_cfg_mcc_mnc'
 require_relative './mmappconfigdata/tables/test_msc_cfg_neighborhood'
+require_relative './mmappconfigdata/tables/test_msc_cfg_networknodes'
  
 # Tables
 # SubscriberData
