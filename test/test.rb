@@ -70,6 +70,7 @@ require_relative './mmappconfigdata/tables/test_msc_cfg_mcc_mnc'
 require_relative './mmappconfigdata/tables/test_msc_cfg_neighborhood'
 require_relative './mmappconfigdata/tables/test_msc_cfg_networknodes'
 require_relative './mmappconfigdata/tables/test_msc_cfg_restricted_lac_cell'
+require_relative './mmappconfigdata/tables/test_msc_cfg_restricted_plmn'
  
 # Tables
 # SubscriberData
