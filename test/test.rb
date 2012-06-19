@@ -61,6 +61,7 @@ require_relative './callprocessing/tables/test_system_emergency_call'
 # EmsData
 require_relative './emsdata/tables/test_emsdigitdescriptor'
 require_relative './emsdata/tables/test_emsnationaltreeselector'
+require_relative './emsdata/tables/test_emsorigrouteprofilelist'
  
 # Tables
 # MMAppConfigData

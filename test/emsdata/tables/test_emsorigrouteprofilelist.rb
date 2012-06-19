@@ -1,22 +1,22 @@
 
 require "minitest/autorun"
-require_relative '../../../lib/alcatel/EmsData/emsdigitdescriptor'
+require_relative '../../../lib/alcatel/EmsData/emsorigrouteprofilelist'
 
-class Test_EMSDIGITDESCRIPTOR < MiniTest::Unit::TestCase
+class Test_EMSORIGROUTEPROFILELIST < MiniTest::Unit::TestCase
 
   def self.fields
-    %w[ DESCRIPTOR DESCRIPTORINDEX DESCRIPTORTYPE
+    %w[ ORIGROUTINGMODIFIER DESCRIPTION
     ].map { |field_name| field_name.downcase.to_sym }
   end
 
   def self.test_data
     [
-      ["REMOTE POOLING RC               ",7665,0]
+     [1,"CHMGW678                        "]
     ]
   end
 
   def setup
-    @obj = Alcatel::EmsData::EMSDIGITDESCRIPTOR.new(self.class.test_data)
+    @obj = Alcatel::EmsData::EMSORIGROUTEPROFILELIST.new(self.class.test_data)
   end
 
   def test_fields
@@ -48,12 +48,11 @@ class Test_EMSDIGITDESCRIPTOR < MiniTest::Unit::TestCase
     obj = cli_obj.clone
     assert @obj.any? &obj.candidate_key
 
-    obj.descriptorindex = nil
+    obj.origroutingmodifier = nil
     refute @obj.any? &obj.candidate_key
 
-    obj = cli_obj.clone
-    obj.descriptor = nil
-    obj.descriptortype = nil
+    obj = @obj.first.clone
+    obj.description = nil
     assert @obj.any? &obj.candidate_key
   end
 

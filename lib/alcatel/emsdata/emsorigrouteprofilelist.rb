@@ -3,18 +3,18 @@ require_relative '../resource_group'
 
 module Alcatel
   module EmsData
-    class EMSNATIONALTREESELECTOR
+    class EMSORIGROUTEPROFILELIST
  
       include Alcatel::ResourceGroup
  
       def self.dto
-        @dto ||= resource('NATTREESELECTOR', fields) do
-          include Resource::NATTREESELECTOR
+        @dto ||= resource('ORIGROUTEMODIFIER', fields) do
+          include Resource::ORIGROUTEMODIFIER
         end
       end
 
       def self.fields
-        %w[NATTREESELECTOR DESCRIPTION].map { |field_name| field_name.downcase.to_sym }
+        %w[ORIGROUTINGMODIFIER DESCRIPTION].map { |field_name| field_name.downcase.to_sym }
       end
 
       def initialize table

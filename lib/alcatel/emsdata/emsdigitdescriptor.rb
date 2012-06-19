@@ -14,14 +14,11 @@ module Alcatel
       end
 
       def self.fields
-        %w[ DESCRIPTOR DESCRIPTORINDEX DESCRIPTORTYPE
-        ].map { |field_name| field_name.downcase.to_sym }
+        %w[DESCRIPTOR DESCRIPTORINDEX DESCRIPTORTYPE].map { |field_name| field_name.downcase.to_sym }
       end
 
-      attr_accessor :mss_name
-
-      def initialize mss_name, table
-        @mss_name, @entries = mss_name, table.map { |row| self.class.dto.new *row }
+      def initialize table
+        @entries = table.map { |row| self.class.dto.new(*row) }.each(&:convert_fields)
       end
 
     end
