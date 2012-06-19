@@ -55,6 +55,7 @@ require_relative './callprocessing/tables/test_cpcallmlnporder'
 require_relative './callprocessing/tables/test_cpcallmlrnlist'
 require_relative './callprocessing/tables/test_emergency_call'
 require_relative './callprocessing/tables/test_emergency_zone'
+require_relative './callprocessing/tables/test_hplmn_odb_mapping'
 require_relative './callprocessing/tables/test_system_emergency_call'
  
 # Tables
@@ -62,6 +63,7 @@ require_relative './callprocessing/tables/test_system_emergency_call'
 require_relative './emsdata/tables/test_emsdigitdescriptor'
 require_relative './emsdata/tables/test_emsnationaltreeselector'
 require_relative './emsdata/tables/test_emsorigrouteprofilelist'
+# require_relative './emsdata/tables/test_emsprefixfence'
  
 # Tables
 # MMAppConfigData
