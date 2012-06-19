@@ -56,6 +56,7 @@ require_relative './callprocessing/tables/test_cpcallmlrnlist'
 require_relative './callprocessing/tables/test_emergency_call'
 require_relative './callprocessing/tables/test_emergency_zone'
 require_relative './callprocessing/tables/test_hplmn_odb_mapping'
+require_relative './callprocessing/tables/test_mscroutelist'
 require_relative './callprocessing/tables/test_system_emergency_call'
  
 # Tables
