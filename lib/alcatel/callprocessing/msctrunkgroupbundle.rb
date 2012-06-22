@@ -31,12 +31,9 @@ module Alcatel
       def initialize table
         @trunk_group_bundles = []
         @entries = []
+
         create_bundles_and_groups table
-        #@entries = table.map { |row| self.class.dto.new(*row) }
-        #
-        #@bundles = table.map do |row|
-        #  self.class.bundle_dto.new(row[0], row[5]).convert_fields
-        #end.uniq.each { |bundle| bundle.trunkgroups = [] }
+
         @trunk_group_bundles.each do |bundle|
           bundle.trunkgroups.sort { |a, b| a.sysgrporder <=> b.sysgrporder }
         end
