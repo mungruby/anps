@@ -63,6 +63,7 @@ require_relative './callprocessing/tables/test_mscroutelist'
 require_relative './callprocessing/tables/test_service_criteria'
 require_relative './callprocessing/tables/test_service_criteria_list'
 require_relative './callprocessing/tables/test_system_emergency_call'
+require_relative './callprocessing/tables/test_translationtreebookkeeper'
  
 # Tables
 # EmsData
