@@ -21,7 +21,8 @@ module Alcatel
       end
 
       def initialize table
-        @entries = table.map { |row| self.class.dto.new(*row) }.each(&:convert_fields)
+        # @entries = table.map { |row| self.class.dto.new(*row) }.each(&:convert_fields)
+        @entries = table.map { |row| self.class.dto.new(*row) }
       end
 
     end
