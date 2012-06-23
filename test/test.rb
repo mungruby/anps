@@ -48,7 +48,9 @@ require_relative './subscriberdata/test_spmpcardcalltype'
  
 # Tables
 # CallProcessing
+require_relative './callprocessing/tables/test_camel_n_csi_dp_criteria_data'
 require_relative './callprocessing/tables/test_cpcallmcountrycode'
+require_relative './callprocessing/tables/test_cpcallmdigitfence'
 require_relative './callprocessing/tables/test_cpcallmdigitsoutpulsemap'
 require_relative './callprocessing/tables/test_cpcallmdigittranslator'
 require_relative './callprocessing/tables/test_cpcallmlatanxx'
@@ -71,7 +73,7 @@ require_relative './callprocessing/tables/test_translationtreebookkeeper'
 require_relative './emsdata/tables/test_emsdigitdescriptor'
 require_relative './emsdata/tables/test_emsnationaltreeselector'
 require_relative './emsdata/tables/test_emsorigrouteprofilelist'
-# require_relative './emsdata/tables/test_emsprefixfence'
+require_relative './emsdata/tables/test_emsprefixfence'
  
 # Tables
 # MMAppConfigData
