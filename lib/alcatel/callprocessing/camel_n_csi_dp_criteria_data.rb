@@ -21,6 +21,12 @@ module Alcatel
         @entries = table.map { |row| self.class.dto.new(*row) }
       end
 
+      def join emsprefixfence
+        camel_criteria_data = self.entries.group_by { |ccd| ccd.digitfenceindex }
+        emsprefixfence.each { |epf| epf.ccd = camel_criteria_data.delete epf.digitfenceindex }
+        raise "Join Error" unless camel_criteria_data.empty?
+        emsprefixfence
+      end
     end
   end
 end

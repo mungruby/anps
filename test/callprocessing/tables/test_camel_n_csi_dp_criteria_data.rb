@@ -11,10 +11,7 @@ class Test_CAMEL_N_CSI_DP_CRITERIA_DATA < MiniTest::Unit::TestCase
   end
 
   def self.test_data
-    [
-     [225,1,89,1,1,0,1005,0,12],
-     [12074,1,89,1,1,0,1005,0,12]
-    ]
+    [ [86,1,10,2,1,0,1111,0,12], [225,1,89,1,1,0,1005,0,12] ]
   end
 
   def setup
@@ -35,6 +32,28 @@ class Test_CAMEL_N_CSI_DP_CRITERIA_DATA < MiniTest::Unit::TestCase
   def test_resource_has_expected_members
     obj = @obj.first
     assert self.class.fields == obj.members
+  end
+
+  def test_join_with_emsprefixfence
+    test_data = [
+      [1,"211                             ",1,3,86,"Community Referral Info Serv    ",0],
+      [151,"20810                           ",1,5,225,"SFR France                      ",0]
+    ]
+    epf = Alcatel::EmsData::EMSPREFIXFENCE.new(test_data)
+
+    assert_same epf, @obj.join(epf)
+    assert_equal 86, epf.first.digitfenceindex
+  end
+
+  def test_raises_join_error_unless_join_for_all_entries
+    test_data = [
+      [1,"211                             ",1,3,86,"Community Referral Info Serv    ",0]
+    ]
+    epf = Alcatel::EmsData::EMSPREFIXFENCE.new(test_data)
+
+    assert_raises RuntimeError do
+      @obj.join epf
+    end
   end
 
   def teardown
