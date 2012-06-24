@@ -25,6 +25,14 @@ module Alcatel
         @entries = table.map { |row| self.class.dto.new(*row) }
       end
 
+      def join emsprefixfence
+        digitfence = self.entries.group_by { |df| [[df.digitfenceindex],[df.expecteddigitcount]] }
+        emsprefixfence.each do |epf|
+          epf.df = digitfence.delete( [[epf.digitfenceindex],[epf.expecteddigitcount]] ).first
+        end
+        raise "Join Error" unless digitfence.empty?
+        emsprefixfence
+      end
     end
   end
 end

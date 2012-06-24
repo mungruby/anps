@@ -16,8 +16,8 @@ class Test_CPCALLMDIGITFENCE < MiniTest::Unit::TestCase
 
   def self.test_data
     [
-     [863,1,0,0,"                              ",11,1,1,4,8,1254,0,0,"0000",11,0,0,"      ",255,1,1,255,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-     [978,1,0,11,"5042619024                    ",11,1,1,4,8,238,0,0,"0000",11,0,0,"      ",255,1,1,255,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+     [86,1,0,0,"                              ",3,1,101,16,2,63,0,0,"0000",3,0,0,"      ",255,1,1,255,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+     [225,1,0,0,"                              ",5,1,101,1,0,1,0,0,"0000",17,0,0,"      ",255,1,1,255,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     ]
   end
 
@@ -39,6 +39,28 @@ class Test_CPCALLMDIGITFENCE < MiniTest::Unit::TestCase
   def test_resource_has_expected_members
     obj = @obj.first
     assert self.class.fields == obj.members
+  end
+
+  def test_join_with_emsprefixfence
+    test_data = [
+      [1,"211                             ",1,3,86,"Community Referral Info Serv    ",0],
+      [151,"20810                           ",1,5,225,"SFR France                      ",0]
+    ]
+    epf = Alcatel::EmsData::EMSPREFIXFENCE.new(test_data)
+
+    assert_same epf, @obj.join( epf )
+    assert_equal 86, epf.first.df.digitfenceindex
+  end
+
+  def test_raises_join_error_unless_join_for_all_entries
+    test_data = [
+      [1,"211                             ",1,3,86,"Community Referral Info Serv    ",0]
+    ]
+    epf = Alcatel::EmsData::EMSPREFIXFENCE.new(test_data)
+
+    assert_raises RuntimeError do
+      @obj.join epf
+    end
   end
 
   def teardown

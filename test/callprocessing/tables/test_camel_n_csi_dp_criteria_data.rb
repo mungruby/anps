@@ -42,7 +42,7 @@ class Test_CAMEL_N_CSI_DP_CRITERIA_DATA < MiniTest::Unit::TestCase
     epf = Alcatel::EmsData::EMSPREFIXFENCE.new(test_data)
 
     assert_same epf, @obj.join(epf)
-    assert_equal 86, epf.first.digitfenceindex
+    assert_equal 86, epf.first.ccd.digitfenceindex
   end
 
   def test_raises_join_error_unless_join_for_all_entries

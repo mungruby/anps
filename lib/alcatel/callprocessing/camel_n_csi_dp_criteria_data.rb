@@ -23,7 +23,9 @@ module Alcatel
 
       def join emsprefixfence
         camel_criteria_data = self.entries.group_by { |ccd| ccd.digitfenceindex }
-        emsprefixfence.each { |epf| epf.ccd = camel_criteria_data.delete epf.digitfenceindex }
+        emsprefixfence.each do |epf|
+          epf.ccd = camel_criteria_data.delete(epf.digitfenceindex).first
+        end
         raise "Join Error" unless camel_criteria_data.empty?
         emsprefixfence
       end
