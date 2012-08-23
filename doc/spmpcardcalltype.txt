@@ -1,3 +1,10 @@
+: Resource Name
+: SPMPCARDCALLTYPE
+
+: Table
+: SubscriberData 
+: SPM_PCARD_CALLTYPE
+
 
 ##ttBulkCp
 #
@@ -12,6 +19,8 @@
 #
 
 
+
+cd; cd Office-Parameters/Mobility-Config-Parameters/MSRN-HON-Distribution;
 >cd; cd Office-Parameters/Mobility-Config-Parameters/MSRN-HON-Distribution;
 
 Command Successful
@@ -19,6 +28,7 @@ Command Successful
 >
 Command Successful
 
+query 17736793000-17736793099-SPMPCARDCALLTYPE;
 >query 17736793000-17736793099-SPMPCARDCALLTYPE;
 
 
@@ -35,6 +45,53 @@ Status:
 
 adminState  [Admin State].......UNLOCKED -> 2
 
+
+
+Command Successful
+
+>
+
+>help add SPMPCARDCALLTYPE
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add SPMPCARDCALLTYPE
+<Called_Pty_Begin=value>   Called Pty Begin.Type is:string,MIN:1,MAX:15,DEFAULT:Not Defined
+
+<Called_Pty_End=value>   Called Pty End.Type is:string,MIN:1,MAX:15,DEFAULT:Not Defined
+
+<Pool_ID=value>   pool id.Type is:long,MIN:0,MAX:Not Defined,DEFAULT:0
+
+<Numbering_Type=value>   Call Type., Type is: enum, Valid Enum values are: [MSRN/HON->1, HPLMN MSRN->4, HON Only->5] 
+ ,Default Value: 1
+
+
+Command Successful
+
+>
+
+>help mod SPMPCARDCALLTYPE
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is SPMPCARDCALLTYPE
+
+ID Fields Are:
+{Called_Pty_Begin=value}   Called Pty Begin.Type is:string,MIN:1,MAX:15,DEFAULT:Not Defined
+
+<Called_Pty_End=value>   Called Pty End.Type is:string,MIN:1,MAX:15,DEFAULT:Not Defined
+
+
+
+Modifiable Fields Are:
+ {Pool_ID=value}   pool id.Type is:long,MIN:0,MAX:Not Defined,DEFAULT:0
+
+ {Numbering_Type=value}   Call Type., Type is: enum, Valid Enum values are: [MSRN/HON->1, HPLMN MSRN->4, HON Only->5] 
+ ,Default Value: 1
 
 
 Command Successful

@@ -1,3 +1,10 @@
+: Resource Name
+: EMERGENCYZONE
+
+: Table
+: CallProcessing
+: EMERGENCY_ZONE
+
 
 ##ttBulkCp
 #
@@ -23,6 +30,8 @@
 #
 
 
+
+cd; cd Office-Parameters/Mobility-Config-Parameters/Emergency-Service-Zone-Provisioning;
 >cd; cd Office-Parameters/Mobility-Config-Parameters/Emergency-Service-Zone-Provisioning;
 
 Command Successful
@@ -30,6 +39,7 @@ Command Successful
 >
 Command Successful
 
+query 1029199001-EMERGENCYZONE;
 >query 1029199001-EMERGENCYZONE;
 
 
@@ -53,6 +63,103 @@ Routing_Option  [EC Routing Option].......USING_ESRK -> 2
 SCP_Address  [SCP Address].......14054721408
 SCP_INAP_SSN  [SCP INAP SSN].......20
 
+
+
+Command Successful
+
+>
+
+>help add EMERGENCYZONE
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add EMERGENCYZONE
+<Emer_Srvc_Zone_ID=value>   Emergency Service Zone IDType is:long,MIN:1,MAX:Not Defined,DEFAULT:1
+
+<Emer_Srvc_Zone_Name=value>   Emergency Service Zone NameType is:string,MIN:1,MAX:32,DEFAULT:Not Defined
+
+<PSAP_Zone_DN_Type=value>   Public Safety Answering Point(PSAP) Zone DN field type., Type is: enum, Valid Enum values are: [Play Ann
+oucement->0, No PSAP DN->1, Enter PSAP DN->2] 
+ ,Default Value: 1
+{GMLC_Address=value}   GMLC for this service zoneType is:string,MIN:0,MAX:15,DEFAULT:1
+
+{PSAP_Zone_DN=value}   Public Safety Answering Point(PSAP) Zone DNType is:string,MIN:0,MAX:15,DEFAULT:Not Defined
+
+{Begin_ESRK_Pool_1=value}   Pool 1 Starting Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+{End_ESRK_Pool_1=value}   Pool 1 Ending Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+{Begin_ESRK_Pool_2=value}   Pool 2 Starting Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+{End_ESRK_Pool_2=value}   Pool 2 Ending Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+{Begin_ESRK_Pool_3=value}   Pool 3 Starting Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+{End_ESRK_Pool_3=value}   Pool 3 Ending Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+{Loc_Service_Option=value}   Location Service Options, Type is: enum, Valid Enum values are: [None->0, Enable PLR - Send SLR->1, Ena
+ble PLR - Send INIT_DP->2, Disable PLR - Send INIT_DP->3, Disable PLR - Send SLR->4, Enable PLR with X-Y Routing->5] 
+ ,Default Value: 1
+{Routing_Option=value}   Emergency Call Routing options, Type is: enum, Valid Enum values are: [Route using PSAP DN->0, Route using 
+ESRD->1, Route using ESRK->2, Route using INAP SCP response->3] 
+ ,Default Value: 0
+{SCP_Address=value}   SCP Address for E911 service.Type is:string,MIN:0,MAX:15,DEFAULT:Not Defined
+
+{SCP_INAP_SSN=value}   INAP Subsystem number for E911 serviceType is:long,MIN:0,MAX:255,DEFAULT:0
+
+
+
+Command Successful
+
+>
+
+>help mod EMERGENCYZONE
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is EMERGENCYZONE
+
+ID Fields Are:
+{Emer_Srvc_Zone_ID=value}   Emergency Service Zone IDType is:long,MIN:1,MAX:Not Defined,DEFAULT:1
+
+
+
+Modifiable Fields Are:
+ {Emer_Srvc_Zone_Name=value}   Emergency Service Zone NameType is:string,MIN:1,MAX:32,DEFAULT:Not Defined
+
+ {GMLC_Address=value}   GMLC for this service zoneType is:string,MIN:0,MAX:15,DEFAULT:1
+
+ {PSAP_Zone_DN=value}   Public Safety Answering Point(PSAP) Zone DNType is:string,MIN:0,MAX:15,DEFAULT:Not Defined
+
+ {Begin_ESRK_Pool_1=value}   Pool 1 Starting Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+ {End_ESRK_Pool_1=value}   Pool 1 Ending Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+ {Begin_ESRK_Pool_2=value}   Pool 2 Starting Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+ {End_ESRK_Pool_2=value}   Pool 2 Ending Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+ {Begin_ESRK_Pool_3=value}   Pool 3 Starting Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+ {End_ESRK_Pool_3=value}   Pool 3 Ending Emergency Service Routing Key (ESRK)Type is:string,MIN:0,MAX:10,DEFAULT:""
+
+ {Loc_Service_Option=value}   Location Service Options, Type is: enum, Valid Enum values are: [None->0, Enable PLR - Send SLR->1, En
+able PLR - Send INIT_DP->2, Disable PLR - Send INIT_DP->3, Disable PLR - Send SLR->4, Enable PLR with X-Y Routing->5] 
+ ,Default Value: 1
+ {Routing_Option=value}   Emergency Call Routing options, Type is: enum, Valid Enum values are: [Route using PSAP DN->0, Route using
+ ESRD->1, Route using ESRK->2, Route using INAP SCP response->3] 
+ ,Default Value: 0
+ {SCP_Address=value}   SCP Address for E911 service.Type is:string,MIN:0,MAX:15,DEFAULT:Not Defined
+
+ {SCP_INAP_SSN=value}   INAP Subsystem number for E911 serviceType is:long,MIN:0,MAX:255,DEFAULT:0
+
+ {PSAP_Zone_DN_Type=value}   Public Safety Answering Point(PSAP) Zone DN field type., Type is: enum, Valid Enum values are: [Play An
+noucement->0, No PSAP DN->1, Enter PSAP DN->2] 
+ ,Default Value: 1
 
 
 Command Successful

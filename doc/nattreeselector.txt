@@ -1,3 +1,10 @@
+: Resource Name
+: NATTREESELECTOR
+
+: Table
+: EmsData
+: EMSNATIONALTREESELECTOR
+
 
 ##ttBulkCp
 #
@@ -38,6 +45,47 @@ Identification:
 
 National_Tree_Selector_Identifier  [National Tree Selector].......1
 Name  [Name].......Chicago National Trans Group
+
+
+
+Command Successful
+
+>
+
+>help add NATTREESELECTOR
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add NATTREESELECTOR
+<National_Tree_Selector_Identifier=value>   Specifies a number that uniquely identifies the national tree selector .Type is:long,MIN
+:1,MAX:32,DEFAULT:1
+
+{Name=value}   Provides a freeform entry for recording a name for the national tree selector.Type is:string,MIN:1,MAX:32,DEFAULT:""
+
+
+
+Command Successful
+
+>
+
+>help mod NATTREESELECTOR
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is NATTREESELECTOR
+
+ID Fields Are:
+{National_Tree_Selector_Identifier=value}   Specifies a number that uniquely identifies the national tree selector .Type is:long,MIN
+:1,MAX:32,DEFAULT:1
+
+
+
+Modifiable Fields Are:
+ {Name=value}   Provides a freeform entry for recording a name for the national tree selector.Type is:string,MIN:1,MAX:32,DEFAULT:""
 
 
 

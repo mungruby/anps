@@ -1,3 +1,10 @@
+: Resource Name
+: OUTPULSEMAP
+
+: Table
+: CallProcessing
+: CPCALLMOUTPULSEMAP
+
 
 ##ttBulkCp
 #
@@ -83,6 +90,8 @@
 #
 
 
+
+cd; cd Office-Parameters/Outpulse-Maps/ISUP-or-BICC-or-SIP-Outpulse-Map;
 >cd; cd Office-Parameters/Outpulse-Maps/ISUP-or-BICC-or-SIP-Outpulse-Map;
 
 Command Successful
@@ -90,6 +99,7 @@ Command Successful
 >
 Command Successful
 
+query 878-?-1-1-32-OUTPULSEMAP;
 >query 878-?-1-1-32-OUTPULSEMAP;
 
 
@@ -184,6 +194,943 @@ CPC:
 CPC_Override  [CPC Override].......Unknown
 CPC_Priority  [CPC Override Priority].......Do Not Overwrite
 
+
+
+Command Successful
+
+>
+
+>help add OUTPULSEMAP
+Usage: 
+ add <resource name> {name1=value1, name2=value2..}  OR For adding contained object instances Usage: 
+ add <resource name> {name1=value1, name2=value2..}  (name1=value1..)&(name1=value2,..)
+Add OUTPULSEMAP
+<Outpulse_Map=value>   Specifies the index that identifies the outpulse map.Type is:long,MIN:1,MAX:65535,DEFAULT:Not Defined
+
+<Digit_String=value>   Specifies a prefix digit string.Type is:string,MIN:1,MAX:32,DEFAULT:Not Defined
+
+<Input_NOA=value>   Input nature of address., Type is: enum, Valid Enum values are: [Unknown->0, International->1, National->2, Subs
+criber->4, Emergency->18, NetwSpec 0x78->120, NetwSpec 0x79->121, NetwSpec 0x7A->122, NetwSpec 0x7B->123, NetwSpec 0x7C->124, NetwSp
+ec 0x7D->125, NetwSpec 0x7E->126] 
+ ,Default Value: 0
+<Oli=value>   Originating Line Information , Valid values are: 255 ,DEFAULT : 255
+<Min_Digit_Cnt=value>   Minimal number of digits expected for this entry.Type is:long,MIN:1,MAX:32,DEFAULT:5
+
+<Max_Digit_Cnt=value>   Maximum number of digits expected for this entry.Type is:long,MIN:1,MAX:32,DEFAULT:5
+
+<Operation__1=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF an
+d pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rcv L
+ong Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party Nu
+mber (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, Info 
+Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpulse 7
+-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling party-
+>75] 
+ ,Default Value: 0
+<Operation__2=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_2->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF 
+and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rcv
+ Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party 
+Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, Inf
+o Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpulse
+ 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling part
+y->75] 
+ ,Default Value: 0
+<Operation__3=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_3->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF 
+and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rcv
+ Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party 
+Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, Inf
+o Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpulse
+ 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling part
+y->75] 
+ ,Default Value: 0
+<Operation__4=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_5->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF 
+and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rcv
+ Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party 
+Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, Inf
+o Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpulse
+ 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling part
+y->75] 
+ ,Default Value: 0
+<Operation__5=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_5->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF 
+and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rcv
+ Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party 
+Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, Inf
+o Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpulse
+ 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling part
+y->75] 
+ ,Default Value: 0
+<Operation__6=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_6->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF 
+and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rcv
+ Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party 
+Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, Inf
+o Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpulse
+ 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling part
+y->75] 
+ ,Default Value: 0
+<Operation__7=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_7->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF 
+and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rcv
+ Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party 
+Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, Inf
+o Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpulse
+ 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling part
+y->75] 
+ ,Default Value: 0
+<Operation__8=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_8->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF 
+and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rcv
+ Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party 
+Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, Inf
+o Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpulse
+ 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling part
+y->75] 
+ ,Default Value: 0
+<Operation__9=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_9->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF 
+and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rcv
+ Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party 
+Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, Inf
+o Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpulse
+ 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling part
+y->75] 
+ ,Default Value: 0
+<Operation_10=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_10->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_11=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_11->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_12=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_12->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_13=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_13->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_14=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_14->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_15=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_15->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_16=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_17=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->17, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_18=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_19=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_20=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_21=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_22=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_23=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_24=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_25=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_26=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_27=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_28=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_29=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_30=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_31=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<Operation_32=value>   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid 
+Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, D
+igit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST P
+rime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+<CPC_Override=value>   CPC Override , Valid values are: Do Not Overwrite ,Unknown ,French Operator ,English Operator ,German Operato
+r ,Russian Operator ,Spanish Operator ,Select Lang. By Agmt-1 ,Select Lang. By Agmt-2 ,Select Lang. By Agmt-3 ,National Operator ,Or
+dinary Calling Subscriber ,Calling Subscriber with Priority ,Data Call ,Test Call ,IEPS in Q.763, Amdmt 2 ,Pay Phone ,Mobile Termina
+l in Home PLMN ,Mobile Terminal in Visited PLMN ,Emergency Call ,High Priority Emergency Call ,NS EP ,Category 227 ,Category 228 ,Ca
+tegory 229 ,Category 230 ,Category 231 ,Category 232 ,Category 233 ,Category 234 ,Category 235 ,Category 236 ,Category 237 ,Category
+ 238 ,Category 239 ,Category 240
+<CPC_Priority=value>   CPC Override Priority , Valid values are: Do Not Overwrite ,Unknown ,French Operator ,English Operator ,Germa
+n Operator ,Russian Operator ,Spanish Operator ,Select Lang. By Agmt-1 ,Select Lang. By Agmt-2 ,Select Lang. By Agmt-3 ,National Ope
+rator ,Ordinary Calling Subscriber ,Calling Subscriber with Priority ,Data Call ,Test Call ,IEPS in Q.763, Amdmt 2 ,Pay Phone ,Mobil
+e Terminal in Home PLMN ,Mobile Terminal in Visited PLMN ,Emergency Call ,High Priority Emergency Call ,NS EP ,Category 227 ,Categor
+y 228 ,Category 229 ,Category 230 ,Category 231 ,Category 232 ,Category 233 ,Category 234 ,Category 235 ,Category 236 ,Category 237 
+,Category 238 ,Category 239 ,Category 240
+{Cause_Value_1=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK.
+ ,  MIN: 0,MAX: Not Defined
+{Cause_Value_2=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK.
+ ,  MIN: 0,MAX: Not Defined
+{Cause_Value_3=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK.
+ ,  MIN: 0,MAX: Not Defined
+{Cause_Value_4=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK.
+ ,  MIN: 0,MAX: Not Defined
+{Cause_Value_5=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK.
+ ,  MIN: 0,MAX: Not Defined
+{Cause_Value_6=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK.
+ ,  MIN: 0,MAX: Not Defined
+{Cause_Value_7=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK.
+ ,  MIN: 0,MAX: Not Defined
+{Cause_Value_8=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK.
+ ,  MIN: 0,MAX: Not Defined
+{Cause_Value_9=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK.
+ ,  MIN: 0,MAX: Not Defined
+{Cause_Value_10=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_11=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_12=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_13=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_14=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_15=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_16=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_17=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_18=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_19=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_20=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_21=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_22=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_23=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_24=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_25=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_26=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_27=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_28=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_29=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_30=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_31=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Cause_Value_32=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+{Rm_Leading_Digits_Cnt=value}   Specifies the number of leading digits to remove from the original digit string.Type is:long,MIN:0,M
+AX:32,DEFAULT:0
+
+{Add_Leading_Digits=value}   Specifies the digit string to add after the specified number of leading digits have been removed from t
+he original digit string.Type is:string,MIN:0,MAX:20,DEFAULT:""
+
+{Name=value}   Provides a freeform entry for recording a name for the outpulse map.Type is:string,MIN:0,MAX:32,DEFAULT:""
+
+{Nature_Of_Address=value}   Nature of address, Type is: enum, Valid Enum values are: [Unknown->0, International->1, National->2, Sub
+scriber->4, NoChange->255, NetwSpec 0x73->115, NetwSpec 0x78->120, NetwSpec 0x79->121, NetwSpec 0x7A->122, NetwSpec 0x7B->123, NetwS
+pec 0x7C->124, NetwSpec 0x7D->125, NetwSpec 0x7E->126] 
+ ,Default Value: 255
+
+
+Command Successful
+
+>
+
+>help mod OUTPULSEMAP
+Description:
+If the operation is done inside the context the syntax is :
+mod {list of name-value pairs}.
+If the operation is performed from outside the context the syntax is:
+mod <resource name> {list of id fields} {list of name-value parameters} 
+Usage : 
+ Mod {resource} {name1=value1,name2=value2.. } 
+Mod  Resource name is OUTPULSEMAP
+
+ID Fields Are:
+{Outpulse_Map=value}   Specifies the index that identifies the outpulse map.Type is:long,MIN:1,MAX:65535,DEFAULT:Not Defined
+
+{Digit_String=value}   Specifies a prefix digit string.Type is:string,MIN:1,MAX:32,DEFAULT:Not Defined
+
+{Input_NOA=value}   Input nature of address., Type is: enum, Valid Enum values are: [Unknown->0, International->1, National->2, Subs
+criber->4, Emergency->18, NetwSpec 0x78->120, NetwSpec 0x79->121, NetwSpec 0x7A->122, NetwSpec 0x7B->123, NetwSpec 0x7C->124, NetwSp
+ec 0x7D->125, NetwSpec 0x7E->126] 
+ ,Default Value: 0
+{Min_Digit_Cnt=value}   Minimal number of digits expected for this entry.Type is:long,MIN:1,MAX:32,DEFAULT:5
+
+{Max_Digit_Cnt=value}   Maximum number of digits expected for this entry.Type is:long,MIN:1,MAX:32,DEFAULT:5
+
+
+
+Modifiable Fields Are:
+ {Operation__1=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF a
+nd pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rcv 
+Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party N
+umber (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, Info
+ Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpulse 
+7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling party
+->75] 
+ ,Default Value: 0
+ {Cause_Value_1=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+ {Operation__2=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_2->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+ {Cause_Value_2=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+ {Operation__3=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_3->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+ {Cause_Value_3=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+ {Operation__4=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_5->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+ {Cause_Value_4=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+ {Operation__5=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_5->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+ {Cause_Value_5=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+ {Operation__6=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_6->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+ {Cause_Value_6=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+ {Operation__7=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_7->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+ {Cause_Value_7=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+ {Operation__8=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_8->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+ {Cause_Value_8=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+ {Operation__9=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_9->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTMF
+ and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, Rc
+v Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Party
+ Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, In
+fo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpuls
+e 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling par
+ty->75] 
+ ,Default Value: 0
+ {Cause_Value_9=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WINK
+. ,  MIN: 0,MAX: Not Defined
+ {Operation_10=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_10->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_10=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_11=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_11->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_11=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_12=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_12->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_12=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_13=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_13->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_13=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_14=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_14->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_14=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_15=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_15->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_15=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_16=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_16=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_17=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->17, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_17=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_18=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_18=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_19=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_19=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_20=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_20=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_21=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_21=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_22=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_22=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_23=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_23=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_24=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_24=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_25=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_25=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_26=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_26=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_27=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_27=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_28=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_28=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_29=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_29=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_30=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_30=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_31=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_31=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Operation_32=value}   Specifies a digit, signalling action, or data to be inserted into the outpulse string., Type is: enum, Valid
+ Enum values are: [Outpulse End->0, Digit 1->1, Digit 2->2, Digit 3->3, Digit 4->4, Digit 5->5, Digit 6->6, Digit 7->7, Digit 8->8, 
+Digit 9->9, Digit 0->10, Digit *->11, Digit #->12, Digit KP->13, KP Prime->14, KP Double Prime->15, KP Triple Prime->16, ST->17, ST 
+Prime->18, ST Double Prime->19, ST Triple Prime->20, Vary KP per DP/DTMF_16->21, Vary KP per pre-subscr->22, Vary KP per both DP/DTM
+F and pre-subscr->23, Pause 100->30, Rcv Wink (2 sec)->31, Rcv Wink (4 sec)->32, Rcv Wink (8 sec)->33, Rcv Long Wink (12 sec)->34, R
+cv Long Wink (24 sec)->35, Rcv Offhook->36, Peg Carrier Connect->37, Rcv Offhook (4 sec)->38, Calling Party Number->50, Calling Part
+y Number (if allowed)->51, ANI->52, Charge Number->53, Dialed Number->54, Translated Number->55, Carrier ID->56, Country Code->57, I
+nfo Digits->58, 1NX digits->59, 01R digits->60, 0ZZ digits->61, Calling Party Number, 7 digits->62, Forced Answer Signal->70, Outpul
+se 7-digit ESRD->71, Outpulse 10-digit ESRD->72, Outpulse 7-digit ESRK->73, Outpulse 10-digit ESRK->74, Outpulse 10-digit calling pa
+rty->75] 
+ ,Default Value: 0
+ {Cause_Value_32=value}   Specifies the index that identifies the cause value to use for an OutpulseMapIndex value of OFFHOOK or WIN
+K. ,  MIN: 0,MAX: Not Defined
+ {Rm_Leading_Digits_Cnt=value}   Specifies the number of leading digits to remove from the original digit string.Type is:long,MIN:0,
+MAX:32,DEFAULT:0
+
+ {Add_Leading_Digits=value}   Specifies the digit string to add after the specified number of leading digits have been removed from 
+the original digit string.Type is:string,MIN:0,MAX:20,DEFAULT:""
+
+ {Name=value}   Provides a freeform entry for recording a name for the outpulse map.Type is:string,MIN:0,MAX:32,DEFAULT:""
+
+ {Nature_Of_Address=value}   Nature of address, Type is: enum, Valid Enum values are: [Unknown->0, International->1, National->2, Su
+bscriber->4, NoChange->255, NetwSpec 0x73->115, NetwSpec 0x78->120, NetwSpec 0x79->121, NetwSpec 0x7A->122, NetwSpec 0x7B->123, Netw
+Spec 0x7C->124, NetwSpec 0x7D->125, NetwSpec 0x7E->126] 
+ ,Default Value: 255
+ {Oli=value}   Originating Line Information , Valid values are: 255 ,DEFAULT : 255
+ {CPC_Override=value}   CPC Override , Valid values are: Do Not Overwrite ,Unknown ,French Operator ,English Operator ,German Operat
+or ,Russian Operator ,Spanish Operator ,Select Lang. By Agmt-1 ,Select Lang. By Agmt-2 ,Select Lang. By Agmt-3 ,National Operator ,O
+rdinary Calling Subscriber ,Calling Subscriber with Priority ,Data Call ,Test Call ,IEPS in Q.763, Amdmt 2 ,Pay Phone ,Mobile Termin
+al in Home PLMN ,Mobile Terminal in Visited PLMN ,Emergency Call ,High Priority Emergency Call ,NS EP ,Category 227 ,Category 228 ,C
+ategory 229 ,Category 230 ,Category 231 ,Category 232 ,Category 233 ,Category 234 ,Category 235 ,Category 236 ,Category 237 ,Categor
+y 238 ,Category 239 ,Category 240
+ {CPC_Priority=value}   CPC Override Priority , Valid values are: Do Not Overwrite ,Unknown ,French Operator ,English Operator ,Germ
+an Operator ,Russian Operator ,Spanish Operator ,Select Lang. By Agmt-1 ,Select Lang. By Agmt-2 ,Select Lang. By Agmt-3 ,National Op
+erator ,Ordinary Calling Subscriber ,Calling Subscriber with Priority ,Data Call ,Test Call ,IEPS in Q.763, Amdmt 2 ,Pay Phone ,Mobi
+le Terminal in Home PLMN ,Mobile Terminal in Visited PLMN ,Emergency Call ,High Priority Emergency Call ,NS EP ,Category 227 ,Catego
+ry 228 ,Category 229 ,Category 230 ,Category 231 ,Category 232 ,Category 233 ,Category 234 ,Category 235 ,Category 236 ,Category 237
+ ,Category 238 ,Category 239 ,Category 240
 
 
 Command Successful
